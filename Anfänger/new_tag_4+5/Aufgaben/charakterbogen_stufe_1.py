@@ -47,7 +47,7 @@ Zeichne einen Goldsack.
 
 # ===== Aufgabe 1: Schaden berechnen =====
 # 1. Schaden berechnen. Frage die Waffenschaden-Zahl ab und 
-# berechne schaden = waffe + staerke // 2
+# berechne schaden =  Summe aus Waffnschaden und halber Stärke 
 
 print(r"""
       /\
@@ -61,7 +61,8 @@ print(r"""
 
 
 print(f"{name} schwingt die Waffe: *WUMMS* -> {schaden} Schaden!")
-# String * int wiederholt den Text: je mehr Schaden, desto längeres AAAAAU
+
+# Aufgabe: String * int wiederholt den Text: je mehr Schaden, desto längeres AUAAAAAA
 print("Der Goblin hinter dir schreit: AU" + "A" * schaden + "!")
 
 # ===== Aufgabe 2: Manapunkte =====
@@ -77,13 +78,10 @@ print(r"""
     \__/
 """)
 
-Interaktiv: Zeichne einen Manabalken aus "~" * ... und rechne aus, 
-für wie viele Feuerbälle das reicht ( //).
-Ein ASCII-Zauberhut macht sich gut.
 
-# Manapunkte. Berechne mana = intelligenz * 3 und gib sie aus.
+# Aufgabe: Manapunkte. 
+# Berechne mana = Dreifache der Intelligenz und gib sie aus.
 
-# HIER
 # HIER
 
 # Zeichne einen Manabalken aus "[~~~~~~]" * (mana geteilt durch 3)
@@ -97,7 +95,8 @@ Ein ASCII-Zauberhut macht sich gut.
 
 # ===== Aufgabe 3: Typ-Experiment =====
 
-# Baue aus name + stufe die Ankündigung eines Herolds -> Beispiel: „Hört, hört! Es naht Name, Stufe X!“
+# Baue aus name + stufe die Ankündigung eines Herolds 
+# -> Beispiel: „Hört, hört! Es naht Name, Stufe X!“
 
 ankuendigung = 
 
@@ -112,7 +111,7 @@ print(r"""           /|
 """)
 
 # Lass den Herold die Ankündigung ausrufen. Nutze dafür einen f-String. 
-# Beginne mit "Der Herold verkündet: 'Hört, hört! Es
+# Beginne mit "Der Herold verkündet: 'Hört, hört! Es ....
 
 # HIER
 
@@ -125,6 +124,8 @@ print(r"""
  //__.....----~~~~._\ | /_.~~~~----.....__\\
 ====================\\|//====================
 """)
+
+print("\n===== CHARAKTERBOGEN =====")
 
 # 1. Ausgabe: Name | Klasse | Stufe
 # pause

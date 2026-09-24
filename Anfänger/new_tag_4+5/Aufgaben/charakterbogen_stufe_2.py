@@ -1,122 +1,251 @@
 """
-Erweiterung 1: Erweiterung vom Ausgangscode (charakterbogen.py)
+Erweiterung 2: Listen, Methoden und noch mehr Dramatik (Datei3)
 
 So ist die Datei aufgebaut:
-  - Füge den fertigen Ausgangscode (charakterbogen.py) ein 
+  - Füge den fertigen Ausgangscode aus Datei2 hier ein.
   - Jede AUFGABE steht als Kommentar an der Stelle im Ausgangscode, an der sie gelöst wird.
-  - Direkt darunter kommt dein Lösungscode
-  - bei HIER entfernst du die Zeile und fügst deinen Lösungscode ein
-"""
-
-import time
-
-pause = float(input("Wie dramatisch soll es werden? Pause in Sekunden (z.B. 0.5): "))
-
-print("\nDer Dungeon erwacht...")
-time.sleep(pause)
-print("Etwas Großes rührt sich in der Dunkelheit...")
-time.sleep(pause)
-print("Wer wagt es einzutreten?\n")
-time.sleep(pause)
-
-
-"""
-hier kommt der Ausgangscode (charakterbogen.py) hin, den du schon fertig hast
+  - Direkt darunter kommt dein Lösungscode.
+  - Bei HIER entfernst du die Zeile und fügst deinen Lösungscode ein.
 """
 
 """
-Stufe 1: Variablen, Datentypen, Eingaben
-
-
-
-3. Manapunkte. Berechne mana = intelligenz * 3 und gib sie aus.
-Interaktiv: Zeichne einen Manabalken aus "~" * ... und rechne aus, 
-für wie viele Feuerbälle das reicht ( //).
-Ein ASCII-Zauberhut macht sich gut.
-
-3. Baue aus name + stufe die Ankündigung eines Herolds 
-(„Hört, hört! Es naht Name, Stufe X!“)
-Trompete ASCII
-
-4. Gold teilen. Frage nach der Gruppengröße ( int) und berechne, 
-wie viel Gold jeder bekommt. Vergleiche ehrliches teilen (/) und Zwergenteilung (//).
-Bonus: Mit % bekommst du den Rest, der in der Tavernenkasse landet. 
-Zeichne einen Goldsack.
+====================================================================
+HIER KOMMT DER GESAMTE FERTIGE CODE AUS DATEI2 HIN
+(Variablen, Berechnungen, Strings, Pausen, Schaden & Mana)
+====================================================================
 """
 
 
-# ===== Aufgabe 1: Schaden berechnen =====
-# 1. Schaden berechnen. Frage die Waffenschaden-Zahl ab und 
-# berechne schaden = waffe + staerke // 2
+# ===== Aufgabe: Listen erstellen =====
+# Erstelle die Liste inventar mit den Werten "Schwert", "Fackel", "Heiltrank"
+# HIER
+
+# Erstelle die Liste faehigkeiten mit (klasse + "-Angriff") und "Ausweichen"
+# HIER
+
+
+# ---------------------------------------------------------------
+# AUFGABE: Die Truhe
+# Bevor der Held nach dem Fund gefragt wird, soll die Truhe in vier Zeilen aufgehen
+# Der Held schleicht hin, das Holz knarzt, etwas kratzt von innen, er reißt den Deckel auf 
+# Zwischen den Zeilen läuft jeweils die Pause (time.sleep(pause)).
+# Erst danach kommt die input()-Frage.
+# ---------------------------------------------------------------
 
 print(r"""
-      /\
-      ||
-      ||
-      ||
-   ___||___
-      ||
-      ()
+  ooo,    .---.
+ o`  o   /    |\________________
+o`   'oooo()  | ________   _   _)
+`oo   o` \    |/        | | | |
+  `ooo'   `---'         "-" |_|                               
 """)
 
+# HIER (Du schleichst zur Truhe...)
+# HIER
+# HIER (Das Holz knarzt.)
+# HIER
+# HIER (Etwas kratzt von innen am Deckel.)
+# HIER
+# HIER (Du reißt sie auf!)
+# HIER
 
-print(f"{name} schwingt die Waffe: *WUMMS* -> {schaden} Schaden!")
-# String * int wiederholt den Text: je mehr Schaden, desto längeres AAAAAU
-print("Der Goblin hinter dir schreit: AU" + "A" * schaden + "!")
+# Inventar erweitern:
+# Frage den Spieler per input("Was findest du in der Truhe? ") und hänge es mit .append() an das Inventar an.
+# HIER
 
-# ===== Aufgabe 2: Manapunkte =====
+# Füge danach "Rucksack" an Position 0 in das Inventar ein (mit .insert()).
+# HIER
+
+
+# ---------------------------------------------------------------
+# AUFGABE: Der Händler prüft
+# Nach der Frage, was verkauft wird, soll der Händler den Gegenstand in
+# drei Zeilen begutachten (mit Pausen dazwischen). Danach nennt er den Preis
+# von 12.75 Gold. Der Gegenstand steht dabei in der Ausgabe (f-String).
+# ---------------------------------------------------------------
+verkauft = input("\nWas verkaufst du? ")
+
+# HIER (Der Händler nimmt den Gegenstand (aus der Eingabe) unter die Lupe...)
+# HIER
+# HIER (Er hält es gegen das Licht und beißt vorsichtig hinein.)
+# HIER
+# HIER (Es ist kein ... Er wirkt enttäuscht.)
+# HIER
+# HIER (Er murmelt: '12.75 Gold, und keinen Cent mehr!')
+# HIER
+
+# Entferne den verkauften Gegenstand aus dem Inventar (.remove())
+# HIER
+
+# Erhöhe das Gold um 12.75
+# HIER
+
+
+# ===== Aufgabe 4: Gold teilen =====
+gruppengroesse = int(input("\nWie viele Abenteurer teilen sich die Beute? "))
+print(r"""
+    _____
+   (_____)
+    /   \
+   | $$$ |
+    \___/
+""")
+
+# Gib das Gold ehrlich geteilt aus (/). Nutze einen f-String und runde auf 2 Nachkommastellen (:.2f)
+# HIER
+
+# Gib das Gold nach Zwergen-Teilung aus (//). 
+# HIER
+
+# Gib den Rest aus (%), der in der Tavernenkasse landet.
+# HIER
+
+
+# ===== Aufgabe 5: Gruppe =====
+gefaehrte1 = input("\nWie heißt dein erster Gefährte? ")
+gefaehrte2 = input("Und der zweite? ")
+
+# Erstelle eine Liste namens 'gruppe' mit name, gefaehrte1 und gefaehrte2
+# HIER
 
 print(r"""
-      *
-     /\
-    /  \
-   /* * \
-  /______\
- ==========
-   (o  o)
-    \__/
+   o     o     o
+  /|\   /|\   /|\
+  / \   / \   / \
 """)
 
-Interaktiv: Zeichne einen Manabalken aus "~" * ... und rechne aus, 
-für wie viele Feuerbälle das reicht ( //).
-Ein ASCII-Zauberhut macht sich gut.
-
-# Manapunkte. Berechne mana = intelligenz * 3 und gib sie aus.
-
-# HIER
+# Gib mit einem f-String und len() aus, wie viele Mitglieder die Gruppe hat.
 # HIER
 
-# Zeichne einen Manabalken aus "[~~~~~~]" * (mana geteilt durch 3)
-
+# Gib mit einem f-String und dem Index [-1] aus, wer der Letzte in der Reihe ist.
 # HIER
 
-# Rechne aus, für wie viele Feuerbälle das reicht (Formel: mana // 5) 
-# und wie viele Kerzen (mana // 2) man damit anzünden kann. Gib beides in einer Zeile aus.
 
+# ===== Aufgabe 6: Trank getrunken (pop) =====
+
+# Entferne das letzte Element aus dem Inventar (.pop()) UND speichere es in der Variable 'letztes'.
 # HIER
 
-# ===== Aufgabe 3: Typ-Experiment =====
-
-# Baue aus name + stufe die Ankündigung eines Herolds -> Beispiel: „Hört, hört! Es naht Name, Stufe X!“
-
-ankuendigung = 
-
-print(r"""           /|
-       =  =  =      / |
-  ____| || || |____/  | -_-_-_-_-_-_
-|)----| || || |____   |     
-  ((  | || || |  ))\  | _-_-_-_-_-_-
-   \\_|_||_||_|_//  \ |
-    \___________/    \| 
+print(r"""
+   _____
+  `.___,'
+   (___)
+   <   >
+    ) (
+   /`-.\
+  /     \
+ / _    _\
+:,' `-.' `:
+|         |
+:         ;
+ \       /
+  `.___.' 
 
 """)
 
-# Lass den Herold die Ankündigung ausrufen. Nutze dafür einen f-String. 
-# Beginne mit "Der Herold verkündet: 'Hört, hört! Es
-
+# Gib mit einem f-String aus: Du kramst im Rucksack, packst '{letztes}' und verschlingst es. *GLUCK GLUCK*
+# HIER
+# Gib aus, wie das restliche Inventar jetzt aussieht.
 # HIER
 
 
+# ===== Aufgabe 7: Sortiertes Inventar (sort, reverse) =====
+
+# Sortiere das Inventar (A-Z) mit .sort()
+# HIER
+print("\nDer Ordnungs-Zwerg sortiert (A-Z):    ", inventar)
+
+# Drehe die Reihenfolge des Inventars um (Z-A) mit .reverse()
+# HIER
+print("Der Chaos-Kobold dreht alles um (Z-A):", inventar)
+
+
+print(r"""
+    _/\_
+   ( oo )   hihihi!
+   /|__|\
+""")
+
+# ===== Aufgabe 8: Besitze ich das? (in) =====
+suche = input("\nWonach wühlst du im Rucksack? ")
+
+# Prüfe, ob 'suche' im 'inventar' ist (in). Speichere das Ergebnis (True/False) in der Variable 'gefunden'.
+# HIER
+
+print(f"Es raschelt und klimpert... Ist '{suche}' im Rucksack? -> {gefunden}")
+print(f"(Datentyp des Ergebnisses: {type(gefunden)})")
+
+
+# ===== Aufgabe 9: Beute-Ausschnitt (Slicing) =====
+anzahl = int(input("\nWie viele Dinge passen an deinen Gürtel? "))
+
+# Schneide die ersten 'anzahl' Elemente aus dem Inventar aus und speichere sie in 'guertel' ([0:anzahl])
+# HIER
+
+# Schneide die letzten zwei Elemente aus und speichere sie in 'boden' ([-2:])
+# HIER
+
+print("Griffbereit am Gürtel:      ", guertel)
+print("Ganz unten im Rucksack:     ", boden)
+
+
+# ===== Aufgabe 10: Ausrüstung tauschen (Hilfsvariable) =====
+
+# Tausche das erste (Index 0) und das letzte Element (Index -1) im Inventar.
+# Nutze dafür eine Hilfsvariable namens 'hilf'.
+# HIER (hilf = ...)
+# HIER (inventar[0] = ...)
+# HIER (inventar[-1] = ...)
+
+print(r"""
+    _/\_
+   ( oo )   hihihi!
+   /|__|\
+""")
+print(f"Ein Taschendieb-Kobold hat '{inventar[0]}' und '{inventar[-1]}' vertauscht!")
+print(f"Dein Inventar sieht jetzt so aus: {inventar}")
+
+
+# ===== Aufgabe 11: Zwei Listen verbinden (+) =====
+beute = [input("\nDer Drache lässt etwas fallen – was? "), input("Und noch etwas? ")]
+
+# Verbinde das bisherige 'inventar' mit der Liste 'beute' durch ein +
+# HIER
+
+print(r"""
+                __        _
+              _/  \    _(\(o
+             /     \  /  _  ^^^o
+            /   !   \/  ! '!!!v'
+           !  !  \ _' ( \____
+           ! . \ _!\   \===^\)
+            \ \_!  / __!
+             \!   /    \
+       (\_      _/   _\ )
+        \ ^^--^^ __-^ /(__
+         ^^----^^    "^--v
+'""")
+print(f"Du sammelst {beute} ein. Dein Rucksack quillt über: {len(inventar)} Dinge!")
+
+
+# ---------------------------------------------------------------
+# AUFGABE: Countdown vor dem Charakterbogen
+# Bevor der Bogen erscheint, soll ein Countdown laufen:
+# "Das Schicksal wird enthüllt in...", dann 3..., 2..., 1... als einzelne
+# Zeilen mit Pause (time.sleep(pause)) dazwischen.
+# ---------------------------------------------------------------
+
+# HIER (Das Schicksal wird enthüllt in...)
+# HIER
+# HIER (3...)
+# HIER
+# HIER (2...)
+# HIER
+# HIER (1...)
+# HIER
+
+
+# ===== Finale Ausgabe =====
 print(r"""
       __...--~~~~~-._   _.-~~~~~--...__
     //               `V'               \\ 
@@ -125,20 +254,11 @@ print(r"""
  //__.....----~~~~._\ | /_.~~~~----.....__\\
 ====================\\|//====================
 """)
+print("\n===== CHARAKTERBOGEN =====")
+# wie bisher
 
-# 1. Ausgabe: Name | Klasse | Stufe
-# pause
+# Ergänze die Ausgabe des Charakterbogens um die neuen Listen und Variablen:
 
-# HIER
-
-# 2. Ausgabe: Stärke | Geschick | Intelligenz
-# pause
-# HIER
-
-# 3. Ausgabe: Lebenspunkte | Rüstungsklasse 
-# pause
-# HIER
-
-# 4. Ausgabe: Gold | Stufe
-# pause
-# HIER
+# 5. Ausgabe: Gruppe 
+# 6. Ausgabe: Inventar
+# 7. Ausgabe: Beute

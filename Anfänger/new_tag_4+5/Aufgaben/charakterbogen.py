@@ -53,6 +53,8 @@ print(r"""
 ====================\\|//====================
 """)
 
+print("\n===== CHARAKTERBOGEN =====")
+
 # 1. Ausgabe: Name | Klasse | Stufe
 
 # 2. Ausgabe: Stärke | Geschick | Intelligenz
