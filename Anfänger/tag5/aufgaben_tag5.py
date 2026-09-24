@@ -1,380 +1,101 @@
+
+zahlen = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+essen = ["Pizza", "Sushi", "Pasta", "Falafel", "Eis"]
+
 """
-Python-Schulung – Tag 5: Der große Praxis-Marathon (Wochen-Review)
-====================================================================
-Thema 1-3: Grundlagen, Strings, Listen (120 kurze Aufgaben).
-Jede Aufgabe steht für sich - schreibe direkt darunter deinen Code.
-Nutze die Aufgaben-Nummer und den Titel als Hinweis, was zu tun ist.
+1. Gib von `zahlen` das erste, das letzte und das fünfte Element aus.
+2. Gib von `essen` die ersten drei per Slicing (`[:3]`) aus, danach die ganze Liste rückwärts.
+3. Gib von `zahlen` nur jedes zweite Element aus (`[::2]`).
 """
 
 
-# ============================================================
-# Thema 1: Grundlagen, Variablen, Input & Mathematik
-# ============================================================
-# --- Aufgabe 1: Variable erstellen ---
-
-
-# --- Aufgabe 2: Ganzzahl anlegen ---
-
-
-# --- Aufgabe 3: Dezimalzahl anlegen ---
-
-
-# --- Aufgabe 4: Wahrheitswert anlegen ---
-
-
-# --- Aufgabe 5: Print-Ausgabe ---
-
-
-# --- Aufgabe 6: Einfacher Input ---
-
-
-# --- Aufgabe 7: Addition ---
-
-
-# --- Aufgabe 8: Subtraktion ---
-
-
-# --- Aufgabe 9: Multiplikation ---
-
-
-# --- Aufgabe 10: Division ---
-
-
-# --- Aufgabe 11: Datentyp prüfen ---
-
-
-# --- Aufgabe 12: Mehrfache Zuweisung ---
-
-
-# --- Aufgabe 13: String-Konvertierung ---
-
-
-# --- Aufgabe 14: Ganzzahl-Konvertierung ---
-
-
-# --- Aufgabe 15: Dezimalzahl-Konvertierung ---
-
-
-# --- Aufgabe 16: Wahrheitswert-Ausgabe ---
-
-
-# --- Aufgabe 17: Kommentar schreiben ---
-
-
-# --- Aufgabe 18: Zusammenfügen ---
-
-
-# --- Aufgabe 19: Variable überschreiben ---
-
-
-# --- Aufgabe 20: Leerer String ---
-
-
-# --- Aufgabe 21: Dynamischer Addierer ---
-
-
-# --- Aufgabe 22: Uptime in Minuten ---
-
-
-# --- Aufgabe 23: Modulo-Berechnung ---
-
-
-# --- Aufgabe 24: Ganzzahlige Division ---
-
-
-# --- Aufgabe 25: Server-Kapazität ---
-
-
-# --- Aufgabe 26: Potenzierung ---
-
-
-# --- Aufgabe 27: Lizenz-Budget ---
-
-
-# --- Aufgabe 28: Netto-Rechner ---
-
-
-# --- Aufgabe 29: Durchschnitts-RAM ---
-
-
-# --- Aufgabe 30: Mehrwertsteuer-Anteil ---
-
-
-# --- Aufgabe 31: f-String Profile ---
-
-
-# --- Aufgabe 32: Datenübertragung ---
-
-
-# --- Aufgabe 33: Zahl quadrieren ---
-
-
-# --- Aufgabe 34: IP-Viertel addieren ---
-
-
-# --- Aufgabe 35: Ticket-Stunden ---
-
-
-# --- Aufgabe 36: Arbeitszeit-Rechner ---
-
-
-# --- Aufgabe 37: Rest-Budget ---
-
-
-# --- Aufgabe 38: Drucker-Seiten ---
-
-
-# --- Aufgabe 39: Prozentuale Auslastung ---
-
-
-# --- Aufgabe 40: Tage bis Patchday ---
-
-
-
-# ============================================================
-# Thema 2: String-Manipulation & Slicing
-# ============================================================
-# --- Aufgabe 41: Erstes Zeichen ---
-
-
-# --- Aufgabe 42: Zweites Zeichen ---
-
-
-# --- Aufgabe 43: Letztes Zeichen ---
-
-
-# --- Aufgabe 44: Vorletztes Zeichen ---
-
-
-# --- Aufgabe 45: Teil-Schnitt 1 ---
-
-
-# --- Aufgabe 46: Teil-Schnitt 2 ---
-
-
-# --- Aufgabe 47: Länge ---
-
-
-# --- Aufgabe 48: Großbuchstaben ---
-
-
-# --- Aufgabe 49: Kleinbuchstaben ---
-
-
-# --- Aufgabe 50: Leerzeichen vorn/hinten weg ---
-
-
-# --- Aufgabe 51: Anfang prüfen ---
-
-
-# --- Aufgabe 52: Ende prüfen ---
-
-
-# --- Aufgabe 53: Zeichen finden ---
-
-
-# --- Aufgabe 54: String vervielfachen ---
-
-
-# --- Aufgabe 55: Zeichen zählen ---
-
-
-# --- Aufgabe 56: F-String Name ---
-
-
-# --- Aufgabe 57: Datentyp ermitteln ---
-
-
-# --- Aufgabe 58: Konkatenation ---
-
-
-# --- Aufgabe 59: String mit Zeilenumbruch ---
-
-
-# --- Aufgabe 60: Tabulator ---
-
-
-# --- Aufgabe 61: Zeichen ersetzen ---
-
-
-# --- Aufgabe 62: String splitten ---
-
-
-# --- Aufgabe 63: Domain extrahieren ---
-
-
-# --- Aufgabe 64: Schnitt Mitte ---
-
-
-# --- Aufgabe 65: Rückwärts ausgeben ---
-
-
-# --- Aufgabe 66: Case-Insensitive Zählung ---
-
-
-# --- Aufgabe 67: Pfad korrigieren ---
-
-
-# --- Aufgabe 68: Nur Zahlen prüfen ---
-
-
-# --- Aufgabe 69: Prüfen auf Kleinbuchstaben (Recherche) ---
-
-
-# --- Aufgabe 70: Formatierte Ausgabe IP ---
-
-
-# --- Aufgabe 71: Teilungs-Check ---
-
-
-# --- Aufgabe 72: Wort suchen ---
-
-
-# --- Aufgabe 73: Zeichen überspringen ---
-
-
-# --- Aufgabe 74: In Großbuchstaben umwandeln ---
-
-
-# --- Aufgabe 75: Strip & Replace ---
-
-
-# --- Aufgabe 76: In Titelformat wandeln ---
-
-
-# --- Aufgabe 77: Anzahl der Wörter ---
-
-
-# --- Aufgabe 78: Suffix-Verifizierung (Recherche) ---
-
-
-# --- Aufgabe 79: Sonderzeichen entfernen ---
-
-
-# --- Aufgabe 80: String-Zentrierung (Recherche) ---
-
-
-
-# ============================================================
-# Thema 3: Listen & Listen-Methoden
-# ============================================================
-# --- Aufgabe 81: Liste erstellen ---
-
-
-# --- Aufgabe 82: Erstes Element ---
-
-
-# --- Aufgabe 83: Letztes Element ---
-
-
-# --- Aufgabe 84: Länge ---
-
-
-# --- Aufgabe 85: Element anhängen ---
-
-
-# --- Aufgabe 86: Wert überschreiben ---
-
-
-# --- Aufgabe 87: Element löschen ---
-
-
-# --- Aufgabe 88: Leere Liste erstellen ---
-
-
-# --- Aufgabe 89: Inhalt prüfen ---
-
-
-# --- Aufgabe 90: Zahlen addieren ---
-
-
-# --- Aufgabe 91: Zweites Element löschen ---
-
-
-# --- Aufgabe 92: Letztes Element entfernen ---
-
-
-# --- Aufgabe 93: Variable in Liste ---
-
-
-# --- Aufgabe 94: Zwei Listen addieren ---
-
-
-# --- Aufgabe 95: Wert vervielfachen ---
-
-
-# --- Aufgabe 96: In String umwandeln ---
-
-
-# --- Aufgabe 97: Erstes Element überschreiben ---
-
-
-# --- Aufgabe 98: Teilliste ausgeben ---
-
-
-# --- Aufgabe 99: Datentyp von Liste ---
-
-
-# --- Aufgabe 100: Ganzzahlliste erstellen ---
-
-
-# --- Aufgabe 101: Einschieben an Index ---
-
-
-# --- Aufgabe 102: Element holen & löschen ---
-
-
-# --- Aufgabe 103: Index suchen ---
-
-
-# --- Aufgabe 104: Alphabetisch sortieren ---
-
-
-# --- Aufgabe 105: Reihenfolge umdrehen ---
-
-
-# --- Aufgabe 106: Zählen von Vorkommen ---
-
-
-# --- Aufgabe 107: Slicing Mitte ---
-
-
-# --- Aufgabe 108: Minimum ermitteln ---
-
-
-# --- Aufgabe 109: Maximum ermitteln ---
-
-
-# --- Aufgabe 110: Liste leeren ---
-
-
-# --- Aufgabe 111: Element austauschen ---
-
-
-# --- Aufgabe 112: Dynamische ToDo-Liste ---
-
-
-# --- Aufgabe 113: Verbinden mit Extend ---
-
-
-# --- Aufgabe 114: Prüfen und Löschen ---
-
-
-# --- Aufgabe 115: Letzte 3 IPs ---
-
-
-# --- Aufgabe 116: Liste kopieren (Recherche) ---
-
-
-# --- Aufgabe 117: Wert suchen und überschreiben ---
-
-
-# --- Aufgabe 118: Durchschnitt ohne sum() ---
-
-
-# --- Aufgabe 119: Sortieren rückwärts (Recherche) ---
-
-
-# --- Aufgabe 120: Liste schachteln ---
-
-
+einkauf = ["Milch", "Brot", "Eier"]
+werte = [1, 2, 3, 4, 5]
+unsortiert = [5, 2, 9, 1, 7]
+
+"""
+4. Füge `einkauf` mit `append()` "Käse" und "Tomaten" hinzu und mit `insert()` "Kaffee" an Position 0.
+5. Entferne aus `einkauf` "Brot" per `remove()` und das letzte Element per `pop()`. Was gibt `pop()` zurück?
+6. Ersetze in `werte` das mittlere Element durch `99`.
+7. Sortiere `unsortiert` aufsteigend und absteigend. Was ist der Unterschied zwischen `sort()` und `sorted()`?
+"""
+
+namen = ["Anna", "Ben", "Clara", "David"]
+punkte = [12, 5, 23, 8, 17, 3, 30]
+
+"""
+8. Gib zu jedem Namen in `namen` "Hallo, <Name>!" aus.
+9. Berechne die Summe von `punkte`, erst mit Schleife, dann mit `sum()`.
+10. Finde das größte Element von `punkte` ohne `max()`. Vergleiche danach mit `max()`.
+11. Zähle, wie viele Werte in `punkte` größer als 10 sind.
+12. Erstelle eine neue Liste mit nur den geraden Zahlen aus `punkte`.
+"""
+
+zahlen = [3, 8, 1, 9, 4]
+mit_duplikaten = [1, 2, 2, 3, 3, 3, 4]
+woerter = ["Anna", "Python", "Lagerregal", "Liste", "Otto"]
+
+"""
+13. Kehre `zahlen` um, ohne `reverse()` oder `[::-1]`.
+14. Entferne die Duplikate aus `mit_duplikaten`, erst ohne `set()`, dann mit `set()`.
+15. Gib aus `woerter` alle Palindrome aus (Groß- und Kleinschreibung ignorieren).
+16. Erzeuge per List Comprehension aus `zahlen` eine Liste der Quadrate.
+"""
+
+aufgaben = ["Wäsche waschen", "Python üben", "Einkaufen"]
+noten = [1.7, 2.3, 1.0, 3.0, 2.0]
+
+"""
+- To-do-Liste: Baue mit `aufgaben` ein Terminal-Menü zum Hinzufügen, Anzeigen und Abhaken.
+- Notenrechner: Gib für `noten` Durchschnitt, beste und schlechteste Note aus.
+"""
+
+
+wochentage = ["Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"]
+temperaturen = [14, 17, 21, 19, 23, 25, 18]
+
+"""
+1. Gib die Temperatur von Mittwoch und von Sonntag aus (per Index).
+2. Gib die Temperaturen von Dienstag bis Freitag per Slicing aus.
+3. Gib mit `len()`, `min()` und `max()` die Anzahl der Tage sowie die niedrigste und höchste Temperatur aus.
+4. Prüfe mit `in`, ob es einen Tag mit genau 21 Grad gab. Finde mit `index()` heraus, welcher Wochentag das war.
+"""
+
+inventar = ["Schwert", "Schild", "Trank", "Fackel"]
+beute = ["Goldmünze", "Schlüssel", "Karte"]
+
+"""
+5. Hänge alle Elemente von `beute` mit `extend()` an `inventar` an. Was ist der Unterschied zu `append()`?
+6. Entferne "Fackel" und füge "Bogen" an Position 1 ein.
+7. Tausche das erste und das letzte Element von `inventar`.
+8. Prüfe, ob "Trank" im Inventar ist. Wenn ja, entferne ihn und gib "Trank benutzt!" aus.
+"""
+
+buecher = ["Momo", "Die Physiker", "Faust", "Effi Briest", "Der Vorleser"]
+seiten = [304, 96, 158, 320, 208]
+
+"""
+9. Gib die Bücher nummeriert aus, z. B. "1. Momo" (mit `enumerate()`).
+10. Gib mit `zip()` zu jedem Buch die Seitenzahl aus: "Momo: 304 Seiten".
+11. Berechne die durchschnittliche Seitenzahl.
+12. Erstelle eine neue Liste mit allen Titeln, die mehr als 200 Seiten haben.
+13. Finde den Titel des dicksten Buches (Tipp: `index()`).
+"""
+
+tore = [2, 0, 1, 3, 0, 2, 1, 4, 0, 1]
+spieler = ["Mia", "Lena", "Jonas", "Ali", "Nora"]
+
+"""
+14. Zähle mit `count()`, in wie vielen Spielen kein Tor fiel.
+15. Berechne die Gesamtzahl der Tore und in wie vielen Spielen mehr als ein Tor fiel.
+16. Sortiere `spieler` nach der Länge der Namen (`sorted(..., key=len)`).
+17. Erstelle per List Comprehension eine Liste, in der jede Torzahl verdoppelt ist.
+18. Erstelle eine Liste mit dem Zwischenstand nach jedem Spiel: `[2, 2, 3, 6, ...]`.
+"""
+
+klasse = [["Anna", 1.3], ["Ben", 2.7], ["Clara", 2.0], ["David", 3.3]]
+
+"""
+19. Gib jede Person mit ihrer Note aus: "Anna hat 1.3".
+20. Finde die Person mit der besten Note (kleinster Wert).
+"""
