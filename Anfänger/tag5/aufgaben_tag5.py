@@ -1,101 +1,101 @@
-
-zahlen = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-essen = ["Pizza", "Sushi", "Pasta", "Falafel", "Eis"]
-
-"""
-1. Gib von `zahlen` das erste, das letzte und das fünfte Element aus.
-2. Gib von `essen` die ersten drei per Slicing (`[:3]`) aus, danach die ganze Liste rückwärts.
-3. Gib von `zahlen` nur jedes zweite Element aus (`[::2]`).
-"""
-
-
-einkauf = ["Milch", "Brot", "Eier"]
-werte = [1, 2, 3, 4, 5]
-unsortiert = [5, 2, 9, 1, 7]
+# ---------- Tiere: Zugreifen ----------
+tiere = ["Hund", "Katze", "Hase", "Fisch", "Vogel"]
 
 """
-4. Füge `einkauf` mit `append()` "Käse" und "Tomaten" hinzu und mit `insert()` "Kaffee" an Position 0.
-5. Entferne aus `einkauf` "Brot" per `remove()` und das letzte Element per `pop()`. Was gibt `pop()` zurück?
-6. Ersetze in `werte` das mittlere Element durch `99`.
-7. Sortiere `unsortiert` aufsteigend und absteigend. Was ist der Unterschied zwischen `sort()` und `sorted()`?
-"""
-
-namen = ["Anna", "Ben", "Clara", "David"]
-punkte = [12, 5, 23, 8, 17, 3, 30]
-
-"""
-8. Gib zu jedem Namen in `namen` "Hallo, <Name>!" aus.
-9. Berechne die Summe von `punkte`, erst mit Schleife, dann mit `sum()`.
-10. Finde das größte Element von `punkte` ohne `max()`. Vergleiche danach mit `max()`.
-11. Zähle, wie viele Werte in `punkte` größer als 10 sind.
-12. Erstelle eine neue Liste mit nur den geraden Zahlen aus `punkte`.
-"""
-
-zahlen = [3, 8, 1, 9, 4]
-mit_duplikaten = [1, 2, 2, 3, 3, 3, 4]
-woerter = ["Anna", "Python", "Lagerregal", "Liste", "Otto"]
-
-"""
-13. Kehre `zahlen` um, ohne `reverse()` oder `[::-1]`.
-14. Entferne die Duplikate aus `mit_duplikaten`, erst ohne `set()`, dann mit `set()`.
-15. Gib aus `woerter` alle Palindrome aus (Groß- und Kleinschreibung ignorieren).
-16. Erzeuge per List Comprehension aus `zahlen` eine Liste der Quadrate.
-"""
-
-aufgaben = ["Wäsche waschen", "Python üben", "Einkaufen"]
-noten = [1.7, 2.3, 1.0, 3.0, 2.0]
-
-"""
-- To-do-Liste: Baue mit `aufgaben` ein Terminal-Menü zum Hinzufügen, Anzeigen und Abhaken.
-- Notenrechner: Gib für `noten` Durchschnitt, beste und schlechteste Note aus.
+1. Gib das erste Element von `tiere` aus.
+2. Gib das dritte Element aus.
+3. Gib das letzte Element mit dem Index `-1` aus.
+4. Gib mit `len()` aus, wie viele Tiere in der Liste sind.
 """
 
 
-wochentage = ["Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"]
-temperaturen = [14, 17, 21, 19, 23, 25, 18]
+# ---------- Schulfächer: Slicing ----------
+faecher = ["Mathe", "Deutsch", "Kunst", "Sport", "Musik", "Bio"]
 
 """
-1. Gib die Temperatur von Mittwoch und von Sonntag aus (per Index).
-2. Gib die Temperaturen von Dienstag bis Freitag per Slicing aus.
-3. Gib mit `len()`, `min()` und `max()` die Anzahl der Tage sowie die niedrigste und höchste Temperatur aus.
-4. Prüfe mit `in`, ob es einen Tag mit genau 21 Grad gab. Finde mit `index()` heraus, welcher Wochentag das war.
+1. Gib die ersten zwei Fächer aus (`[:2]`).
+2. Gib alle Fächer ab dem dritten aus (`[2:]`).
+3. Gib nur "Kunst", "Sport" und "Musik" aus (`[2:5]`).
+4. Gib die ganze Liste rückwärts aus (`[::-1]`).
 """
 
-inventar = ["Schwert", "Schild", "Trank", "Fackel"]
-beute = ["Goldmünze", "Schlüssel", "Karte"]
+
+# ---------- Obstkorb: Hinzufügen und Ändern ----------
+obst = ["Apfel", "Banane", "Kirsche"]
 
 """
-5. Hänge alle Elemente von `beute` mit `extend()` an `inventar` an. Was ist der Unterschied zu `append()`?
-6. Entferne "Fackel" und füge "Bogen" an Position 1 ein.
-7. Tausche das erste und das letzte Element von `inventar`.
-8. Prüfe, ob "Trank" im Inventar ist. Wenn ja, entferne ihn und gib "Trank benutzt!" aus.
+1. Füge mit `append()` "Mango" hinzu.
+2. Füge mit `insert()` "Erdbeere" an Position 0 ein.
+3. Ersetze "Banane" durch "Birne" (per Index).
+4. Gib die Liste nach jedem Schritt mit `print()` aus.
 """
 
-buecher = ["Momo", "Die Physiker", "Faust", "Effi Briest", "Der Vorleser"]
-seiten = [304, 96, 158, 320, 208]
+
+# ---------- Snacks: Entfernen ----------
+snacks = ["Chips", "Kekse", "Nüsse", "Gummibärchen", "Popcorn"]
 
 """
-9. Gib die Bücher nummeriert aus, z. B. "1. Momo" (mit `enumerate()`).
-10. Gib mit `zip()` zu jedem Buch die Seitenzahl aus: "Momo: 304 Seiten".
-11. Berechne die durchschnittliche Seitenzahl.
-12. Erstelle eine neue Liste mit allen Titeln, die mehr als 200 Seiten haben.
-13. Finde den Titel des dicksten Buches (Tipp: `index()`).
+1. Entferne "Kekse" mit `remove()`.
+2. Entferne das letzte Element mit `pop()` und speichere es in einer Variable. Gib die Variable aus.
+3. Entferne das erste Element mit `pop(0)`.
+4. Gib die Liste aus. Was ist übrig?
 """
 
-tore = [2, 0, 1, 3, 0, 2, 1, 4, 0, 1]
-spieler = ["Mia", "Lena", "Jonas", "Ali", "Nora"]
+
+# ---------- Würfeln: Auswerten ----------
+wuerfe = [4, 6, 2, 6, 1, 3, 6]
 
 """
-14. Zähle mit `count()`, in wie vielen Spielen kein Tor fiel.
-15. Berechne die Gesamtzahl der Tore und in wie vielen Spielen mehr als ein Tor fiel.
-16. Sortiere `spieler` nach der Länge der Namen (`sorted(..., key=len)`).
-17. Erstelle per List Comprehension eine Liste, in der jede Torzahl verdoppelt ist.
-18. Erstelle eine Liste mit dem Zwischenstand nach jedem Spiel: `[2, 2, 3, 6, ...]`.
+1. Gib aus, wie oft gewürfelt wurde (`len()`).
+2. Gib den kleinsten und den größten Wurf aus (`min()`, `max()`).
+3. Gib die Summe aller Würfe aus (`sum()`).
+4. Gib mit `count()` aus, wie oft eine 6 gewürfelt wurde.
+5. Prüfe mit `in`, ob eine 5 dabei war.
 """
 
-klasse = [["Anna", 1.3], ["Ben", 2.7], ["Clara", 2.0], ["David", 3.3]]
+
+# ---------- Preise und Namen: Sortieren ----------
+preise = [3.5, 1.2, 4.8, 2.0, 0.9]
+namen = ["Zoe", "Ben", "Amir", "Clara"]
 
 """
-19. Gib jede Person mit ihrer Note aus: "Anna hat 1.3".
-20. Finde die Person mit der besten Note (kleinster Wert).
+1. Gib `sorted(preise)` aus. Gib danach `preise` selbst aus. Was fällt dir auf?
+2. Gib die Preise absteigend sortiert aus (`sorted(preise, reverse=True)`).
+3. Sortiere `namen` mit `namen.sort()` und gib die Liste danach aus.
+4. Gib `namen` einmal mit `reverse()` umgedreht aus.
+"""
+
+
+# ---------- Freunde und Zahlen: Erste Schleifen ----------
+freunde = ["Mia", "Jonas", "Lea"]
+zahlen = [2, 4, 6, 8]
+
+"""
+1. Gib mit einer `for`-Schleife jeden Namen aus `freunde` aus.
+2. Gib zu jedem Namen "Hallo, <Name>!" aus.
+3. Gib mit einer `for`-Schleife jede Zahl aus `zahlen` verdoppelt aus.
+4. Berechne die Summe von `zahlen` mit einer Schleife (Tipp: Starte mit `summe = 0`).
+"""
+
+
+# ---------- Bücherregal: Gemischte Aufgaben ----------
+buecher = ["Momo", "Faust", "Emil und die Detektive"]
+
+"""
+1. Gib das zweite Buch aus.
+2. Füge ein weiteres Buch am Ende hinzu.
+3. Prüfe mit `in`, ob "Momo" im Regal steht, und gib "Ja" oder "Nein" aus.
+4. Entferne "Faust" und gib die Liste danach aus.
+5. Gib mit `len()` aus, wie viele Bücher jetzt im Regal stehen.
+"""
+
+
+# ---------- Mini-Projekt: Wunschliste ----------
+wuensche = ["Fahrrad", "Buch"]
+
+"""
+1. Frage die Nutzerin mit `input()` nach einem weiteren Wunsch und füge ihn mit `append()` hinzu.
+2. Wiederhole das dreimal (kopiere den Code einfach untereinander).
+3. Gib am Ende alle Wünsche mit einer `for`-Schleife aus.
+4. Gib zusätzlich aus, wie viele Wünsche es sind.
 """

@@ -9,17 +9,17 @@ Führe die Datei aus und teste deine Eingaben.
 # BLOCK 1: Der große Listen-Recap
 # ============================================================
 
-# --- Aufgabe R1: Die Port-Erweiterung ---
-# Erstelle eine Liste offene_ports mit den Werten 80, 443 und 22.
-# Füge per Code den Port 8080 hinzu und gib die Anzahl der
-# überwachten Ports aus.
+# --- Aufgabe R1: Die Einkaufsliste ---
+# Erstelle eine Liste einkauf = ["Brot", "Milch", "Eier"].
+# Füge per Code "Äpfel" hinzu und gib die Gesamtanzahl der
+# Artikel auf der Liste aus (nutze eine Funktion dafür).
 
 
 
-# --- Aufgabe R2: Hot-Spare-Server einsetzen ---
-# Gegeben ist: active_servers = ["SRV-01", "SRV-02", "SRV-03"]
-# Ersetze den Server "SRV-02" (Index 1) direkt durch das neue Modell
-# "SRV-02-NEW". Gib die aktualisierte Liste aus.
+# --- Aufgabe R2: Highscore-Update ---
+# Gegeben ist: highscores = ["Anna", "Berta", "Chris"]
+# Ersetze die Spielerin "Berta" (Index 1) direkt durch den neuen Namen
+# "Ben". Gib die aktualisierte Liste aus.
 
 
 
@@ -30,24 +30,24 @@ Führe die Datei aus und teste deine Eingaben.
 
 
 
-# --- Aufgabe R4: Session-Verwaltung (Löschen mit Rückgabe) ---
-# Gegeben ist: sessions = ["Session_A", "Session_B", "Session_C"]
-# Entferne die letzte Sitzung mit .pop() aus der Liste und speichere sie
-# in einer Variablen geschlossene_session.
-# Gib aus, welche Session geschlossen wurde und welche noch aktiv sind.
+# --- Aufgabe R4: Aufgaben-Verwaltung (Löschen mit Rückgabe) ---
+# Gegeben ist: todos = ["Wäsche waschen", "Kochen", "Müll rausbringen"]
+# Entferne die letzte Aufgabe aus der Liste und speichere sie
+# in einer Variablen erledigt.
+# Gib aus, welche Aufgabe erledigt wurde und welche noch in der Liste stehen.
 
 
 
-# --- Aufgabe R5: Inventar-Sortierung ---
-# Sortiere die Liste inventar = ["Switch", "Router", "Firewall", "AccessPoint"]
-# alphabetisch absteigend und gib sie aus.
+# --- Aufgabe R5: Namens-Sortierung ---
+# Sortiere die Liste teilnehmer = ["Zorro", "Aaron", "Xenia", "Berta"]
+# alphabetisch absteigend (von Z nach A) und gib sie aus.
 
 
 
-# --- Aufgabe R6: Sicherheits-Check (Mitgliedschaft) ---
-# Erstelle eine Liste blockierte_ips = ["192.168.1.50", "10.0.0.12"].
-# Prüfe mit dem in-Operator, ob die IP "192.168.1.50" blockiert ist.
-# Das Programm soll direkt True oder False ausgeben.
+# --- Aufgabe R6: Gästeliste (Mitgliedschaft prüfen) ---
+# Erstelle eine Liste hausverbot = ["Max", "Moritz"].
+# Prüfe per Code, ob der Name "Max" in der Liste steht.
+# Das Programm soll als Ergebnis direkt True oder False ausgeben.
 
 
 
@@ -58,93 +58,104 @@ Führe die Datei aus und teste deine Eingaben.
 
 # ---------- Kategorie A: Einfache Bedingungen (Vergleichsoperatoren) ----------
 
-# --- Aufgabe 1: Der Festplatten-Wächter ---
-# Frage den Benutzer nach dem freien Festplattenspeicher in Prozent
-# (Ganzzahl). Wenn der Wert unter 15 liegt, gib aus:
-# "Kritischer Speicherstand!". Andernfalls gib aus:
-# "Speicherplatz ausreichend."
+# --- Aufgabe 1: Die Volljährigkeits-Prüfung ---
+# Frage den Benutzer nach seinem Alter (Ganzzahl).
+# Wenn das Alter unter 18 liegt, gib aus:
+# "Du bist noch nicht volljährig!" Andernfalls gib aus:
+# "Du bist volljährig!"
 
 
 
-# --- Aufgabe 2: Passwort-Prüfer ---
-# Definiere ein festes Passwort im Code: korrektes_passwort = "admin123".
+# --- Aufgabe 2: Das geheime Passwort ---
+# Definiere ein festes Passwort im Code: korrektes_passwort = "kittycat".
 # Frage den Benutzer nach dem Passwort. Wenn die Eingabe übereinstimmt,
-# gib "Zugriff gewährt" aus, andernfalls "Zugriff verweigert".
+# gib "Willkommen" aus, andernfalls "Zutritt verweigert".
 
 
 
-# --- Aufgabe 3: Port-Checker ---
-# Frage den Benutzer nach einer Portnummer (Ganzzahl). Wenn der Port
-# 80 oder 443 ist, gib aus: "Web-Traffic erlaubt". Andernfalls gib aus:
-# "Anderer Netzwerk-Port".
+# --- Aufgabe 3: Gerade oder ungerade? ---
+# Frage den Benutzer nach einer Zahl (Ganzzahl). Prüfe mithilfe des
+# Modulo-Operators (%), ob die Zahl gerade ist (Rest bei Teilung durch 2 ist 0).
+# Gib entsprechend "Die Zahl ist gerade" oder "Die Zahl ist ungerade" aus.
 
 
 
 
 # ---------- Kategorie B: Mehrere Bedingungen (elif) ----------
 
-# --- Aufgabe 4: Serverraum-Temperaturalarm ---
-# Frage die Serverraum-Temperatur ab (Dezimalzahl).
-#   Temperatur über 25 Grad: "Kritisch: Zu heiß!"
-#   Temperatur unter 18 Grad: "Warnung: Zu kalt!"
-#   Dazwischen (18 bis 25 Grad): "Temperatur optimal."
+# --- Aufgabe 4: Fußball-Ergebnis ---
+# Frage den Benutzer nacheinander nach den Toren der Heimmannschaft und
+# den Toren der Auswärtsmannschaft.
+#   - Mehr Heim-Tore: "Die Heimmannschaft hat gewonnen!"
+#   - Mehr Auswärts-Tore: "Die Auswärtsmannschaft hat gewonnen!"
+#   - Sonst: "Es ist ein Unentschieden!"
 
 
 
-# --- Aufgabe 5: Ping-Latenz-Bewerter ---
-# Frage die Ping-Latenz in Millisekunden ab (Ganzzahl).
-#   Latenz kleiner gleich 30 ms: "Hervorragende Verbindung"
-#   Latenz zwischen 31 und 100 ms: "Normale Verbindung"
-#   Latenz über 100 ms: "Starke Verzögerung"
+# --- Aufgabe 5: Noten-Bewerter ---
+# Frage nach den erreichten Punkten (0 bis 100, Ganzzahl).
+#   Punkte unter 50: "Durchgefallen"
+#   Punkte zwischen 50 und 89: "Bestanden"
+#   Punkte ab 90: "Sehr gut!"
 
 
 
-# --- Aufgabe 6: Ticket-Priorisierung ---
-# Frage den Benutzer nach dem Alter eines Support-Tickets in Stunden.
-#   Über 48 Stunden: "Priorität: Kritisch"
-#   Über 24 Stunden: "Priorität: Hoch"
-#   Alles darunter: "Priorität: Standard"
+# --- Aufgabe 6: Feiertags-Kalender ---
+# Frage den Benutzer nach dem heutigen Datum als Text (z.B. "24.12.").
+#   Ist die Eingabe "24.12.": "Es ist Heiligabend!"
+#   Ist die Eingabe "31.12.": "Es ist Silvester!"
+#   Ist die Eingabe "01.01.": "Frohes Neues Jahr!"
+#   Bei allen anderen Eingaben: "Ein ganz normaler Tag."
 
 
 
 
 # ---------- Kategorie C: Komplexe Logik mit Listen & logischen Operatoren ----------
 
-# --- Aufgabe 7: Die IP-Firewall (Blacklist-Check) ---
-# Erstelle eine Liste blockierter IPs: blacklist = ["192.168.1.100", "10.0.0.5"]
-#   - Frage den Benutzer nach seiner IP-Adresse.
-#   - Prüfe, ob die eingegebene IP in der Blacklist steht.
-#   - Wenn ja: "Verbindung blockiert!"
-#   - Wenn nein: "Verbindung hergestellt."
+# --- Aufgabe 7: Die Neffen (Listen-Check) ---
+# Erstelle eine Liste: duck_neffen = ["Tick", "Trick", "Track"]
+#   - Frage den Benutzer nach seinem Vornamen.
+#   - Prüfe, ob der eingegebene Name in der Liste steht.
+#   - Wenn ja: "Du bist ein Neffe von Donald Duck!"
+#   - Wenn nein: "Diesen Namen kenne ich nicht aus Entenhausen."
 
 
 
-# --- Aufgabe 8: Login-System mit Notfall-Modus ---
-# Definiere wartungsmodus = True (Boolean). Frage den Benutzer nach
-# seinem Benutzernamen.
-#   - Wenn der Wartungsmodus aktiv ist (True) UND der Benutzername
-#     ungleich "Admin" ist, gib aus: "Systemwartung. Login nur für Admins."
-#   - Andernfalls gib aus: "Login erfolgreich."
+# --- Aufgabe 8: VIP-Party mit Sperrstunde ---
+# Definiere geschlossene_gesellschaft = True (Boolean). Frage den Benutzer
+# nach seinem Namen.
+#   - Wenn geschlossene_gesellschaft aktiv ist (True) UND der Name
+#     ungleich "VIP" ist, gib aus: "Heute nur für geladene Gäste."
+#   - Andernfalls gib aus: "Willkommen auf der Party!"
 
 
 
-# --- Aufgabe 9: VIP-Support-Entscheider ---
+# --- Aufgabe 9: Kino-Altersfreigabe (ab 12) ---
 # Frage ab:
-#   1. Ist das Ticket als "Eilig" eingestuft? (ja / nein)
-#   2. Handelt es sich um einen VIP-Kunden? (ja / nein)
+#   1. Wie alt ist die Person? (Ganzzahl)
+#   2. Ist eine erwachsene Begleitperson dabei? (ja / nein)
 #
-#   - Wenn das Ticket "Eilig" ist ODER der Kunde ein "VIP" ist, gib aus:
-#     "Sofortige Bearbeitung starten."
-#   - Andernfalls gib aus: "Standard-Warteschlange."
+#   - Wenn das Alter mindestens 12 ist ODER die Begleitperson "ja" ist, gib aus:
+#     "Viel Spaß beim Film!"
+#   - Andernfalls gib aus: "Zutritt verweigert."
 
 
 
 # --- Aufgabe 10: Multi-Faktor-Zugang (Herausforderung) ---
-# Ein hochsicherer Server benötigt drei Bedingungen für den Zugang:
-#   - Der Benutzer muss das Passwort "geheim123" kennen.
-#   - Er muss eine IP aus dem erlaubten Subnetz "10.0.0.X" haben
-#     (simuliere dies, indem du prüfst, ob die IP mit "10.0.0." beginnt).
+# Ein sicherer Tresor benötigt drei Bedingungen für die Öffnung:
+#   - Der Benutzer muss das Passwort "tresor123" eingeben.
+#   - Er muss eine PIN eingeben, die mit "99" beginnt
+#     (simuliere dies, indem du die PIN als Text abfragst und z.B. per 
+#      String-Methode oder Index prüfst).
 #   - Das System darf nicht im Sperrmodus (gesperrt = True) sein.
 #
-# Schreibe ein Programm, das die IP und das Passwort abfragt und den
-# Zugang nur erlaubt, wenn alle Bedingungen erfüllt sind.
+# Schreibe ein Programm, das PIN und Passwort abfragt und den Tresor
+# nur öffnet, wenn alle drei Bedingungen erfüllt sind.
+
+
+
+# --- Aufgabe 11: Bußgeldkatalog ---
+# https://www.bussgeldkatalog.org/geschwindigkeitsueberschreitung/
+# Du findest die Tabelle im Ordner als Bild.
+# Schreibe ein Programm, das den Benutzer nach der gefahrenen Geschwindigkeit fragt.
+# Dann soll das Programm die Höhe des Bußgeldes ausgeben.
