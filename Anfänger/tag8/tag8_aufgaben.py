@@ -1,218 +1,331 @@
 """
-Tag 8: Entscheidungs-Recap & Einfuehrung in Funktionen
-========================================================
-Aufgaben zu Block 1 (if/else vs. while) und Block 4 (Funktions-Recycling-Slam).
+Tag 8 – Teil 1: Funktionen mit einem Parameter
+================================================
+Teil A: Viele Funktionen mit genau EINEM Parameter.
+Teil B: Funktionen, die andere Funktionen aus Teil A aufrufen.
 
 Arbeitsweise:
-- Lies dir die Theorie im Notebook 'tag8_theorie.ipynb' durch, bevor du hier startest.
-- Schreibe deine Loesung jeweils direkt unter die Aufgabenstellung (ersetze 'pass'
-  bzw. den Kommentar "# Deine Loesung hier").
-- Teste jede Funktion/jedes Skript mit einem eigenen Aufruf, bevor du weitergehst.
-- Vergleiche erst danach mit 'tag8_loesungen.py'.
+- Schreibe deine Lösung jeweils unter die Aufgabenstellung (ersetze 'pass').
+- Nutze 'return', sofern nicht ausdrücklich 'print' gefordert ist.
+- Teste jede Funktion sofort im Testbereich ganz unten, bevor du weitergehst.
+- Die Datei hat bewusst KEIN main(): Du rufst deine Funktionen einfach
+  ganz unten direkt auf, von oben nach unten, wie in jedem anderen Skript.
+- Teil B braucht Funktionen aus Teil A. Fehlt dir eine, schreib sie zuerst.
 """
 
 # =====================================================================
-# BLOCK 1: if/else oder while? (09:00 - 09:45 Uhr)
+# TEIL A: Ein Parameter
 # =====================================================================
-# Ueberlege bei jeder Aufgabe zuerst: Passiert das nur EINMAL oder WIEDERHOLT
-# sich etwas, bis sich ein Zustand aendert?
 
 
-def aufgabe_e1_port_ueberwacher():
+def begruesse(name):
     """
-    Aufgabe E1: Der Port-Ueberwacher
-
-    Szenario: Ein Server-Port 8080 soll blockiert werden, wenn er auf der
-    Blacklist steht. Die Blacklist lautet [80, 8080, 22]. Es soll eine
-    einmalige Meldung ausgegeben werden ("Port blockiert!").
+    A1: Gib "Hallo, <name>!" mit print aus (kein return).
+    Beispiel: begruesse("Lena") gibt "Hallo, Lena!" aus.
     """
-    port = 8080
-    blacklist = [80, 8080, 22]
-    # Deine Loesung hier
+    # Deine Lösung hier
     pass
 
 
-def aufgabe_e2_installations_assistent():
+def quadrat(zahl):
     """
-    Aufgabe E2: Der Installations-Assistent
-
-    Szenario: Ein Download laeuft. Der Status startet bei 0% und steigt in
-    jedem Schritt um 25%. Das Programm soll den Status so lange ausgeben,
-    bis 100% erreicht sind.
+    A2: Gib das Quadrat der Zahl zurück.
+    Beispiel: quadrat(7) -> 49
     """
-    status = 0
-    # Deine Loesung hier
+    # Deine Lösung hier
     pass
 
 
-def aufgabe_e3_ip_verifizierer():
+def ist_gerade(zahl):
     """
-    Aufgabe E3: IP-Adress-Verifizierer
-
-    Szenario: Eine eingegebene IP-Adresse soll darauf geprueft werden, ob
-    sie mit "192.168." beginnt. Gib "Lokale IP-Adresse." bzw.
-    "Externe IP-Adresse." aus.
+    A3: Gib True zurück, wenn die Zahl gerade ist, sonst False.
+    Beispiel: ist_gerade(8) -> True
     """
-    ip = "192.168.1.50"
-    # Deine Loesung hier
-    pass
-
-
-def aufgabe_e4_eingabe_puffer():
-    """
-    Aufgabe E4: Der unendliche Eingabe-Puffer
-
-    Szenario: Das Programm soll dich ununterbrochen nach einer Log-Nachricht
-    fragen. Erst wenn du "stop" eingibst, soll das Programm enden.
-
-    Tipp: Hier brauchst du eine Endlosschleife (while True:), die du mit
-    break gezielt verlaesst.
-    """
-    # Deine Loesung hier
-    pass
-
-
-# =====================================================================
-# BLOCK 4: Der grosse Funktions-Recycling-Slam (11:30 - 12:45 Uhr)
-# =====================================================================
-# Schreibe bekannte Aufgaben der letzten Tage als wiederverwendbare
-# Funktionen um. Nutze 'return', sofern nicht ausdruecklich 'print'
-# gefordert ist. Teste jede Funktion mit einem Aufruf.
-
-
-def erzeuge_email(vorname, nachname, domain):
-    """
-    Aufgabe F1: Der E-Mail-Generator
-
-    Verbinde Vorname, Nachname und Domain zu einer E-Mail-Adresse und
-    gib sie per return zurueck (z. B. "max.mustermann@firma.de").
-    """
-    # Deine Loesung hier
-    pass
-
-
-def berechne_brutto(netto, mwst=19):
-    """
-    Aufgabe F2: Der Netto-Brutto-Rechner
-
-    Berechne aus einem Nettobetrag und einem MwSt-Satz (Standard: 19)
-    den Bruttobetrag und gib ihn zurueck.
-    """
-    # Deine Loesung hier
+    # Deine Lösung hier
     pass
 
 
 def fahrenheit_to_celsius(f):
     """
-    Aufgabe F3: Der Fahrenheit-Celsius-Konverter
-
-    Rechne eine Fahrenheit-Dezimalzahl in Celsius um und gib das
-    Ergebnis zurueck.
+    A4: Rechne Fahrenheit in Celsius um (Formel: (f - 32) * 5 / 9).
+    Beispiel: fahrenheit_to_celsius(68) -> 20.0
     """
-    # Deine Loesung hier
+    # Deine Lösung hier
     pass
 
 
-def check_temp(temp):
+def bewerte_note(note):
     """
-    Aufgabe F4: Serverraum-Waechter
-
-    Gib je nach Temperatur "Zu heiss" (> 25), "Zu kalt" (< 18) oder
-    "Optimal" zurueck.
+    A5: Gib zur Schulnote den Text zurück:
+    1 -> "Sehr gut", 2 -> "Gut", 3 -> "Befriedigend", 4 -> "Ausreichend",
+    5 oder 6 -> "Nicht bestanden", alles andere -> "Ungültige Note".
     """
-    # Deine Loesung hier
+    # Deine Lösung hier
     pass
 
 
-def pruefe_passwort(eingabe, korrekt):
+def zaehle_woerter(text):
     """
-    Aufgabe F5: Der Passwort-Pruefer
-
-    Gib True zurueck, wenn beide Werte uebereinstimmen, sonst False.
-    Tipp: Ein Vergleich mit == liefert bereits True/False.
+    A6: Gib zurück, wie viele Wörter der Text hat (Wörter sind durch
+    Leerzeichen getrennt).
+    Beispiel: zaehle_woerter("Das ist ein Test") -> 4
     """
-    # Deine Loesung hier
+    # Deine Lösung hier
     pass
 
 
-def bewerte_ping(ping_ms):
+def rufe(text):
     """
-    Aufgabe F6: Der Ping-Latenz-Bewerter
-
-    Gib je nach Latenz "Sehr gut" (<= 30), "Normal" (<= 100) oder
-    "Schlecht" zurueck.
+    A7: Gib den Text komplett in Großbuchstaben und mit einem "!" am
+    Ende zurück.
+    Beispiel: rufe("hallo welt") -> "HALLO WELT!"
     """
-    # Deine Loesung hier
+    # Deine Lösung hier
     pass
 
 
-def bestimme_prioritaet(stunden, ist_vip):
+def erste_und_letzte(wort):
     """
-    Aufgabe F7: Ticket-Priorisierer
-
-    Ist ist_vip True, ist die Prioritaet immer "Kritisch". Andernfalls:
-    ueber 24 Stunden "Hoch", darunter "Standard".
+    A8: Gib den ersten und den letzten Buchstaben des Wortes
+    zusammen zurück.
+    Beispiel: erste_und_letzte("Hallo") -> "Ho"
     """
-    # Deine Loesung hier
+    # Deine Lösung hier
     pass
 
 
-def berechne_bandbreite(leitungen, mbit):
+def zaehle_vokale(text):
     """
-    Aufgabe F8: Bandbreiten-Kalkulator
-
-    Berechne die Gesamtbandbreite (leitungen * mbit) und gib sie zurueck.
+    A9: Gib zurück, wie viele Vokale (a, e, i, o, u) der Text enthält.
+    Groß-/Kleinschreibung soll egal sein.
+    Beispiel: zaehle_vokale("Ananas") -> 3
     """
-    # Deine Loesung hier
+    # Deine Lösung hier
     pass
 
 
-def ist_blockiert(ip, blacklist):
+def ist_palindrom(wort):
     """
-    Aufgabe F9: IP-Blacklist-Checker
-
-    Gib True zurueck, wenn die IP in der uebergebenen Blacklist steht,
-    sonst False.
+    A10: Gib True zurück, wenn das Wort vorwärts und rückwärts gleich
+    gelesen wird, sonst False. Groß-/Kleinschreibung soll egal sein.
+    Beispiel: ist_palindrom("Reittier") -> True
     """
-    # Deine Loesung hier
+    # Deine Lösung hier
     pass
 
 
-def empfehle_ram(cores):
+def summe_liste(zahlen):
     """
-    Aufgabe F10: RAM-Empfehlung
-
-    Liegen die CPU-Kerne ueber 8, gib "32 GB" zurueck, sonst "16 GB".
+    A11: Gib die Summe aller Zahlen der Liste zurück.
+    Ohne die eingebaute Funktion sum()!
+    Beispiel: summe_liste([4, 8, 15]) -> 27
     """
-    # Deine Loesung hier
+    # Deine Lösung hier
     pass
 
 
-def kalkuliere_preis(ram_gb, stueckzahl):
+def groesste_zahl(zahlen):
     """
-    Aufgabe F11: Hardware-Preiskalkulator
-
-    Ein GB RAM kostet pauschal 4.50 Euro. Berechne den Gesamtpreis fuer
-    den Speicher (ram_gb * 4.50 * stueckzahl) und gib ihn zurueck.
+    A12: Gib die größte Zahl der (nicht leeren) Liste zurück.
+    Ohne die eingebaute Funktion max()!
+    Beispiel: groesste_zahl([3, 17, 9]) -> 17
     """
-    # Deine Loesung hier
+    # Deine Lösung hier
     pass
 
 
-def gb_to_mb(gb):
+def gerade_zahlen(zahlen):
     """
-    Aufgabe F12: Speicher-Konverter
-
-    Wandle den GB-Wert in Megabyte um (1 GB = 1024 MB) und gib das
-    Ergebnis zurueck.
+    A13: Gib eine NEUE Liste zurück, die nur die geraden Zahlen der
+    übergebenen Liste enthält.
+    Beispiel: gerade_zahlen([1, 2, 3, 4, 6]) -> [2, 4, 6]
     """
-    # Deine Loesung hier
+    # Deine Lösung hier
     pass
 
 
-if __name__ == "__main__":
-    # Nutze diesen Bereich, um deine Funktionen waehrend der Bearbeitung
-    # auszuprobieren, z. B.:
-    # print(erzeuge_email("Max", "Mustermann", "firma.de"))
-    aufgabe_e1_port_ueberwacher()
-    aufgabe_e3_ip_verifizierer()
+def fakultaet(n):
+    """
+    A14: Gib n! zurück (n * (n-1) * ... * 1). Es gilt: 0! = 1.
+    Beispiel: fakultaet(5) -> 120
+    """
+    # Deine Lösung hier
+    pass
+
+
+def ist_schaltjahr(jahr):
+    """
+    A15: Gib True zurück, wenn das Jahr ein Schaltjahr ist.
+    Regel: durch 4 teilbar, ABER nicht durch 100, es sei denn, es ist
+    auch durch 400 teilbar.
+    Beispiele: 2024 -> True, 1900 -> False, 2000 -> True
+    """
+    # Deine Lösung hier
+    pass
+
+
+def quersumme(zahl):
+    """
+    A16: Gib die Quersumme der (positiven) Zahl zurück.
+    Beispiel: quersumme(1234) -> 10
+    """
+    # Deine Lösung hier
+    pass
+
+
+def sterne_anzeige(bewertung):
+    """
+    A17: Gib eine Bewertung von 0 bis 5 als Sterne-Text zurück:
+    ausgefüllte Sterne "★" plus leere Sterne "☆", insgesamt immer 5.
+    Beispiel: sterne_anzeige(4) -> "★★★★☆"
+    """
+    # Deine Lösung hier
+    pass
+
+
+def jahreszeit(monat):
+    """
+    A18: Gib zum Monat (1 bis 12) die Jahreszeit zurück:
+    12, 1, 2 -> "Winter", 3-5 -> "Frühling", 6-8 -> "Sommer",
+    9-11 -> "Herbst". Alles andere -> "Ungültiger Monat".
+    """
+    # Deine Lösung hier
+    pass
+
+
+# =====================================================================
+# TEIL B: Funktionen, die andere Funktionen aufrufen
+# =====================================================================
+# Schreibe hier KEINE Berechnung doppelt: Nutze die Funktionen aus Teil A!
+
+
+def begruesse_laut(name):
+    """
+    B1: Gib per return "HALLO <NAME>!" zurück.
+    Nutzt: rufe()
+    Beispiel: begruesse_laut("max") -> "HALLO MAX!"
+    """
+    # Deine Lösung hier
+    pass
+
+
+def ist_quersumme_gerade(zahl):
+    """
+    B2: Gib True zurück, wenn die Quersumme der Zahl gerade ist.
+    Nutzt: quersumme(), ist_gerade()
+    Beispiel: ist_quersumme_gerade(1234) -> True (Quersumme 10)
+    """
+    # Deine Lösung hier
+    pass
+
+
+def wetterbericht(fahrenheit):
+    """
+    B3: Gib einen Wetterbericht als Text zurück. Rechne zuerst in Celsius
+    um: unter 10 Grad "kalt", bis einschließlich 25 Grad "angenehm",
+    darüber "heiß".
+    Nutzt: fahrenheit_to_celsius()
+    Beispiel: wetterbericht(68) -> "Es hat 20.0 Grad - angenehm"
+    """
+    # Deine Lösung hier
+    pass
+
+
+def durchschnitt(zahlen):
+    """
+    B4: Gib den Durchschnitt der (nicht leeren) Liste zurück.
+    Nutzt: summe_liste()
+    Beispiel: durchschnitt([2, 4, 9]) -> 5.0
+    """
+    # Deine Lösung hier
+    pass
+
+
+def textstatistik(text):
+    """
+    B5: Gib zurück, wie viele Wörter und Vokale der Text hat.
+    Nutzt: zaehle_woerter(), zaehle_vokale()
+    Beispiel: textstatistik("Das ist ein Test") -> "4 Wörter, 5 Vokale"
+    """
+    # Deine Lösung hier
+    pass
+
+
+def ist_satz_palindrom(satz):
+    """
+    B6: Gib True zurück, wenn der ganze Satz ein Palindrom ist. Leerzeichen
+    werden dabei ignoriert.
+    Nutzt: ist_palindrom()
+    Beispiel: ist_satz_palindrom("Roma tibi subito motibus ibit amor") -> True
+    """
+    # Deine Lösung hier
+    pass
+
+
+def pruefe_zahl(zahl):
+    """
+    B7: Gib einen Steckbrief der Zahl als Text zurück.
+    Nutzt: ist_gerade(), quersumme(), quadrat()
+    Beispiel: pruefe_zahl(12) -> "12 ist gerade, Quersumme 3, Quadrat 144"
+    Beispiel: pruefe_zahl(7)  -> "7 ist ungerade, Quersumme 7, Quadrat 49"
+    """
+    # Deine Lösung hier
+    pass
+
+
+def kritik(bewertung):
+    """
+    B8: Gib die Sterne und einen Kurztext zurück:
+    5 -> "Meisterwerk", 4 -> "Sehr gut", 3 -> "Ganz okay",
+    2 -> "Schwach", 1 -> "Enttäuschend", 0 -> "Ungenießbar".
+    Nutzt: sterne_anzeige()
+    Beispiel: kritik(4) -> "★★★★☆ - Sehr gut"
+    """
+    # Deine Lösung hier
+    pass
+
+
+def naechstes_schaltjahr(jahr):
+    """
+    B9 (knifflig): Gib das nächste Schaltjahr NACH dem übergebenen Jahr
+    zurück.
+    Nutzt: ist_schaltjahr()
+    Beispiel: naechstes_schaltjahr(2024) -> 2028
+    """
+    # Deine Lösung hier
+    pass
+
+
+# =====================================================================
+# TESTBEREICH – hier rufst du deine Funktionen auf
+# =====================================================================
+# Entferne das '#' vor einer Zeile, sobald du die Funktion geschrieben hast.
+
+# begruesse("Lena")
+# print(quadrat(7))
+# print(ist_gerade(8))
+# print(fahrenheit_to_celsius(68))
+# print(bewerte_note(2))
+# print(zaehle_woerter("Das ist ein Test"))
+# print(rufe("hallo welt"))
+# print(erste_und_letzte("Hallo"))
+# print(zaehle_vokale("Ananas"))
+# print(ist_palindrom("Reittier"))
+# print(summe_liste([4, 8, 15]))
+# print(groesste_zahl([3, 17, 9]))
+# print(gerade_zahlen([1, 2, 3, 4, 6]))
+# print(fakultaet(5))
+# print(ist_schaltjahr(2024))
+# print(quersumme(1234))
+# print(sterne_anzeige(4))
+# print(jahreszeit(7))
+
+# print(begruesse_laut("max"))
+# print(ist_quersumme_gerade(1234))
+# print(wetterbericht(68))
+# print(durchschnitt([2, 4, 9]))
+# print(textstatistik("Das ist ein Test"))
+# print(ist_satz_palindrom("Roma tibi subito motibus ibit amor"))
+# print(pruefe_zahl(12))
+# print(kritik(4))
+# print(naechstes_schaltjahr(2024))
