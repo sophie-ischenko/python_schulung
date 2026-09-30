@@ -7,9 +7,8 @@ sinkt automatisch (durch zwei random.randint()-Aufrufe ganz am Ende der
 Schleife) - unabhaengig davon, welche Aktion du gewaehlt hast. Du kaempfst
 also gegen die Zeit.
 
-Deine Aufgabe fuer heute: Erweitere das Spiel nach eigenem Geschmack.
-Ein paar Ideen (siehe auch 'cyberguard_loesung.py' fuer eine
-Beispielumsetzung):
+Deine Aufgabe: Erweitere das Spiel nach eigenem Geschmack.
+
 - TODO: Eine vierte Aktion "Backup einspielen", die die Integritaet stark
   erhoeht, aber nur einmal pro Spiel genutzt werden darf
 - TODO: Ein Schwierigkeitsgrad, den du zu Beginn abfragst und der
@@ -50,13 +49,13 @@ CRASH = """
 
 # --- Schritt 2: Das Code-Geruest (Starter-Kit) ---
 
-integrity = 100
-threat_level = 10
-patched_ports = []
-
 
 def main():
-    global integrity, threat_level, patched_ports
+    # Startwerte des Spiels
+    integrity = 100
+    threat_level = 10
+    patched_ports = []
+
     print(SHIELD)
     print("CyberGuard Terminal gestartet. Schuetze die Server!")
 

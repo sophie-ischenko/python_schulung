@@ -5,8 +5,8 @@ Dieses Geruest ist bereits vollstaendig lauffaehig - Angreifen, Heiltrank
 und Fliehen funktionieren schon, inklusive Gegenangriff des Drachens mit
 random.randint() fuer Zufallsschaden.
 
-Deine Aufgabe fuer heute: Erweitere das Spiel nach eigenem Geschmack.
-Ein paar Ideen (siehe auch 'dungeon_loesung.py' fuer eine Beispielumsetzung):
+Deine Aufgabe: Erweitere das Spiel nach eigenem Geschmack.
+
 - TODO: Eine zweite Waffe mit anderem Schadensbereich, zwischen der du
   waehlen kannst
 - TODO: Ein Inventar (Liste), in dem du gesammelte Gegenstaende speicherst
@@ -29,7 +29,7 @@ O|===|* >________________>
 
 DRAGON = """
   <>=======()
-  (/\\___/\\)   /\\_/\\
+  (/\\___/\\) /\\_/\\
   |      |   ( o.o )
   ( ^_^* )    > ^ <
  [ROAARRR! Wer stoert meine Ruhe?]
@@ -45,13 +45,13 @@ TREASURE = """
 
 # --- Schritt 2: Das Code-Geruest (Starter-Kit) ---
 
-player_hp = 100
-dragon_hp = 80
-potions = 3
-
 
 def main():
-    global player_hp, dragon_hp, potions
+    # Startwerte des Spiels
+    player_hp = 100
+    dragon_hp = 80
+    potions = 3
+
     print(DRAGON)
     print("Du betrittst die Hoehle des Python-Drachen!")
 
