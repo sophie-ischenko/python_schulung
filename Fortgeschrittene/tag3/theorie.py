@@ -1283,6 +1283,36 @@ AUSPROBIEREN
 
 
 """
+DATEI MIT pathlib ÖFFNEN
+========================
+
+Ein Path-Objekt kann direkt an open() übergeben werden.
+
+Wir können also einen Dateipfad mit pathlib erstellen
+und diesen anschließend mit open() verwenden.
+"""
+
+# from pathlib import Path
+
+# pfad = Path("daten") / "messwerte.json"
+
+# with open(pfad, encoding="utf-8") as datei:
+#     inhalt = datei.read()
+
+# print(inhalt)
+
+
+"""
+Das ist besonders praktisch, weil wir den Dateipfad
+nicht als langen String zusammensetzen müssen.
+
+pathlib kümmert sich um den Pfad.
+
+open() kümmert sich um das Öffnen der Datei.
+"""
+
+
+"""
 DATEIEN IN EINEM ORDNER ANZEIGEN
 ================================
 
@@ -1296,7 +1326,6 @@ durchlaufen.
 #
 # for datei in ordner.iterdir():
 #     print(datei.name)
-
 
 """
 Wir können prüfen, ob ein Eintrag tatsächlich eine Datei ist.

@@ -1,11 +1,17 @@
+"""
+Tag 2 – Aufgaben: Datenstrukturen und Messdaten
 
-"""Tag 2 – Aufgaben (LÖSUNG)
-Thema: Datenstrukturen und Messdaten.
+LÖSUNG
 
-Listen, Tupel, Dictionaries, Sets, sorted()
-und verschachtelte Datenstrukturen.
-
-Starte die Datei: Am Ende siehst du, welche Aufgaben stimmen (✓ / ✗).
+Themen:
+- Listen
+- Tupel
+- Dictionaries
+- Sets
+- sorted()
+- verschachtelte Datenstrukturen
+- Schleifen
+- Bedingungen
 """
 
 
@@ -14,13 +20,19 @@ def check(name, erhalten, erwartet):
     if erhalten == erwartet:
         print(f"✓ {name}")
     else:
-        print(f"✗ {name} → erwartet {erwartet!r}, erhalten {erhalten!r}")
+        print(
+            f"✗ {name} → "
+            f"erwartet {erwartet!r}, "
+            f"erhalten {erhalten!r}"
+        )
 
 
 # ---------------------------------------------------------------- Aufgabe 1
 def hohe_messwerte(messwerte, grenzwert):
-    """Gibt alle Messwerte zurück, die mindestens den Grenzwert erreichen."""
-
+    """
+    Gibt alle Messwerte zurück,
+    die mindestens den Grenzwert erreichen.
+    """
     ergebnis = []
 
     for messwert in messwerte:
@@ -32,36 +44,45 @@ def hohe_messwerte(messwerte, grenzwert):
 
 # ---------------------------------------------------------------- Aufgabe 2
 def messwerte_zaehlen(messwerte):
-    """Zählt, wie oft jeder Messwert vorkommt. Rückgabe: Dictionary."""
+    """
+    Zählt, wie oft jeder Messwert vorkommt.
 
-    zaehler = {}
+    Rückgabe:
+    Dictionary mit Messwert als Schlüssel
+    und Anzahl als Wert.
+    """
+    zaehlung = {}
 
     for messwert in messwerte:
-        if messwert in zaehler:
-            zaehler[messwert] = zaehler[messwert] + 1
+        if messwert in zaehlung:
+            zaehlung[messwert] += 1
         else:
-            zaehler[messwert] = 1
+            zaehlung[messwert] = 1
 
-    return zaehler
+    return zaehlung
 
 
 # ---------------------------------------------------------------- Aufgabe 3
 def eindeutige_stationen(stationen):
-    """Entfernt doppelte Stationsnamen und gibt sie sortiert zurück."""
+    """
+    Entfernt doppelte Stationsnamen
+    und gibt sie sortiert zurück.
+    """
+    eindeutige = set(stationen)
 
-    eindeutig = set(stationen)
-
-    return sorted(eindeutig)
+    return sorted(eindeutige)
 
 
 # ---------------------------------------------------------------- Aufgabe 4
 def gemeinsame_sensoren(a, b):
-    """Gibt die Sensoren zurück, die beide Stationen verwenden."""
+    """
+    Gibt die Sensoren zurück,
+    die beide Stationen verwenden.
+    """
+    sensor_set_a = set(a)
+    sensor_set_b = set(b)
 
-    sensor_a = set(a)
-    sensor_b = set(b)
-
-    gemeinsame = sensor_a & sensor_b
+    gemeinsame = sensor_set_a & sensor_set_b
 
     return sorted(gemeinsame)
 
@@ -71,10 +92,12 @@ def sortiere_messwerte(messwerte, absteigend=False):
     """
     Sortiert Messwerte aufsteigend oder absteigend.
 
-    Die ursprüngliche Liste wird dabei nicht verändert.
+    Die ursprüngliche Liste wird nicht verändert.
     """
-
-    return sorted(messwerte, reverse=absteigend)
+    return sorted(
+        messwerte,
+        reverse=absteigend
+    )
 
 
 # ---------------------------------------------------------------- Aufgabe 6
@@ -82,66 +105,61 @@ def gruppiere_messwerte(messdaten):
     """
     Gruppiert Messwerte nach Station.
 
-    Eingabe:
+    Beispiel:
+
     [
         ("Nord", 18.4),
         ("Sued", 22.1),
         ("Nord", 19.1)
     ]
 
-    Rückgabe:
+    wird zu:
+
     {
         "Nord": [18.4, 19.1],
         "Sued": [22.1]
     }
     """
-
-    gruppiert = {}
+    ergebnis = {}
 
     for station, messwert in messdaten:
-        if station not in gruppiert:
-            gruppiert[station] = []
 
-        gruppiert[station].append(messwert)
+        if station not in ergebnis:
+            ergebnis[station] = []
 
-    return gruppiert
+        ergebnis[station].append(messwert)
+
+    return ergebnis
 
 
 # ---------------------------------------------------------------- Aufgabe 7
 def min_max(messwerte):
-    """Gibt (kleinster, größter) Messwert als Tupel zurück."""
-
+    """
+    Gibt kleinsten und größten Messwert
+    als Tupel zurück.
+    """
     kleinster = min(messwerte)
     groesster = max(messwerte)
 
-    return kleinster, groesster
+    return (kleinster, groesster)
 
 
 # ---------------------------------------------------------------- Aufgabe 8
 def durchschnittswerte(stationen):
     """
-    Berechnet den Durchschnitt der Temperaturen jeder Station.
-
-    Eingabe:
-    [
-        {"name": "Nord", "temperaturen": [18.0, 20.0]},
-        {"name": "Sued", "temperaturen": [22.0, 24.0]}
-    ]
-
-    Rückgabe:
-    {
-        "Nord": 19.0,
-        "Sued": 23.0
-    }
+    Berechnet den Durchschnitt der Temperaturen
+    jeder Station.
     """
-
     ergebnis = {}
 
     for station in stationen:
         name = station["name"]
         temperaturen = station["temperaturen"]
 
-        durchschnitt = sum(temperaturen) / len(temperaturen)
+        summe = sum(temperaturen)
+        anzahl = len(temperaturen)
+
+        durchschnitt = summe / anzahl
 
         ergebnis[name] = durchschnitt
 
@@ -149,58 +167,128 @@ def durchschnittswerte(stationen):
 
 
 if __name__ == "__main__":
+
+    print()
+    print("==========================================")
+    print("   TAG 2: DATENSTRUKTUREN")
+    print("==========================================")
+
     # ---------------------------------------------------------------- Aufgabe 1
+
     check(
         "1 hohe_messwerte",
-        hohe_messwerte([17.5, 21.0, 19.5, 23.0, 18.0], 20),
+        hohe_messwerte(
+            [17.5, 21.0, 19.5, 23.0, 18.0],
+            20
+        ),
         [21.0, 23.0],
     )
 
     # ---------------------------------------------------------------- Aufgabe 2
+
     check(
         "2 messwerte_zaehlen",
-        messwerte_zaehlen([20, 21, 20, 19, 21, 20]),
-        {20: 3, 21: 2, 19: 1},
+        messwerte_zaehlen(
+            [20, 21, 20, 19, 21, 20]
+        ),
+        {
+            20: 3,
+            21: 2,
+            19: 1
+        },
     )
 
     # ---------------------------------------------------------------- Aufgabe 3
+
     check(
         "3 eindeutige_stationen",
         eindeutige_stationen(
-            ["Nord", "Sued", "Nord", "West", "Sued"]
+            [
+                "Nord",
+                "Sued",
+                "Nord",
+                "West",
+                "Sued"
+            ]
         ),
-        ["Nord", "Sued", "West"],
+        [
+            "Nord",
+            "Sued",
+            "West"
+        ],
     )
 
     # ---------------------------------------------------------------- Aufgabe 4
+
     check(
         "4 gemeinsame_sensoren",
         gemeinsame_sensoren(
-            ["temperatur", "druck", "feuchtigkeit"],
-            ["temperatur", "licht", "feuchtigkeit"],
+            [
+                "temperatur",
+                "druck",
+                "feuchtigkeit"
+            ],
+            [
+                "temperatur",
+                "licht",
+                "feuchtigkeit"
+            ],
         ),
-        ["feuchtigkeit", "temperatur"],
+        [
+            "feuchtigkeit",
+            "temperatur"
+        ],
     )
 
     # ---------------------------------------------------------------- Aufgabe 5
+
     check(
         "5a sortiere_messwerte (auf)",
         sortiere_messwerte(
-            [21.4, 18.7, 23.1, 19.5, 17.9, 22.0]
+            [
+                21.4,
+                18.7,
+                23.1,
+                19.5,
+                17.9,
+                22.0
+            ]
         ),
-        [17.9, 18.7, 19.5, 21.4, 22.0, 23.1],
+        [
+            17.9,
+            18.7,
+            19.5,
+            21.4,
+            22.0,
+            23.1
+        ],
     )
 
     check(
         "5b sortiere_messwerte (ab)",
         sortiere_messwerte(
-            [21.4, 18.7, 23.1, 19.5, 17.9, 22.0],
+            [
+                21.4,
+                18.7,
+                23.1,
+                19.5,
+                17.9,
+                22.0
+            ],
             absteigend=True,
         ),
-        [23.1, 22.0, 21.4, 19.5, 18.7, 17.9],
+        [
+            23.1,
+            22.0,
+            21.4,
+            19.5,
+            18.7,
+            17.9
+        ],
     )
 
     # ---------------------------------------------------------------- Aufgabe 6
+
     check(
         "6 gruppiere_messwerte",
         gruppiere_messwerte(
@@ -220,13 +308,17 @@ if __name__ == "__main__":
     )
 
     # ---------------------------------------------------------------- Aufgabe 7
+
     check(
         "7 min_max",
-        min_max([18.4, 21.7, 16.2, 23.1]),
+        min_max(
+            [18.4, 21.7, 16.2, 23.1]
+        ),
         (16.2, 23.1),
     )
 
     # ---------------------------------------------------------------- Aufgabe 8
+
     check(
         "8 durchschnittswerte",
         durchschnittswerte(
@@ -251,3 +343,8 @@ if __name__ == "__main__":
             "West": 18.0,
         },
     )
+
+    print()
+    print("==========================================")
+    print("   ALLE TESTS ABGESCHLOSSEN")
+    print("==========================================")

@@ -536,6 +536,8 @@ def selbsttest():
         Path(__file__).parent
         / "haushaltsbuch_test.json"
     )
+    # Testdatei entfernen
+    # unlink() löscht die Datei.
 
     if testdatei.exists():
         testdatei.unlink()
@@ -556,7 +558,8 @@ def selbsttest():
         laden(testdatei),
         buchungen,
     )
-
+    # Testdatei entfernen
+    # unlink() löscht die Datei.
     if testdatei.exists():
         testdatei.unlink()
 

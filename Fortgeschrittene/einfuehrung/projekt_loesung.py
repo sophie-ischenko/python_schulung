@@ -1,6 +1,5 @@
-"""Einführung in Python – Mini-Projekt: Der Begrüßungs-Bot (LÖSUNG)
-
-Musterlösung des Mini-Projekts.
+"""
+Einführung in Python – Mini-Projekt: Der Begrüßungs-Bot (LÖSUNG)
 
 Starten:
     python projekt.py
@@ -23,13 +22,13 @@ def erstelle_begruessung(name):
 
 
 # ----------------------------------------------------------------
-# Funktion 2: Volljährigkeit prüfen
+# Funktion 2: Passwort prüfen
 # ----------------------------------------------------------------
 
-def ist_volljaehrig(alter):
-    """Gibt True zurück, wenn das Alter mindestens 18 beträgt."""
+def ist_passwort_sicher(passwort):
+    """Gibt True zurück, wenn das Passwort mindestens 8 Zeichen hat."""
 
-    return alter >= 18
+    return len(passwort) >= 8
 
 
 # ----------------------------------------------------------------
@@ -42,16 +41,16 @@ def main():
     print("=== START DES BOTS ===")
 
     benutzer_name = input("Wie heißt du? ")
-    benutzer_alter = int(input("Wie alt bist du? "))
+    benutzer_passwort = input("Lege ein Passwort fest: ")
 
     text = erstelle_begruessung(benutzer_name)
 
     print(text)
 
-    if ist_volljaehrig(benutzer_alter):
-        print("Du bist volljährig. Du darfst alle Funktionen nutzen.")
+    if ist_passwort_sicher(benutzer_passwort):
+        print("Dein Passwort ist lang genug.")
     else:
-        print("Du bist noch nicht volljährig. Eingeschränkter Modus aktiv.")
+        print("Dein Passwort ist zu kurz. Verwende mindestens 8 Zeichen.")
 
     print("=== ENDE ===")
 
@@ -87,26 +86,26 @@ def selbsttest():
     )
 
     ergebnis(
-        "Volljährig (25)",
-        ist_volljaehrig(25),
+        "Passwort mit 10 Zeichen",
+        ist_passwort_sicher("Python1234"),
         True
     )
 
     ergebnis(
-        "Volljährig (18)",
-        ist_volljaehrig(18),
+        "Passwort mit genau 8 Zeichen",
+        ist_passwort_sicher("Python12"),
         True
     )
 
     ergebnis(
-        "Volljährig (17)",
-        ist_volljaehrig(17),
+        "Passwort mit 7 Zeichen",
+        ist_passwort_sicher("Python1"),
         False
     )
 
     ergebnis(
-        "Volljährig (12)",
-        ist_volljaehrig(12),
+        "Leeres Passwort",
+        ist_passwort_sicher(""),
         False
     )
 
@@ -116,14 +115,17 @@ def selbsttest():
 # ----------------------------------------------------------------
 
 if __name__ == "__main__":
+
     if len(sys.argv) > 1 and sys.argv[1] == "test":
         try:
             selbsttest()
+
         except Exception as fehler:
             print(
                 f"✗ Selbsttest abgebrochen: "
                 f"{type(fehler).__name__}: {fehler}"
             )
             print("  Vermutlich ist eine Funktion noch nicht fertig.")
+
     else:
         main()

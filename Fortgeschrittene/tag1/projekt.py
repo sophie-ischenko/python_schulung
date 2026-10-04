@@ -238,6 +238,36 @@ def ausweis_erstellen(agent):
     """
     pass
 
+# ----------------------------------------------------------------
+# Selbsttest
+# ----------------------------------------------------------------
+
+# Die Tests stehen hier in einer eigenen Funktion.
+#
+# Warum?
+#
+# In diesem Projekt kann das Programm auf zwei verschiedene Arten
+# gestartet werden:
+#
+#     python projekt.py
+#
+#     → normales Programm
+#
+# oder:
+#
+#     python projekt.py test
+#
+#     → nur die Tests
+#
+# Dafür brauchen wir eine Funktion, die alle Tests bündelt.
+# Diese Funktion heißt `check()`.
+#
+# Später prüfen wir mit `sys.argv`, ob beim Programmstart
+# das Wort "test" angegeben wurde.
+#
+# Dadurch können wir gezielt `check()` aufrufen, ohne
+# das normale Hauptprogramm zu starten.
+
 
 def check():
     """

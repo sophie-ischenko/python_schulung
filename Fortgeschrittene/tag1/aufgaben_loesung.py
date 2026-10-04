@@ -1,4 +1,3 @@
-
 """
 Tag 1 – Aufgaben: Die Missionen der Code-Akademie
 
@@ -16,6 +15,7 @@ Themen:
 - Listen filtern
 - Funktionen mit Strings und Listen
 """
+
 
 # ============================================================
 # HILFSFUNKTION
@@ -51,6 +51,7 @@ def normalisiere_name(name):
     """
     woerter = name.split()
     name = " ".join(woerter)
+
     return name.title()
 
 
@@ -87,6 +88,7 @@ def geheimnisvolle_laenge(text):
     Gibt die Länge des Textes ohne Leerzeichen zurück.
     """
     ohne_leerzeichen = text.replace(" ", "")
+
     return len(ohne_leerzeichen)
 
 
@@ -129,9 +131,11 @@ def ersetze_umlaute(text):
     text = text.replace("ä", "ae")
     text = text.replace("ö", "oe")
     text = text.replace("ü", "ue")
+
     text = text.replace("Ä", "Ae")
     text = text.replace("Ö", "Oe")
     text = text.replace("Ü", "Ue")
+
     text = text.replace("ß", "ss")
 
     return text
@@ -185,6 +189,7 @@ def entferne_agent(agenten, name):
     Entfernt einen Agenten aus der Liste.
     """
     agenten.remove(name)
+
     return agenten
 
 
@@ -274,6 +279,7 @@ def agenten_name(agent):
     Baut den vollständigen Namen aus der Agentenliste.
     """
     name = [agent[0], agent[1]]
+
     return " ".join(name)
 
 
@@ -339,8 +345,12 @@ def agenten_anzeigen(agenten):
 
 # ★ Zusatzaufgabe
 def agenten_sortieren(agenten):
-    agenten.sort()
-    return agenten
+    """
+    Gibt eine sortierte Kopie der Agentenliste zurück.
+
+    Die ursprüngliche Liste wird nicht verändert.
+    """
+    return sorted(agenten)
 
 
 # ============================================================
@@ -600,7 +610,7 @@ if __name__ == "__main__":
     print("31 agenten_anzeigen:")
     agenten_anzeigen(test_agenten)
 
-    sortierte = agenten_nach_namen_sortieren(
+    sortierte = agenten_sortieren(
         [
             ["Grace", "Hopper", "Schatten"],
             ["Alan", "Turing", "Nebel"],
@@ -609,7 +619,7 @@ if __name__ == "__main__":
     )
 
     check(
-        "32 ★ agenten_nach_namen_sortieren",
+        "32 ★ agenten_sortieren",
         sortierte,
         [
             ["Ada", "Lovelace", "Falke"],

@@ -1,18 +1,42 @@
-
 """Tag 2 – Mini-Projekt: Messdaten-Analyse (STARTER)
 
-Ein Konsolenprogramm zur Auswertung von Messdaten verschiedener Stationen.
+Ein Konsolenprogramm zur Auswertung von Messdaten
+verschiedener Messstationen.
 
 Die Daten liegen als verschachteltes Dictionary direkt im Programm.
-Dabei werden Listen, Tupel, Dictionaries, Sets, sorted()
-und verschachtelte Datenstrukturen miteinander kombiniert.
 
-Starten:      python projekt.py
-Selbsttest:   python projekt.py test
+In diesem Projekt werden kombiniert:
+
+- Listen
+- Tupel
+- Dictionaries
+- Sets
+- sorted()
+- Schleifen
+- Bedingungen
+- verschachtelte Datenstrukturen
+
+Das Projekt ist bewusst etwas größer als die einzelnen Übungen.
+
+Die einzelnen Funktionen bauen aufeinander auf.
+
+
+STARTEN
+========
+
+Normales Programm:
+
+    python projekt.py
+
+Selbsttest:
+
+    python projekt.py test
 """
 
 import sys
 
+
+# ---------------------------------------------------------------- Daten
 
 MESSDATEN = {
     "Nord": {
@@ -31,156 +55,288 @@ MESSDATEN = {
 
 
 # ---------------------------------------------------------------- Funktion 1
+
 def berechne_mittelwert(messwerte):
-    """Berechnet den Durchschnitt einer nicht leeren Liste von Messwerten."""
+    """Berechnet den Durchschnitt einer nicht leeren Liste."""
+
     # TODO:
-    # Summe der Messwerte durch Anzahl der Messwerte teilen.
+    # 1. Alle Werte mit sum() addieren.
+    # 2. Durch die Anzahl der Werte mit len() teilen.
+    # 3. Ergebnis zurückgeben.
+
     pass
 
 
 # ---------------------------------------------------------------- Funktion 2
-def station_auswerten(name, messdaten):
-    """
-    Erstellt eine Auswertung für eine Station.
 
-    Rückgabe:
-    (
-        kleinster_wert,
-        groesster_wert,
-        durchschnitt
-    )
+def temperatur_bereich(messwerte):
     """
+    Gibt den kleinsten und größten Messwert als Tupel zurück.
+
+    Beispiel:
+
+    [18.4, 21.7, 16.2]
+
+    wird zu:
+
+    (16.2, 21.7)
+    """
+
     # TODO:
-    # 1. Temperaturen der Station holen
-    # 2. Minimum bestimmen
-    # 3. Maximum bestimmen
-    # 4. Durchschnitt berechnen
-    # 5. Werte als Tupel zurückgeben
+    # Verwende min() und max().
+    #
+    # Gib beide Werte gemeinsam als Tupel zurück.
+
     pass
 
 
 # ---------------------------------------------------------------- Funktion 3
-def stationen_mit_hoher_temperatur(messdaten, grenzwert):
-    """
-    Gibt die Namen aller Stationen zurück,
-    deren Durchschnittstemperatur mindestens den Grenzwert erreicht.
 
-    Die Namen werden alphabetisch sortiert zurückgegeben.
+def temperatur_spanne(messwerte):
     """
+    Berechnet die Temperaturspanne einer Station.
+
+    Die Temperaturspanne ist:
+
+    größter Wert - kleinster Wert
+    """
+
     # TODO:
-    # Durch die Stationen laufen.
-    # Durchschnitt berechnen.
-    # Passende Stationen sammeln.
-    # Ergebnis mit sorted() sortieren.
+    # 1. Bestimme den kleinsten Wert.
+    # 2. Bestimme den größten Wert.
+    # 3. Berechne die Differenz.
+    # 4. Gib die Differenz zurück.
+
     pass
 
 
 # ---------------------------------------------------------------- Funktion 4
-def gemeinsame_sensoren(messdaten, station_a, station_b):
-    """
-    Gibt die Sensoren zurück, die beide Stationen verwenden.
 
-    Rückgabe: sortierte Liste
+def waermste_station(messdaten):
     """
+    Findet die Station mit dem höchsten Durchschnitt.
+
+    Rückgabe:
+
+    (
+        stationsname,
+        durchschnitt
+    )
+
+    Beispiel:
+
+    ("Sued", 22.43)
+    """
+
     # TODO:
-    # 1. Sensoren beider Stationen holen
-    # 2. Sets bilden
-    # 3. Schnittmenge mit & bilden
-    # 4. Ergebnis mit sorted() sortieren
+    #
+    # Erstelle zunächst Variablen für:
+    #
+    # - bisher höchste Durchschnittstemperatur
+    # - Name der bisher wärmsten Station
+    #
+    # Laufe anschließend durch alle Stationen.
+    #
+    # Für jede Station:
+    #
+    # 1. Temperaturen aus dem Dictionary holen.
+    # 2. Durchschnitt berechnen.
+    # 3. Prüfen, ob dieser Durchschnitt höher ist.
+    # 4. Falls ja, Namen und Durchschnitt speichern.
+    #
+    # Am Ende beide Werte als Tupel zurückgeben.
+
     pass
 
 
 # ---------------------------------------------------------------- Funktion 5
-def alle_sensoren(messdaten):
-    """Gibt alle unterschiedlichen Sensoren des gesamten Systems zurück."""
+
+def sensor_report(messdaten):
+    """
+    Erstellt eine Übersicht über alle verwendeten Sensoren.
+
+    Rückgabe:
+
+    {
+        "druck": ["Nord", "West"],
+        "feuchtigkeit": ["Nord", "Sued"],
+        "licht": ["Sued"],
+        "temperatur": ["Nord", "Sued", "West"]
+    }
+
+    Die Sensoren sollen alphabetisch sortiert sein.
+    Auch die Stationsnamen innerhalb der Listen sollen
+    alphabetisch sortiert sein.
+    """
+
     # TODO:
-    # Ein Set anlegen.
-    # Die Sensoren aller Stationen hinzufügen.
-    # Am Ende sortiert als Liste zurückgeben.
+    #
+    # Erstelle ein leeres Dictionary.
+    #
+    # Laufe durch alle Stationen.
+    #
+    # Hole die Sensoren der jeweiligen Station.
+    #
+    # Für jeden Sensor:
+    #
+    # - Wenn der Sensor noch nicht im Dictionary existiert:
+    #   Erstelle eine neue Liste.
+    #
+    # - Füge anschließend den Stationsnamen hinzu.
+    #
+    # Sortiere am Ende die Stationsnamen jeder Sensor-Liste.
+    #
+    # Gib das Dictionary zurück.
+
     pass
 
 
 # ---------------------------------------------------------------- Funktion 6
-def stationen_sortiert(messdaten):
-    """Gibt die Stationsnamen alphabetisch sortiert zurück."""
+
+def stationen_nach_durchschnitt(messdaten):
+    """
+    Gibt die Stationsnamen nach ihrer Durchschnittstemperatur
+    absteigend sortiert zurück.
+
+    Beispiel:
+
+    ["Sued", "Nord", "West"]
+
+    Die wärmste Station steht also zuerst.
+    """
+
     # TODO:
-    # Die Stationsnamen mit sorted() sortieren.
+    #
+    # Erstelle zunächst ein Dictionary mit:
+    #
+    # Stationsname → Durchschnittstemperatur
+    #
+    # Beispiel:
+    #
+    # {
+    #     "Nord": 19.27,
+    #     "Sued": 22.43,
+    #     "West": 18.67
+    # }
+    #
+    # Sortiere anschließend die Stationsnamen nach
+    # ihrer Durchschnittstemperatur.
+    #
+    # Hinweis:
+    # Für diese Aufgabe reicht sorted() zusammen mit
+    # einer Schleife über die Stationen.
+    #
+    # Wenn du bereits weißt, wie key= funktioniert,
+    # darfst du es verwenden.
+    #
+    # Wenn nicht, kannst du die Aufgabe zunächst
+    # mit einer einfacheren Lösung bearbeiten.
+
     pass
 
 
 # ---------------------------------------------------------------- Funktion 7
-def zusammenfassung(messdaten):
+
+def station_zusammenfassung(name, messdaten):
     """
-    Erstellt für jede Station eine Zusammenfassung.
+    Erstellt eine Zusammenfassung für eine Station.
 
     Rückgabe:
+
     {
-        "Nord": {
-            "min": 18.4,
-            "max": 20.3,
-            "mittelwert": 19.266666666666668
-        },
-        ...
+        "name": "Nord",
+        "mittelwert": 19.27,
+        "spanne": 1.9,
+        "sensoren": [
+            "druck",
+            "feuchtigkeit",
+            "temperatur"
+        ]
     }
+
+    Die Sensoren sollen sortiert zurückgegeben werden.
     """
+
     # TODO:
-    # Neues Dictionary aufbauen.
-    # Für jede Station die Temperaturen holen.
-    # Minimum, Maximum und Durchschnitt berechnen.
-    # Die Ergebnisse als verschachteltes Dictionary speichern.
+    #
+    # 1. Station aus dem Dictionary holen.
+    # 2. Temperaturen holen.
+    # 3. Durchschnitt berechnen.
+    # 4. Temperaturspanne berechnen.
+    # 5. Sensoren holen und sortieren.
+    # 6. Alles in einem neuen Dictionary speichern.
+    # 7. Dictionary zurückgeben.
+
     pass
 
 
 # ---------------------------------------------------------------- Ausgabe
+
 def station_anzeigen(name, messdaten):
-    """Gibt eine Station mit ihren Messdaten übersichtlich aus."""
+    """Gibt eine Station mit ihren wichtigsten Daten aus."""
 
-    daten = messdaten[name]
-    temperaturen = daten["temperaturen"]
-    sensoren = sorted(daten["sensoren"])
+    # TODO:
+    #
+    # Verwende station_zusammenfassung().
+    #
+    # Gib anschließend übersichtlich aus:
+    #
+    # - Name
+    # - Temperaturen
+    # - Mittelwert
+    # - Temperaturspanne
+    # - Sensoren
 
-    kleinster, groesster, durchschnitt = station_auswerten(
-        name,
-        messdaten,
-    )
-
-    print()
-    print(f"Station: {name}")
-    print(f"Temperaturen: {temperaturen}")
-    print(f"Minimum:      {kleinster:.1f} °C")
-    print(f"Maximum:      {groesster:.1f} °C")
-    print(f"Durchschnitt: {durchschnitt:.2f} °C")
-    print(f"Sensoren:     {', '.join(sensoren)}")
+    pass
 
 
 def alle_station_anzeigen(messdaten):
     """Gibt alle Stationen alphabetisch sortiert aus."""
 
-    for name in sorted(messdaten):
-        station_anzeigen(name, messdaten)
+    # TODO:
+    #
+    # Stationen mit sorted() sortieren.
+    #
+    # Für jede Station station_anzeigen() aufrufen.
+
+    pass
+
+
+def sensoren_anzeigen(messdaten):
+    """Gibt eine Übersicht der Sensoren und ihrer Stationen aus."""
+
+    # TODO:
+    #
+    # Verwende sensor_report().
+    #
+    # Gib für jeden Sensor die zugehörigen Stationen aus.
+
+    pass
 
 
 # ---------------------------------------------------------------- Hauptprogramm
+
 def main():
     messdaten = MESSDATEN
 
     while True:
         print()
         print("=== Messdaten-Analyse ===")
-        print("1 - Stationen anzeigen")
-        print("2 - Station auswerten")
-        print("3 - Stationen alphabetisch anzeigen")
-        print("4 - Gemeinsame Sensoren vergleichen")
-        print("5 - Alle verwendeten Sensoren anzeigen")
-        print("6 - Stationen über Temperaturgrenze")
+        print("1 - Alle Stationen anzeigen")
+        print("2 - Eine Station auswerten")
+        print("3 - Wärmste Station anzeigen")
+        print("4 - Stationen nach Durchschnitt sortiert")
+        print("5 - Sensorübersicht anzeigen")
         print("0 - Programm beenden")
 
         auswahl = input("Auswahl: ").strip()
 
         if auswahl == "1":
+
             alle_station_anzeigen(messdaten)
 
         elif auswahl == "2":
+
             name = input("Stationsname: ").strip()
 
             if name in messdaten:
@@ -189,74 +345,39 @@ def main():
                 print("Station nicht gefunden.")
 
         elif auswahl == "3":
-            stationen = stationen_sortiert(messdaten)
+
+            name, durchschnitt = waermste_station(messdaten)
 
             print()
-            print("Stationen alphabetisch:")
+            print("Wärmste Station:")
+            print(f"{name} mit {durchschnitt:.2f} °C")
+
+        elif auswahl == "4":
+
+            stationen = stationen_nach_durchschnitt(messdaten)
+
+            print()
+            print("Stationen nach Durchschnittstemperatur:")
+
             for name in stationen:
                 print(name)
 
-        elif auswahl == "4":
-            station_a = input("Erste Station: ").strip()
-            station_b = input("Zweite Station: ").strip()
-
-            if station_a not in messdaten or station_b not in messdaten:
-                print("Mindestens eine Station wurde nicht gefunden.")
-            else:
-                sensoren = gemeinsame_sensoren(
-                    messdaten,
-                    station_a,
-                    station_b,
-                )
-
-                print()
-                print("Gemeinsame Sensoren:")
-
-                for sensor in sensoren:
-                    print(sensor)
-
         elif auswahl == "5":
-            sensoren = alle_sensoren(messdaten)
 
-            print()
-            print("Alle verwendeten Sensoren:")
-
-            for sensor in sensoren:
-                print(sensor)
-
-        elif auswahl == "6":
-            eingabe = input("Temperaturgrenze: ").strip()
-
-            try:
-                grenzwert = float(eingabe)
-
-                stationen = stationen_mit_hoher_temperatur(
-                    messdaten,
-                    grenzwert,
-                )
-
-                print()
-
-                if stationen:
-                    print("Stationen über der Grenze:")
-
-                    for name in stationen:
-                        print(name)
-                else:
-                    print("Keine Station erreicht die Grenze.")
-
-            except ValueError:
-                print("Bitte eine gültige Zahl eingeben.")
+            sensoren_anzeigen(messdaten)
 
         elif auswahl == "0":
+
             print("Programm beendet.")
             break
 
         else:
+
             print("Ungültige Auswahl.")
 
 
 # ---------------------------------------------------------------- Selbsttest
+
 def selbsttest():
     """Prüft die wichtigsten Funktionen des Projekts."""
 
@@ -272,45 +393,71 @@ def selbsttest():
             19.27,
         ),
         (
-            "Auswertung Nord",
-            station_auswerten(
+            "Temperaturbereich Nord",
+            temperatur_bereich(
+                MESSDATEN["Nord"]["temperaturen"]
+            ),
+            (18.4, 20.3),
+        ),
+        (
+            "Temperaturspanne Nord",
+            temperatur_spanne(
+                MESSDATEN["Nord"]["temperaturen"]
+            ),
+            1.9,
+        ),
+        (
+            "Wärmste Station",
+            tuple(
+                [
+                    waermste_station(MESSDATEN)[0],
+                    round(
+                        waermste_station(MESSDATEN)[1],
+                        2,
+                    ),
+                ]
+            ),
+            ("Sued", 22.43),
+        ),
+        (
+            "Sensor Report",
+            sensor_report(MESSDATEN),
+            {
+                "druck": ["Nord", "West"],
+                "feuchtigkeit": ["Nord", "Sued"],
+                "licht": ["Sued"],
+                "temperatur": ["Nord", "Sued", "West"],
+            },
+        ),
+        (
+            "Stationen nach Durchschnitt",
+            stationen_nach_durchschnitt(MESSDATEN),
+            ["Sued", "Nord", "West"],
+        ),
+        (
+            "Zusammenfassung Nord",
+            station_zusammenfassung(
                 "Nord",
                 MESSDATEN,
             ),
-            (18.4, 20.3, 19.266666666666668),
-        ),
-        (
-            "Stationen ab 20 °C",
-            stationen_mit_hoher_temperatur(
-                MESSDATEN,
-                20,
-            ),
-            ["Sued"],
-        ),
-        (
-            "Gemeinsame Sensoren Nord/Sued",
-            gemeinsame_sensoren(
-                MESSDATEN,
-                "Nord",
-                "Sued",
-            ),
-            ["feuchtigkeit", "temperatur"],
-        ),
-        (
-            "Alle Sensoren",
-            alle_sensoren(MESSDATEN),
-            ["druck", "feuchtigkeit", "licht", "temperatur"],
-        ),
-        (
-            "Stationen sortiert",
-            stationen_sortiert(MESSDATEN),
-            ["Nord", "Sued", "West"],
+            {
+                "name": "Nord",
+                "mittelwert": 19.266666666666668,
+                "spanne": 1.9,
+                "sensoren": [
+                    "druck",
+                    "feuchtigkeit",
+                    "temperatur",
+                ],
+            },
         ),
     ]
 
     for name, erhalten, erwartet in ergebnisse:
+
         if erhalten == erwartet:
             print(f"✓ {name}")
+
         else:
             print(
                 f"✗ {name} → "
@@ -319,17 +466,26 @@ def selbsttest():
             )
 
 
+# ---------------------------------------------------------------- Start
+
 if __name__ == "__main__":
+
     if len(sys.argv) > 1 and sys.argv[1] == "test":
+
         try:
             selbsttest()
+
         except Exception as fehler:
+
             print(
                 f"✗ Selbsttest abgebrochen: "
                 f"{type(fehler).__name__}: {fehler}"
             )
+
             print(
                 "  (Vermutlich ist eine Funktion noch nicht fertig.)"
             )
+
     else:
+
         main()

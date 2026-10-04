@@ -287,10 +287,10 @@ if __name__ == "__main__":
         },
     )
 
-    # Testdatei wieder entfernen
+    # Die Testdatei wird nach dem Test wieder gelöscht.
+    # unlink() entfernt eine Datei.
     if gespeicherte_datei.exists():
         gespeicherte_datei.unlink()
-
     # -----------------------------------------------------------------------
     # Aufgabe 5
     # -----------------------------------------------------------------------
