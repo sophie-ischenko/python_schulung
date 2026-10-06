@@ -1,3 +1,0 @@
-Python lernen
-Dateien lesen
-Fehler behandeln

@@ -361,7 +361,7 @@ Positioniere sie beispielsweise so:
 ------------------------------------------------------------
 """
 
-
+"""
 ============================================================
 9. ABSTÄNDE MIT GRID()
 ============================================================
@@ -542,7 +542,7 @@ Diese Funktion können wir mit einem Button verbinden:
 # )
 
 
-"""
+
 Wenn der Benutzer klickt, wird hallo() ausgeführt.
 
 Wichtig:
