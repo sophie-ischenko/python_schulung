@@ -18,41 +18,7 @@ Die einzelnen Datenstrukturen haben unterschiedliche Aufgaben. Entscheidend ist 
 
 # 1. Listen
 
-Eine Liste speichert mehrere Werte in einer bestimmten Reihenfolge.
 
-```python
-temperaturen = [18.4, 21.7, 19.2, 23.1]
-```
-
-Die einzelnen Werte können über ihren Index angesprochen werden:
-
-```python
-print(temperaturen[0])
-print(temperaturen[2])
-```
-
-Ausgabe:
-
-```text
-18.4
-19.2
-```
-
-Der erste Index ist immer `0`.
-
-## Werte hinzufügen
-
-Mit `append()` wird ein neuer Wert am Ende der Liste eingefügt:
-
-```python
-temperaturen.append(24.0)
-```
-
-Die Liste enthält danach:
-
-```python
-[18.4, 21.7, 19.2, 23.1, 24.0]
-```
 
 ## Listen durchlaufen
 
@@ -132,94 +98,302 @@ Ein Tupel ist deshalb praktisch, wenn mehrere zusammengehörige Werte gemeinsam 
 
 # 3. Dictionaries
 
-Ein Dictionary speichert Werte über Schlüssel.
+Ein Dictionary speichert Daten als Schlüssel-Wert-Paare.
 
-```python
-station = {
-    "name": "Nord",
-    "temperatur": 18.4,
-    "sensor": "temperatur"
-}
-```
+Die wichtigsten Begriffe:
 
-Hier sind zum Beispiel:
-
-```text
-"name"
-"temperatur"
-"sensor"
-```
-
-die Schlüssel.
-
-Die zugehörigen Werte können über den Schlüssel gelesen werden:
-
-```python
-print(station["name"])
-print(station["temperatur"])
-```
-
-Ausgabe:
-
-```text
-Nord
-18.4
-```
-
-## Werte verändern
-
-Ein vorhandener Wert kann über seinen Schlüssel geändert werden:
-
-```python
-station["temperatur"] = 19.2
-```
-
-## Neue Werte hinzufügen
-
-Auch neue Schlüssel können angelegt werden:
-
-```python
-station["status"] = "aktiv"
-```
-
-## Prüfen, ob ein Schlüssel vorhanden ist
-
-Mit `in` können wir prüfen, ob ein Schlüssel existiert:
-
-```python
-if "temperatur" in station:
-    print("Temperatur vorhanden")
-```
-
-## Dictionaries zum Zählen verwenden
-
-Ein Dictionary eignet sich auch zum Zählen.
+- `key` = Schlüssel
+- `value` = Wert
+- `item` = ein Schlüssel-Wert-Paar
 
 Beispiel:
 
 ```python
-messwerte = [20, 21, 20, 19, 21, 20]
-
-zaehler = {}
-
-for messwert in messwerte:
-    if messwert in zaehler:
-        zaehler[messwert] = zaehler[messwert] + 1
-    else:
-        zaehler[messwert] = 1
-```
-
-Danach enthält `zaehler`:
-
-```python
-{
-    20: 3,
-    21: 2,
-    19: 1
+person = {
+    "name": "Sophie",
+    "alter": 32,
+    "stadt": "Hannover"
 }
 ```
 
-Der Messwert ist hier der Schlüssel und die Anzahl ist der Wert.
+Das Dictionary enthält:
+
+| key | value |
+|---|---|
+| `"name"` | `"Sophie"` |
+| `"alter"` | `32` |
+| `"stadt"` | `"Hannover"` |
+
+Der `key` beschreibt, welche Information gespeichert ist.
+
+Der `value` enthält die eigentliche Information.
+
+Ein `item` ist das komplette Paar aus `key` und `value`.
+
+---
+
+## 3.1 Auf einen Value zugreifen
+
+```python
+person = {
+    "name": "Sophie",
+    "alter": 32,
+    "stadt": "Hannover"
+}
+
+print(person["name"])
+print(person["alter"])
+print(person["stadt"])
+```
+
+---
+
+## 3.2 Einen Value ändern
+
+```python
+person["alter"] = 33
+
+print(person)
+```
+
+---
+
+## 3.3 Einen neuen Key hinzufügen
+
+```python
+person["beruf"] = "Informatikerin"
+
+print(person)
+```
+
+---
+
+## 3.4 Prüfen, ob ein Key existiert
+
+```python
+if "name" in person:
+    print("Name vorhanden")
+
+if "telefon" not in person:
+    print("Keine Telefonnummer gespeichert")
+```
+
+---
+
+## 3.5 Alle Keys ausgeben
+
+`.keys()` liefert alle Schlüssel des Dictionaries.
+
+```python
+for key in person.keys():
+    print(key)
+```
+
+---
+
+## 3.6 Alle Values ausgeben
+
+`.values()` liefert alle Werte des Dictionaries.
+
+```python
+for value in person.values():
+    print(value)
+```
+
+---
+
+## 3.7 Keys und Values zusammen
+
+`.items()` liefert die Schlüssel-Wert-Paare.
+
+Bei:
+
+```python
+{
+    "name": "Sophie",
+    "alter": 33
+}
+```
+
+sind die einzelnen Items:
+
+```text
+("name", "Sophie")
+("alter", 33)
+```
+
+Deshalb können wir schreiben:
+
+```python
+for key, value in person.items():
+    print(key, ":", value)
+```
+
+Dabei gilt:
+
+- `key` = Schlüssel
+- `value` = zugehöriger Wert
+
+---
+
+## 3.8 Ein Dictionary durchlaufen
+
+```python
+server = {
+    "name": "web01",
+    "status": "online",
+    "port": 443
+}
+
+for key, value in server.items():
+    print(key, ":", value)
+```
+
+---
+
+## 3.9 Warum sind Keys wichtig?
+
+Der `key` sagt uns, welche Bedeutung ein `value` hat.
+
+Ohne Keys:
+
+```text
+"Sophie"
+33
+"Hannover"
+```
+
+Wir wissen nicht sicher, was die Werte bedeuten.
+
+Mit Keys:
+
+```text
+"name"  -> "Sophie"
+"alter" -> 33
+"stadt" -> "Hannover"
+```
+
+Das Dictionary beschreibt also die Daten.
+
+---
+
+## 3.10 Unterschied zwischen Key, Value und Item
+
+```python
+daten = {
+    "temperatur": 21,
+    "ort": "Hannover",
+    "status": "OK"
+}
+```
+
+### Keys
+
+```text
+"temperatur"
+"ort"
+"status"
+```
+
+### Values
+
+```text
+21
+"Hannover"
+"OK"
+```
+
+### Items
+
+```text
+("temperatur", 21)
+("ort", "Hannover")
+("status", "OK")
+```
+
+Alle Items erhalten wir mit:
+
+```python
+daten.items()
+```
+
+Zum Beispiel:
+
+```python
+for key, value in daten.items():
+    print("Key:", key)
+    print("Value:", value)
+    print()
+```
+
+---
+
+## 3.11 Dictionary zum Zählen
+
+Ein Dictionary kann verwendet werden, um Häufigkeiten zu zählen.
+
+```python
+farben = [
+    "rot",
+    "blau",
+    "rot",
+    "grün",
+    "blau",
+    "rot"
+]
+
+anzahl = {}
+
+for farbe in farben:
+    if farbe in anzahl:
+        anzahl[farbe] += 1
+    else:
+        anzahl[farbe] = 1
+
+print(anzahl)
+```
+
+Ergebnis:
+
+```python
+{
+    "rot": 3,
+    "blau": 2,
+    "grün": 1
+}
+```
+
+Hier sind:
+
+- `key` = Farbe
+- `value` = Anzahl
+
+---
+
+## Merksatz
+
+```text
+Dictionary:
+
+key   -> beschreibt die Information
+value -> enthält die Information
+item  -> key + value zusammen
+```
+
+Wichtige Methoden:
+
+```text
+.keys()   -> alle Keys
+.values() -> alle Values
+.items()  -> alle Key-Value-Paare
+```
+
+Besonders wichtig:
+
+```python
+for key, value in daten.items():
+    print(key, value)
+```
 
 ---
 
@@ -414,8 +588,8 @@ Jetzt haben wir:
 
 ```text
 Liste
-  └── Dictionary
-       └── Liste
+ └── Dictionary
+      └── Liste
 ```
 
 Wir können diese Struktur mit einer Schleife verarbeiten:
@@ -599,27 +773,27 @@ Heute hast du sechs wichtige Bausteine kennengelernt:
 
 ```text
 Liste
-    ↓
+   ↓
 mehrere Werte in einer Reihenfolge
 
 Tupel
-    ↓
+   ↓
 zusammengehörige Werte
 
 Dictionary
-    ↓
+   ↓
 Schlüssel → Wert
 
 Set
-    ↓
+   ↓
 eindeutige Werte und Mengen
 
 sorted()
-    ↓
+   ↓
 sortierte neue Liste
 
 verschachtelte Datenstrukturen
-    ↓
+   ↓
 Datenstrukturen miteinander kombinieren
 ```
 
@@ -645,3 +819,4 @@ Dabei geht es unter anderem um:
 - Dateien lesen
 - Dateien schreiben
 - strukturierte Daten aus Dateien verarbeiten
+```

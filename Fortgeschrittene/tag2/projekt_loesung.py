@@ -1,10 +1,6 @@
-"""
-Tag 2 – Mini-Projekt: Messdaten-Analyse
+"""Tag 2 – Mini-Projekt: Reiseplaner (LÖSUNG)
 
-LÖSUNG
-
-Ein Konsolenprogramm zur Auswertung von Messdaten
-verschiedener Messstationen.
+Lösung zum Starter-Projekt.
 
 Themen:
 
@@ -16,405 +12,301 @@ Themen:
 - Schleifen
 - Bedingungen
 - verschachtelte Datenstrukturen
-- Funktionen
 """
-
 
 import sys
 
 
 # ---------------------------------------------------------------- Daten
 
-MESSDATEN = {
-    "Nord": {
-        "temperaturen": [18.4, 19.1, 20.3],
-        "sensoren": {"temperatur", "feuchtigkeit", "druck"},
+REISEN = {
+    "Paris": {
+        "land": "Frankreich",
+        "tage": 4,
+        "aktivitaeten": [
+            "Eiffelturm",
+            "Louvre",
+            "Seine",
+        ],
+        "kategorien": {"Kultur", "Stadt", "Essen"},
     },
-    "Sued": {
-        "temperaturen": [22.1, 23.4, 21.8],
-        "sensoren": {"temperatur", "licht", "feuchtigkeit"},
+    "Rom": {
+        "land": "Italien",
+        "tage": 5,
+        "aktivitaeten": [
+            "Kolosseum",
+            "Vatikan",
+            "Trevi-Brunnen",
+        ],
+        "kategorien": {"Kultur", "Geschichte", "Essen"},
     },
-    "West": {
-        "temperaturen": [17.9, 18.7, 19.4],
-        "sensoren": {"temperatur", "druck"},
+    "Lissabon": {
+        "land": "Portugal",
+        "tage": 3,
+        "aktivitaeten": [
+            "Altstadt",
+            "Straßenbahn",
+            "Belem",
+        ],
+        "kategorien": {"Stadt", "Meer", "Essen"},
     },
 }
 
 
 # ---------------------------------------------------------------- Funktion 1
 
-def berechne_mittelwert(messwerte):
-    """
-    Berechnet den Durchschnitt einer nicht leeren Liste.
-    """
+def reisedauer(tage):
+    """Gibt die Reisedauer als Text zurück."""
 
-    summe = sum(messwerte)
-    anzahl = len(messwerte)
-
-    durchschnitt = summe / anzahl
-
-    return durchschnitt
+    return f"{tage} Tage"
 
 
 # ---------------------------------------------------------------- Funktion 2
 
-def temperatur_bereich(messwerte):
+def reisebereich(reisen):
     """
-    Gibt den kleinsten und größten Messwert als Tupel zurück.
-
-    Beispiel:
-
-    [18.4, 21.7, 16.2]
-
-    wird zu:
-
-    (16.2, 21.7)
+    Gibt die kürzeste und längste Reise als Tupel zurück.
     """
 
-    kleinster = min(messwerte)
-    groesster = max(messwerte)
+    tage = []
 
-    return (kleinster, groesster)
+    for reise in reisen.values():
+        tage.append(reise["tage"])
+
+    return min(tage), max(tage)
 
 
 # ---------------------------------------------------------------- Funktion 3
 
-def temperatur_spanne(messwerte):
-    """
-    Berechnet die Temperaturspanne einer Station.
+def durchschnittliche_reisedauer(reisen):
+    """Berechnet die durchschnittliche Reisedauer."""
 
-    Die Temperaturspanne ist:
+    tage = []
 
-    größter Wert - kleinster Wert
-    """
+    for reise in reisen.values():
+        tage.append(reise["tage"])
 
-    kleinster = min(messwerte)
-    groesster = max(messwerte)
-
-    span = groesster - kleinster
-
-    return span
+    return sum(tage) / len(tage)
 
 
 # ---------------------------------------------------------------- Funktion 4
 
-def waermste_station(messdaten):
+def laengste_reise(reisen):
     """
-    Findet die Station mit dem höchsten Durchschnitt.
+    Findet die Reise mit den meisten Tagen.
 
     Rückgabe:
 
-    (
-        stationsname,
-        durchschnitt
-    )
+    (stadt, tage)
     """
 
-    waermste_name = None
-    hoechster_durchschnitt = None
+    laengste_stadt = None
+    laengste_tage = 0
 
-    for name in messdaten:
+    for stadt, reise in reisen.items():
 
-        station = messdaten[name]
+        tage = reise["tage"]
 
-        temperaturen = station["temperaturen"]
+        if tage > laengste_tage:
+            laengste_tage = tage
+            laengste_stadt = stadt
 
-        durchschnitt = berechne_mittelwert(
-            temperaturen
-        )
-
-        if (
-            hoechster_durchschnitt is None
-            or durchschnitt > hoechster_durchschnitt
-        ):
-            hoechster_durchschnitt = durchschnitt
-            waermste_name = name
-
-    return (
-        waermste_name,
-        hoechster_durchschnitt
-    )
+    return laengste_stadt, laengste_tage
 
 
 # ---------------------------------------------------------------- Funktion 5
 
-def sensor_report(messdaten):
+def kategorie_report(reisen):
     """
-    Erstellt eine Übersicht über alle verwendeten Sensoren.
-
-    Rückgabe:
-
-    {
-        "druck": ["Nord", "West"],
-        "feuchtigkeit": ["Nord", "Sued"],
-        "licht": ["Sued"],
-        "temperatur": ["Nord", "Sued", "West"]
-    }
+    Erstellt eine Übersicht der Kategorien.
     """
 
-    ergebnis = {}
+    report = {}
 
-    for station_name in messdaten:
+    for stadt, reise in reisen.items():
 
-        station = messdaten[station_name]
+        kategorien = reise["kategorien"]
 
-        sensoren = station["sensoren"]
+        for kategorie in kategorien:
 
-        for sensor in sensoren:
+            if kategorie not in report:
+                report[kategorie] = []
 
-            if sensor not in ergebnis:
-                ergebnis[sensor] = []
+            report[kategorie].append(stadt)
 
-            ergebnis[sensor].append(station_name)
+    for kategorie in report:
+        report[kategorie] = sorted(report[kategorie])
 
-    for sensor in ergebnis:
-
-        ergebnis[sensor] = sorted(
-            ergebnis[sensor]
-        )
-
-    return ergebnis
+    return dict(sorted(report.items()))
 
 
 # ---------------------------------------------------------------- Funktion 6
 
-def stationen_nach_durchschnitt(messdaten):
+def staedte_nach_reisedauer(reisen):
     """
-    Gibt die Stationsnamen nach ihrer Durchschnittstemperatur
+    Gibt die Städte nach ihrer Reisedauer
     absteigend sortiert zurück.
-
-    Die wärmste Station steht zuerst.
     """
 
-    durchschnittswerte = {}
+    reisedauern = {}
 
-    for name in messdaten:
+    for stadt, reise in reisen.items():
 
-        station = messdaten[name]
+        reisedauern[stadt] = reise["tage"]
 
-        temperaturen = station["temperaturen"]
-
-        durchschnitt = berechne_mittelwert(
-            temperaturen
-        )
-
-        durchschnittswerte[name] = durchschnitt
-
-    sortierte_stationen = sorted(
-        durchschnittswerte,
-        key=durchschnittswerte.get,
+    sortierte_staedte = sorted(
+        reisedauern,
+        key=reisedauern.get,
         reverse=True,
     )
 
-    return sortierte_stationen
+    return sortierte_staedte
 
 
 # ---------------------------------------------------------------- Funktion 7
 
-def station_zusammenfassung(name, messdaten):
+def reise_zusammenfassung(stadt, reisen):
     """
-    Erstellt eine Zusammenfassung für eine Station.
-
-    Rückgabe:
-
-    {
-        "name": "Nord",
-        "mittelwert": 19.27,
-        "spanne": 1.9,
-        "sensoren": [
-            "druck",
-            "feuchtigkeit",
-            "temperatur"
-        ]
-    }
+    Erstellt eine Zusammenfassung einer Reise.
     """
 
-    station = messdaten[name]
+    reise = reisen[stadt]
 
-    temperaturen = station["temperaturen"]
-
-    sensoren = station["sensoren"]
-
-    mittelwert = berechne_mittelwert(
-        temperaturen
-    )
-
-    spanne = temperatur_spanne(
-        temperaturen
-    )
-
-    sortierte_sensoren = sorted(
-        sensoren
-    )
-
-    ergebnis = {
-        "name": name,
-        "mittelwert": mittelwert,
-        "spanne": spanne,
-        "sensoren": sortierte_sensoren,
+    zusammenfassung = {
+        "stadt": stadt,
+        "land": reise["land"],
+        "tage": reise["tage"],
+        "aktivitaeten": reise["aktivitaeten"],
+        "kategorien": sorted(reise["kategorien"]),
     }
 
-    return ergebnis
+    return zusammenfassung
 
 
 # ---------------------------------------------------------------- Ausgabe
 
-def station_anzeigen(name, messdaten):
-    """Gibt eine Station mit ihren wichtigsten Daten aus."""
+def reise_anzeigen(stadt, reisen):
+    """Gibt eine Reise übersichtlich aus."""
 
-    daten = station_zusammenfassung(
-        name,
-        messdaten,
-    )
-
-    temperaturen = messdaten[name]["temperaturen"]
-
-    print()
-    print(f"Station:      {daten['name']}")
-    print(f"Temperaturen:  {temperaturen}")
-    print(
-        f"Mittelwert:    "
-        f"{daten['mittelwert']:.2f} °C"
-    )
-    print(
-        f"Spanne:        "
-        f"{daten['spanne']:.1f} °C"
-    )
-    print(
-        f"Sensoren:      "
-        f"{', '.join(daten['sensoren'])}"
-    )
-
-
-def alle_station_anzeigen(messdaten):
-    """Gibt alle Stationen alphabetisch sortiert aus."""
-
-    stationen = sorted(messdaten)
-
-    for name in stationen:
-
-        station_anzeigen(
-            name,
-            messdaten,
-        )
-
-
-def sensoren_anzeigen(messdaten):
-    """Gibt eine Übersicht der Sensoren und ihrer Stationen aus."""
-
-    report = sensor_report(
-        messdaten
+    zusammenfassung = reise_zusammenfassung(
+        stadt,
+        reisen,
     )
 
     print()
+    print(f"=== {zusammenfassung['stadt']} ===")
+    print(f"Land: {zusammenfassung['land']}")
+    print(f"Dauer: {zusammenfassung['tage']} Tage")
 
-    for sensor in sorted(report):
+    print("Aktivitäten:")
 
-        stationen = report[sensor]
+    for aktivitaet in zusammenfassung["aktivitaeten"]:
+        print(f"- {aktivitaet}")
 
-        print(
-            f"{sensor}: "
-            f"{', '.join(stationen)}"
-        )
+    print("Kategorien:")
+
+    for kategorie in zusammenfassung["kategorien"]:
+        print(f"- {kategorie}")
+
+
+def alle_reisen_anzeigen(reisen):
+    """Gibt alle Städte alphabetisch sortiert aus."""
+
+    staedte = sorted(reisen)
+
+    for stadt in staedte:
+        reise_anzeigen(stadt, reisen)
+
+
+def kategorien_anzeigen(reisen):
+    """Gibt alle Kategorien und ihre Städte aus."""
+
+    report = kategorie_report(reisen)
+
+    print()
+
+    for kategorie, staedte in report.items():
+
+        print(f"{kategorie}:")
+
+        for stadt in staedte:
+            print(f"- {stadt}")
+
+        print()
 
 
 # ---------------------------------------------------------------- Hauptprogramm
 
 def main():
-    messdaten = MESSDATEN
+
+    reisen = REISEN
 
     while True:
 
         print()
-        print("=== Messdaten-Analyse ===")
-        print("1 - Alle Stationen anzeigen")
-        print("2 - Eine Station auswerten")
-        print("3 - Wärmste Station anzeigen")
-        print("4 - Stationen nach Durchschnitt sortiert")
-        print("5 - Sensorübersicht anzeigen")
+        print("=== Reiseplaner ===")
+        print("1 - Alle Reisen anzeigen")
+        print("2 - Eine Reise anzeigen")
+        print("3 - Längste Reise anzeigen")
+        print("4 - Städte nach Reisedauer sortieren")
+        print("5 - Kategorien anzeigen")
+        print("6 - Reisebereich anzeigen")
         print("0 - Programm beenden")
 
-        auswahl = input(
-            "Auswahl: "
-        ).strip()
+        auswahl = input("Auswahl: ").strip()
 
         if auswahl == "1":
 
-            alle_station_anzeigen(
-                messdaten
-            )
+            alle_reisen_anzeigen(reisen)
 
         elif auswahl == "2":
 
-            name = input(
-                "Stationsname: "
-            ).strip()
+            stadt = input("Stadt: ").strip()
 
-            if name in messdaten:
-
-                station_anzeigen(
-                    name,
-                    messdaten,
-                )
-
+            if stadt in reisen:
+                reise_anzeigen(stadt, reisen)
             else:
-
-                print(
-                    "Station nicht gefunden."
-                )
+                print("Reiseziel nicht gefunden.")
 
         elif auswahl == "3":
 
-            name, durchschnitt = (
-                waermste_station(
-                    messdaten
-                )
-            )
+            stadt, tage = laengste_reise(reisen)
 
             print()
-            print("Wärmste Station:")
-            print(
-                f"{name} "
-                f"mit {durchschnitt:.2f} °C"
-            )
+            print("Längste Reise:")
+            print(f"{stadt} mit {tage} Tagen")
 
         elif auswahl == "4":
 
-            stationen = (
-                stationen_nach_durchschnitt(
-                    messdaten
-                )
-            )
+            staedte = staedte_nach_reisedauer(reisen)
 
             print()
-            print(
-                "Stationen nach "
-                "Durchschnittstemperatur:"
-            )
+            print("Städte nach Reisedauer:")
 
-            for name in stationen:
-
-                print(name)
+            for stadt in staedte:
+                print(stadt)
 
         elif auswahl == "5":
 
-            sensoren_anzeigen(
-                messdaten
-            )
+            kategorien_anzeigen(reisen)
+
+        elif auswahl == "6":
+
+            minimum, maximum = reisebereich(reisen)
+
+            print()
+            print("Reisedauer:")
+            print(f"Kürzeste Reise: {minimum} Tage")
+            print(f"Längste Reise:  {maximum} Tage")
 
         elif auswahl == "0":
 
-            print(
-                "Programm beendet."
-            )
-
+            print("Programm beendet.")
             break
 
         else:
 
-            print(
-                "Ungültige Auswahl."
-            )
+            print("Ungültige Auswahl.")
 
 
 # ---------------------------------------------------------------- Selbsttest
@@ -424,93 +316,81 @@ def selbsttest():
 
     ergebnisse = [
         (
-            "Mittelwert Nord",
+            "Reisedauer",
+            reisedauer(4),
+            "4 Tage",
+        ),
+        (
+            "Reisebereich",
+            reisebereich(REISEN),
+            (3, 5),
+        ),
+        (
+            "Durchschnittliche Reisedauer",
             round(
-                berechne_mittelwert(
-                    MESSDATEN["Nord"]["temperaturen"]
-                ),
+                durchschnittliche_reisedauer(REISEN),
                 2,
             ),
-            19.27,
+            4.0,
         ),
         (
-            "Temperaturbereich Nord",
-            temperatur_bereich(
-                MESSDATEN["Nord"]["temperaturen"]
-            ),
-            (18.4, 20.3),
+            "Längste Reise",
+            laengste_reise(REISEN),
+            ("Rom", 5),
         ),
         (
-            "Temperaturspanne Nord",
-            temperatur_spanne(
-                MESSDATEN["Nord"]["temperaturen"]
-            ),
-            1.9,
-        ),
-        (
-            "Wärmste Station",
-            (
-                waermste_station(
-                    MESSDATEN
-                )[0],
-                round(
-                    waermste_station(
-                        MESSDATEN
-                    )[1],
-                    2,
-                ),
-            ),
-            ("Sued", 22.43),
-        ),
-        (
-            "Sensor Report",
-            sensor_report(
-                MESSDATEN
-            ),
+            "Kategorie Report",
+            kategorie_report(REISEN),
             {
-                "druck": [
-                    "Nord",
-                    "West",
+                "Essen": [
+                    "Lissabon",
+                    "Paris",
+                    "Rom",
                 ],
-                "feuchtigkeit": [
-                    "Nord",
-                    "Sued",
+                "Geschichte": [
+                    "Rom",
                 ],
-                "licht": [
-                    "Sued",
+                "Kultur": [
+                    "Paris",
+                    "Rom",
                 ],
-                "temperatur": [
-                    "Nord",
-                    "Sued",
-                    "West",
+                "Meer": [
+                    "Lissabon",
+                ],
+                "Stadt": [
+                    "Lissabon",
+                    "Paris",
                 ],
             },
         ),
         (
-            "Stationen nach Durchschnitt",
-            stationen_nach_durchschnitt(
-                MESSDATEN
-            ),
+            "Städte nach Reisedauer",
+            staedte_nach_reisedauer(REISEN),
             [
-                "Sued",
-                "Nord",
-                "West",
+                "Rom",
+                "Paris",
+                "Lissabon",
             ],
         ),
         (
-            "Zusammenfassung Nord",
-            station_zusammenfassung(
-                "Nord",
-                MESSDATEN,
+            "Zusammenfassung Paris",
+            reise_zusammenfassung(
+                "Paris",
+                REISEN,
             ),
             {
-                "name": "Nord",
-                "mittelwert": 19.266666666666668,
-                "spanne": 1.9,
-                "sensoren": [
-                    "druck",
-                    "feuchtigkeit",
-                    "temperatur",
+                "stadt": "Paris",
+                "land": "Frankreich",
+                "tage": 4,
+                "aktivitaeten": [
+                    "Eiffelturm",
+                    "Louvre",
+                    "Seine",
+                ],
+                "kategorien": [
+                    "Essen",
+                    "Kultur",
+                    "Stadt",
                 ],
             },
         ),
@@ -519,13 +399,9 @@ def selbsttest():
     for name, erhalten, erwartet in ergebnisse:
 
         if erhalten == erwartet:
-
-            print(
-                f"✓ {name}"
-            )
+            print(f"✓ {name}")
 
         else:
-
             print(
                 f"✗ {name} → "
                 f"erwartet {erwartet!r}, "
@@ -537,13 +413,9 @@ def selbsttest():
 
 if __name__ == "__main__":
 
-    if (
-        len(sys.argv) > 1
-        and sys.argv[1] == "test"
-    ):
+    if len(sys.argv) > 1 and sys.argv[1] == "test":
 
         try:
-
             selbsttest()
 
         except Exception as fehler:

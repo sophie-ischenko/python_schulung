@@ -1,11 +1,8 @@
-"""Tag 2 – Mini-Projekt: Messdaten-Analyse (STARTER)
+"""Tag 2 – Mini-Projekt: Reiseplaner (STARTER)
 
-Ein Konsolenprogramm zur Auswertung von Messdaten
-verschiedener Messstationen.
+Ein kleines Konsolenprogramm zur Verwaltung von Reisen.
 
-Die Daten liegen als verschachteltes Dictionary direkt im Programm.
-
-In diesem Projekt werden kombiniert:
+Themen:
 
 - Listen
 - Tupel
@@ -14,12 +11,13 @@ In diesem Projekt werden kombiniert:
 - sorted()
 - Schleifen
 - Bedingungen
-- verschachtelte Datenstrukturen
+- verschachtelte Daten
+- Funktionen
 
-Das Projekt ist bewusst etwas größer als die einzelnen Übungen.
+Ziel:
 
-Die einzelnen Funktionen bauen aufeinander auf.
-
+Am Ende soll das Programm einige Reisen anzeigen
+und einfache Informationen daraus berechnen.
 
 STARTEN
 ========
@@ -36,420 +34,247 @@ Selbsttest:
 import sys
 
 
-# ---------------------------------------------------------------- Daten
+# ----------------------------------------------------------------
+# Daten
+# ----------------------------------------------------------------
 
-MESSDATEN = {
-    "Nord": {
-        "temperaturen": [18.4, 19.1, 20.3],
-        "sensoren": {"temperatur", "feuchtigkeit", "druck"},
+REISEN = {
+    "Paris": {
+        "land": "Frankreich",
+        "tage": 4,
+        "aktivitaeten": [
+            "Eiffelturm",
+            "Louvre",
+            "Seine",
+        ],
+        "kategorien": {"Kultur", "Stadt", "Essen"},
     },
-    "Sued": {
-        "temperaturen": [22.1, 23.4, 21.8],
-        "sensoren": {"temperatur", "licht", "feuchtigkeit"},
+    "Rom": {
+        "land": "Italien",
+        "tage": 5,
+        "aktivitaeten": [
+            "Kolosseum",
+            "Vatikan",
+            "Trevi-Brunnen",
+        ],
+        "kategorien": {"Kultur", "Geschichte", "Essen"},
     },
-    "West": {
-        "temperaturen": [17.9, 18.7, 19.4],
-        "sensoren": {"temperatur", "druck"},
+    "Lissabon": {
+        "land": "Portugal",
+        "tage": 3,
+        "aktivitaeten": [
+            "Altstadt",
+            "Straßenbahn",
+            "Belem",
+        ],
+        "kategorien": {"Stadt", "Meer", "Essen"},
     },
 }
 
 
-# ---------------------------------------------------------------- Funktion 1
+# ----------------------------------------------------------------
+# Aufgabe 1
+# ----------------------------------------------------------------
 
-def berechne_mittelwert(messwerte):
-    """Berechnet den Durchschnitt einer nicht leeren Liste."""
-
-    # TODO:
-    # 1. Alle Werte mit sum() addieren.
-    # 2. Durch die Anzahl der Werte mit len() teilen.
-    # 3. Ergebnis zurückgeben.
-
-    pass
-
-
-# ---------------------------------------------------------------- Funktion 2
-
-def temperatur_bereich(messwerte):
+def reisebereich(reisen):
     """
-    Gibt den kleinsten und größten Messwert als Tupel zurück.
+    Gibt die kürzeste und längste Reise zurück.
 
     Beispiel:
 
-    [18.4, 21.7, 16.2]
-
-    wird zu:
-
-    (16.2, 21.7)
+    (3, 5)
     """
 
     # TODO:
+    #
+    # Erstelle eine Liste mit allen Tageszahlen.
+    #
     # Verwende min() und max().
     #
-    # Gib beide Werte gemeinsam als Tupel zurück.
+    # Gib beide Werte als Tupel zurück.
 
     pass
 
 
-# ---------------------------------------------------------------- Funktion 3
+# ----------------------------------------------------------------
+# Aufgabe 2
+# ----------------------------------------------------------------
 
-def temperatur_spanne(messwerte):
+def laengste_reise(reisen):
     """
-    Berechnet die Temperaturspanne einer Station.
-
-    Die Temperaturspanne ist:
-
-    größter Wert - kleinster Wert
-    """
-
-    # TODO:
-    # 1. Bestimme den kleinsten Wert.
-    # 2. Bestimme den größten Wert.
-    # 3. Berechne die Differenz.
-    # 4. Gib die Differenz zurück.
-
-    pass
-
-
-# ---------------------------------------------------------------- Funktion 4
-
-def waermste_station(messdaten):
-    """
-    Findet die Station mit dem höchsten Durchschnitt.
+    Findet die Stadt mit der längsten Reise.
 
     Rückgabe:
 
-    (
-        stationsname,
-        durchschnitt
-    )
+    ("Rom", 5)
+    """
+
+    # TODO:
+    #
+    # Erstelle zwei Variablen:
+    #
+    # - längste Stadt
+    # - längste Dauer
+    #
+    # Laufe mit einer Schleife durch die Reisen.
+    #
+    # Vergleiche die Anzahl der Tage.
+    #
+    # Speichere die Reise, wenn sie länger ist.
+    #
+    # Gib Stadt und Tage als Tupel zurück.
+
+    pass
+
+
+# ----------------------------------------------------------------
+# Aufgabe 3
+# ----------------------------------------------------------------
+
+def alle_kategorien(reisen):
+    """
+    Gibt alle unterschiedlichen Kategorien zurück.
 
     Beispiel:
 
-    ("Sued", 22.43)
+    ["Essen", "Geschichte", "Kultur", "Meer", "Stadt"]
     """
 
     # TODO:
     #
-    # Erstelle zunächst Variablen für:
+    # Erstelle ein leeres Set.
     #
-    # - bisher höchste Durchschnittstemperatur
-    # - Name der bisher wärmsten Station
+    # Laufe durch alle Reisen.
     #
-    # Laufe anschließend durch alle Stationen.
+    # Hole die Kategorien der Reise.
     #
-    # Für jede Station:
+    # Füge die Kategorien zum Set hinzu.
     #
-    # 1. Temperaturen aus dem Dictionary holen.
-    # 2. Durchschnitt berechnen.
-    # 3. Prüfen, ob dieser Durchschnitt höher ist.
-    # 4. Falls ja, Namen und Durchschnitt speichern.
+    # Sortiere das Ergebnis mit sorted().
     #
-    # Am Ende beide Werte als Tupel zurückgeben.
+    # Gib die sortierte Liste zurück.
 
     pass
 
 
-# ---------------------------------------------------------------- Funktion 5
+# ----------------------------------------------------------------
+# Aufgabe 4
+# ----------------------------------------------------------------
 
-def sensor_report(messdaten):
+def reise_anzeigen(stadt, reisen):
     """
-    Erstellt eine Übersicht über alle verwendeten Sensoren.
-
-    Rückgabe:
-
-    {
-        "druck": ["Nord", "West"],
-        "feuchtigkeit": ["Nord", "Sued"],
-        "licht": ["Sued"],
-        "temperatur": ["Nord", "Sued", "West"]
-    }
-
-    Die Sensoren sollen alphabetisch sortiert sein.
-    Auch die Stationsnamen innerhalb der Listen sollen
-    alphabetisch sortiert sein.
-    """
-
-    # TODO:
-    #
-    # Erstelle ein leeres Dictionary.
-    #
-    # Laufe durch alle Stationen.
-    #
-    # Hole die Sensoren der jeweiligen Station.
-    #
-    # Für jeden Sensor:
-    #
-    # - Wenn der Sensor noch nicht im Dictionary existiert:
-    #   Erstelle eine neue Liste.
-    #
-    # - Füge anschließend den Stationsnamen hinzu.
-    #
-    # Sortiere am Ende die Stationsnamen jeder Sensor-Liste.
-    #
-    # Gib das Dictionary zurück.
-
-    pass
-
-
-# ---------------------------------------------------------------- Funktion 6
-
-def stationen_nach_durchschnitt(messdaten):
-    """
-    Gibt die Stationsnamen nach ihrer Durchschnittstemperatur
-    absteigend sortiert zurück.
+    Gibt eine Reise übersichtlich aus.
 
     Beispiel:
 
-    ["Sued", "Nord", "West"]
+    === Paris ===
+    Land: Frankreich
+    Dauer: 4 Tage
 
-    Die wärmste Station steht also zuerst.
+    Aktivitäten:
+    - Eiffelturm
+    - Louvre
+    - Seine
+
+    Kategorien:
+    - Essen
+    - Kultur
+    - Stadt
     """
 
     # TODO:
     #
-    # Erstelle zunächst ein Dictionary mit:
+    # Hole die Reise aus dem Dictionary.
     #
-    # Stationsname → Durchschnittstemperatur
+    # Gib Stadt, Land und Tage aus.
     #
-    # Beispiel:
+    # Gib anschließend alle Aktivitäten aus.
     #
-    # {
-    #     "Nord": 19.27,
-    #     "Sued": 22.43,
-    #     "West": 18.67
-    # }
+    # Gib anschließend alle Kategorien aus.
     #
-    # Sortiere anschließend die Stationsnamen nach
-    # ihrer Durchschnittstemperatur.
-    #
-    # Hinweis:
-    # Für diese Aufgabe reicht sorted() zusammen mit
-    # einer Schleife über die Stationen.
-    #
-    # Wenn du bereits weißt, wie key= funktioniert,
-    # darfst du es verwenden.
-    #
-    # Wenn nicht, kannst du die Aufgabe zunächst
-    # mit einer einfacheren Lösung bearbeiten.
+    # Die Kategorien sollen sortiert sein.
 
     pass
 
 
-# ---------------------------------------------------------------- Funktion 7
-
-def station_zusammenfassung(name, messdaten):
-    """
-    Erstellt eine Zusammenfassung für eine Station.
-
-    Rückgabe:
-
-    {
-        "name": "Nord",
-        "mittelwert": 19.27,
-        "spanne": 1.9,
-        "sensoren": [
-            "druck",
-            "feuchtigkeit",
-            "temperatur"
-        ]
-    }
-
-    Die Sensoren sollen sortiert zurückgegeben werden.
-    """
-
-    # TODO:
-    #
-    # 1. Station aus dem Dictionary holen.
-    # 2. Temperaturen holen.
-    # 3. Durchschnitt berechnen.
-    # 4. Temperaturspanne berechnen.
-    # 5. Sensoren holen und sortieren.
-    # 6. Alles in einem neuen Dictionary speichern.
-    # 7. Dictionary zurückgeben.
-
-    pass
-
-
-# ---------------------------------------------------------------- Ausgabe
-
-def station_anzeigen(name, messdaten):
-    """Gibt eine Station mit ihren wichtigsten Daten aus."""
-
-    # TODO:
-    #
-    # Verwende station_zusammenfassung().
-    #
-    # Gib anschließend übersichtlich aus:
-    #
-    # - Name
-    # - Temperaturen
-    # - Mittelwert
-    # - Temperaturspanne
-    # - Sensoren
-
-    pass
-
-
-def alle_station_anzeigen(messdaten):
-    """Gibt alle Stationen alphabetisch sortiert aus."""
-
-    # TODO:
-    #
-    # Stationen mit sorted() sortieren.
-    #
-    # Für jede Station station_anzeigen() aufrufen.
-
-    pass
-
-
-def sensoren_anzeigen(messdaten):
-    """Gibt eine Übersicht der Sensoren und ihrer Stationen aus."""
-
-    # TODO:
-    #
-    # Verwende sensor_report().
-    #
-    # Gib für jeden Sensor die zugehörigen Stationen aus.
-
-    pass
-
-
-# ---------------------------------------------------------------- Hauptprogramm
+# ----------------------------------------------------------------
+# Hauptprogramm
+# ----------------------------------------------------------------
 
 def main():
-    messdaten = MESSDATEN
 
-    while True:
-        print()
-        print("=== Messdaten-Analyse ===")
-        print("1 - Alle Stationen anzeigen")
-        print("2 - Eine Station auswerten")
-        print("3 - Wärmste Station anzeigen")
-        print("4 - Stationen nach Durchschnitt sortiert")
-        print("5 - Sensorübersicht anzeigen")
-        print("0 - Programm beenden")
+    print("=== Reiseplaner ===")
+    print()
 
-        auswahl = input("Auswahl: ").strip()
+    # Alle Städte anzeigen
 
-        if auswahl == "1":
+    print("Reiseziele:")
 
-            alle_station_anzeigen(messdaten)
+    for stadt in sorted(REISEN):
+        print("-", stadt)
 
-        elif auswahl == "2":
+    # Längste Reise
 
-            name = input("Stationsname: ").strip()
+    stadt, tage = laengste_reise(REISEN)
 
-            if name in messdaten:
-                station_anzeigen(name, messdaten)
-            else:
-                print("Station nicht gefunden.")
+    print()
+    print("Längste Reise:")
+    print(f"{stadt} mit {tage} Tagen")
 
-        elif auswahl == "3":
+    # Reisebereich
 
-            name, durchschnitt = waermste_station(messdaten)
+    minimum, maximum = reisebereich(REISEN)
 
-            print()
-            print("Wärmste Station:")
-            print(f"{name} mit {durchschnitt:.2f} °C")
+    print()
+    print("Reisedauer:")
+    print(f"Kürzeste Reise: {minimum} Tage")
+    print(f"Längste Reise: {maximum} Tage")
 
-        elif auswahl == "4":
+    # Kategorien
 
-            stationen = stationen_nach_durchschnitt(messdaten)
+    kategorien = alle_kategorien(REISEN)
 
-            print()
-            print("Stationen nach Durchschnittstemperatur:")
+    print()
+    print("Kategorien:")
 
-            for name in stationen:
-                print(name)
+    for kategorie in kategorien:
+        print("-", kategorie)
 
-        elif auswahl == "5":
+    # Einzelne Reise anzeigen
 
-            sensoren_anzeigen(messdaten)
+    print()
+    print("Beispielreise:")
 
-        elif auswahl == "0":
-
-            print("Programm beendet.")
-            break
-
-        else:
-
-            print("Ungültige Auswahl.")
+    reise_anzeigen("Paris", REISEN)
 
 
-# ---------------------------------------------------------------- Selbsttest
+# ----------------------------------------------------------------
+# Selbsttest
+# ----------------------------------------------------------------
 
 def selbsttest():
-    """Prüft die wichtigsten Funktionen des Projekts."""
 
     ergebnisse = [
         (
-            "Mittelwert Nord",
-            round(
-                berechne_mittelwert(
-                    MESSDATEN["Nord"]["temperaturen"]
-                ),
-                2,
-            ),
-            19.27,
+            "Reisebereich",
+            reisebereich(REISEN),
+            (3, 5),
         ),
         (
-            "Temperaturbereich Nord",
-            temperatur_bereich(
-                MESSDATEN["Nord"]["temperaturen"]
-            ),
-            (18.4, 20.3),
+            "Längste Reise",
+            laengste_reise(REISEN),
+            ("Rom", 5),
         ),
         (
-            "Temperaturspanne Nord",
-            temperatur_spanne(
-                MESSDATEN["Nord"]["temperaturen"]
-            ),
-            1.9,
-        ),
-        (
-            "Wärmste Station",
-            tuple(
-                [
-                    waermste_station(MESSDATEN)[0],
-                    round(
-                        waermste_station(MESSDATEN)[1],
-                        2,
-                    ),
-                ]
-            ),
-            ("Sued", 22.43),
-        ),
-        (
-            "Sensor Report",
-            sensor_report(MESSDATEN),
-            {
-                "druck": ["Nord", "West"],
-                "feuchtigkeit": ["Nord", "Sued"],
-                "licht": ["Sued"],
-                "temperatur": ["Nord", "Sued", "West"],
-            },
-        ),
-        (
-            "Stationen nach Durchschnitt",
-            stationen_nach_durchschnitt(MESSDATEN),
-            ["Sued", "Nord", "West"],
-        ),
-        (
-            "Zusammenfassung Nord",
-            station_zusammenfassung(
-                "Nord",
-                MESSDATEN,
-            ),
-            {
-                "name": "Nord",
-                "mittelwert": 19.266666666666668,
-                "spanne": 1.9,
-                "sensoren": [
-                    "druck",
-                    "feuchtigkeit",
-                    "temperatur",
-                ],
-            },
+            "Kategorien",
+            alle_kategorien(REISEN),
+            [
+                "Essen",
+                "Geschichte",
+                "Kultur",
+                "Meer",
+                "Stadt",
+            ],
         ),
     ]
 
@@ -466,7 +291,9 @@ def selbsttest():
             )
 
 
-# ---------------------------------------------------------------- Start
+# ----------------------------------------------------------------
+# Start
+# ----------------------------------------------------------------
 
 if __name__ == "__main__":
 
@@ -480,10 +307,6 @@ if __name__ == "__main__":
             print(
                 f"✗ Selbsttest abgebrochen: "
                 f"{type(fehler).__name__}: {fehler}"
-            )
-
-            print(
-                "  (Vermutlich ist eine Funktion noch nicht fertig.)"
             )
 
     else:

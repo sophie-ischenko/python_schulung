@@ -62,94 +62,7 @@ was Python macht.
 1. LISTEN
 =========
 
-Eine Liste speichert mehrere Werte in einer bestimmten Reihenfolge.
 
-Beispiel:
-"""
-
-# temperaturen = [18.4, 21.7, 19.2, 23.1]
-
-# print(temperaturen)
-
-
-"""
-Die einzelnen Werte können über ihren Index angesprochen werden.
-
-Der erste Index ist immer 0.
-"""
-
-# temperaturen = [18.4, 21.7, 19.2, 23.1]
-
-# print(temperaturen[0])
-# print(temperaturen[2])
-
-
-"""
-Die Ausgabe ist:
-
-18.4
-19.2
-
-
-MERKE
-
-Der erste Wert befindet sich an Position 0.
-
-Bei dieser Liste:
-
-[18.4, 21.7, 19.2, 23.1]
-
-sind die Indizes:
-
-0 → 18.4
-1 → 21.7
-2 → 19.2
-3 → 23.1
-
-
-AUSPROBIEREN
-------------
-"""
-
-# temperaturen = [18.4, 21.7, 19.2, 23.1]
-
-# print(temperaturen[0])
-# print(temperaturen[1])
-# print(temperaturen[3])
-
-
-"""
-WERTE HINZUFÜGEN
-
-Mit append() wird ein neuer Wert am Ende der Liste eingefügt.
-"""
-
-# temperaturen = [18.4, 21.7, 19.2, 23.1]
-
-# temperaturen.append(24.0)
-
-# print(temperaturen)
-
-
-"""
-Die Liste enthält danach:
-
-[18.4, 21.7, 19.2, 23.1, 24.0]
-
-
-AUSPROBIEREN
-------------
-"""
-
-# temperaturen = [18.4, 21.7]
-
-# temperaturen.append(22.5)
-# temperaturen.append(24.1)
-
-# print(temperaturen)
-
-
-"""
 LISTEN DURCHLAUFEN
 
 Mit einer for-Schleife können wir jeden Wert einer Liste
@@ -426,168 +339,259 @@ AUSPROBIEREN
 3. DICTIONARIES
 ===============
 
-Ein Dictionary speichert Werte über Schlüssel.
+Ein Dictionary speichert Daten als Schlüssel-Wert-Paare.
 
-Während eine Liste Werte über ihre Position anspricht,
-verwendet ein Dictionary Schlüssel.
+Die wichtigsten Begriffe:
+
+key   = Schlüssel
+value = Wert
+item  = ein Schlüssel-Wert-Paar
 
 Beispiel:
 """
 
-# station = {
-#     "name": "Nord",
-#     "temperatur": 18.4,
-#     "sensor": "temperatur"
+# person = {
+#     "name": "Sophie",
+#     "alter": 32,
+#     "stadt": "Hannover"
 # }
 
 
 """
-Die Schlüssel sind hier:
+Das Dictionary enthält:
 
-"name"
-"temperatur"
-"sensor"
-
-Die zugehörigen Werte sind:
-
-"Nord"
-18.4
-"temperatur"
+key       value
+-----------------------
+"name"    "Sophie"
+"alter"   32
+"stadt"   "Hannover"
 
 
-WERTE LESEN
+Der key beschreibt, welche Information gespeichert ist.
 
-Auf einen Wert greifen wir über seinen Schlüssel zu.
+Der value enthält die eigentliche Information.
+
+Ein item ist das komplette Paar aus key und value.
+
+Zum Beispiel:
+
+("name", "Sophie")
 """
 
-# print(station["name"])
-# print(station["temperatur"])
+
+"""
+WERTE LESEN
+
+Auf einen value greifen wir über seinen key zu.
+"""
+
+# person = {
+#     "name": "Sophie",
+#     "alter": 32,
+#     "stadt": "Hannover"
+# }
+
+# print(person["name"])
+# print(person["stadt"])
 
 
 """
 Die Ausgabe lautet:
 
-Nord
-18.4
+Sophie
+Hannover
 
 
 AUSPROBIEREN
 ------------
 """
 
-# station = {
-#     "name": "Nord",
-#     "temperatur": 18.4,
-#     "sensor": "temperatur"
+# buch = {
+#     "titel": "Python lernen",
+#     "seiten": 320,
+#     "autor": "Max"
 # }
 
-# print(station["name"])
-# print(station["sensor"])
+# print(buch["titel"])
+# print(buch["seiten"])
 
 
 """
 WERTE VERÄNDERN
 
-Ein vorhandener Wert kann über seinen Schlüssel geändert werden.
+Ein vorhandener value kann über seinen key geändert werden.
 """
 
-# station = {
-#     "name": "Nord",
-#     "temperatur": 18.4
+# person = {
+#     "name": "Sophie",
+#     "alter": 32
 # }
 
-# station["temperatur"] = 19.2
+# person["alter"] = 33
 
-# print(station)
+# print(person)
 
 
 """
 NEUE WERTE HINZUFÜGEN
 
-Auch neue Schlüssel können angelegt werden.
+Ein neuer key kann einfach verwendet werden.
+
+Existiert der key noch nicht,
+wird ein neues Schlüssel-Wert-Paar angelegt.
 """
 
-# station = {
-#     "name": "Nord",
-#     "temperatur": 18.4
+# person = {
+#     "name": "Sophie",
+#     "alter": 33
 # }
 
-# station["status"] = "aktiv"
+# person["beruf"] = "Informatikerin"
 
-# print(station)
+# print(person)
 
 
 """
-Danach enthält das Dictionary zusätzlich:
+PRÜFEN, OB EIN KEY VORHANDEN IST
 
-"status": "aktiv"
+Mit in können wir prüfen,
+ob ein bestimmter key existiert.
+"""
+
+# person = {
+#     "name": "Sophie",
+#     "alter": 33
+# }
+
+# if "name" in person:
+#     print("Name vorhanden")
+
+# if "telefon" not in person:
+#     print("Keine Telefonnummer gespeichert")
+
+
+"""
+ALLE KEYS AUSGEBEN
+
+Mit .keys() erhalten wir die Schlüssel.
+"""
+
+# person = {
+#     "name": "Sophie",
+#     "alter": 33,
+#     "stadt": "Hannover"
+# }
+
+# for key in person.keys():
+#     print(key)
+
+
+"""
+ALLE VALUES AUSGEBEN
+
+Mit .values() erhalten wir die Werte.
+"""
+
+# for value in person.values():
+#     print(value)
+
+
+"""
+KEY UND VALUE ZUSAMMEN
+
+Mit .items() können wir key und value
+gemeinsam verarbeiten.
+
+Beispiel:
+
+{
+    "name": "Sophie",
+    "alter": 33
+}
+
+enthält die items:
+
+("name", "Sophie")
+("alter", 33)
+"""
+
+# for key, value in person.items():
+#     print(key, ":", value)
+
+
+"""
+Hier passiert:
+
+key   = "name"
+value = "Sophie"
+
+und anschließend:
+
+key   = "alter"
+value = 33
 
 
 AUSPROBIEREN
 ------------
 """
 
-# station = {
-#     "name": "Nord",
-#     "temperatur": 18.4
+# buch = {
+#     "titel": "Python lernen",
+#     "seiten": 320,
+#     "autor": "Max"
 # }
 
-# station["status"] = "aktiv"
-# station["batterie"] = 87
-
-# print(station)
+# for key, value in buch.items():
+#     print(key, ":", value)
 
 
 """
-PRÜFEN, OB EIN SCHLÜSSEL VORHANDEN IST
+MERKE
 
-Mit in können wir prüfen, ob ein Schlüssel existiert.
-"""
+key
+→ beschreibt die Information
 
-# station = {
-#     "name": "Nord",
-#     "temperatur": 18.4
-# }
+value
+→ enthält die Information
 
-# if "temperatur" in station:
-#     print("Temperatur vorhanden")
+item
+→ ein komplettes key-value-Paar
 
+.keys()
+→ alle keys
 
-"""
-AUSPROBIEREN
-------------
-"""
+.values()
+→ alle values
 
-# station = {
-#     "name": "Nord",
-#     "temperatur": 18.4,
-#     "status": "aktiv"
-# }
-
-# if "status" in station:
-#     print("Status vorhanden")
-
-# if "batterie" in station:
-#     print("Batterie vorhanden")
+.items()
+→ alle key-value-Paare
 
 
-"""
 DICTIONARIES ZUM ZÄHLEN
+=======================
 
-Ein Dictionary eignet sich auch zum Zählen.
+Ein Dictionary kann auch verwendet werden,
+um Werte zu zählen.
 
 Beispiel:
 """
 
-# messwerte = [20, 21, 20, 19, 21, 20]
+# farben = [
+#     "rot",
+#     "blau",
+#     "rot",
+#     "grün",
+#     "blau",
+#     "rot"
+# ]
 
 # zaehler = {}
 
-# for messwert in messwerte:
-#     if messwert in zaehler:
-#         zaehler[messwert] = zaehler[messwert] + 1
+# for farbe in farben:
+#     if farbe in zaehler:
+#         zaehler[farbe] = zaehler[farbe] + 1
 #     else:
-#         zaehler[messwert] = 1
+#         zaehler[farbe] = 1
 
 # print(zaehler)
 
@@ -596,45 +600,34 @@ Beispiel:
 Danach enthält zaehler:
 
 {
-    20: 3,
-    21: 2,
-    19: 1
+    "rot": 3,
+    "blau": 2,
+    "grün": 1
 }
 
-Der Messwert ist hier der Schlüssel.
 
-Die Anzahl ist der Wert.
+Hier ist:
+
+key
+→ die Farbe
+
+value
+→ die Anzahl
+
 
 Das Grundmuster lautet:
 
-Wert vorhanden?
+Ist der key schon vorhanden?
+
+    Ja
     ↓
-Ja → Zähler erhöhen
-Nein → Zähler mit 1 anlegen
+    value erhöhen
 
-
-AUSPROBIEREN
-------------
+    Nein
+    ↓
+    key neu anlegen
+    value = 1
 """
-
-# statusmeldungen = [
-#     "online",
-#     "offline",
-#     "online",
-#     "wartung",
-#     "offline",
-#     "online"
-# ]
-
-# zaehler = {}
-
-# for status in statusmeldungen:
-#     if status in zaehler:
-#         zaehler[status] = zaehler[status] + 1
-#     else:
-#         zaehler[status] = 1
-
-# print(zaehler)
 
 
 """
