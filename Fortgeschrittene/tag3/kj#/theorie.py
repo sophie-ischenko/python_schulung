@@ -1,6 +1,18 @@
 """
 Python Tag 3 – Dateien, Fehler und Module
 
+
+Lege im gleichen Ordner wie diese Datei eine Datei
+namens notizen.txt an.
+
+Schreibe beispielsweise:
+
+Erste Notiz
+Zweite Notiz
+Python macht Spaß
+
+Danach kannst du dieses Beispiel ausführen.
+
 1. DATEIEN LESEN
 ================
 
@@ -20,9 +32,9 @@ Für die praktische Arbeit ist die Verwendung von with besser.
 Beispiel:
 """
 
-with open("notizen.txt", encoding="utf-8") as datei:
-    inhalt = datei.read()
-print("Datei über with gelesen:", inhalt)
+# with open("notizen.txt", encoding="utf-8") as datei:
+#     inhalt = datei.read()
+# print("Datei über with gelesen:", inhalt)
 
 """
 with sorgt dafür, dass die Datei nach der Verwendung
@@ -44,24 +56,6 @@ print("Die ganze Datei in einer Variable:")
 print(inhalt)
 
 
-"""
-AUSPROBIEREN
-------------
-
-Lege im gleichen Ordner wie diese Datei eine Datei
-namens notizen.txt an.
-
-Schreibe beispielsweise:
-
-Erste Notiz
-Zweite Notiz
-Python macht Spaß
-
-Danach kannst du dieses Beispiel ausführen.
-"""
-
-
-
 input("\n>> Drücke ENTER zum 'AUSPROBIEREN (Zeile 139)'... ")
 print("\nErgebnis deines Ausprobierens:")
 with open("notizen.txt", encoding="utf-8") as datei:
@@ -77,10 +71,10 @@ DATEI ZEILENWEISE LESEN
 Eine Datei kann auch mit einer for-Schleife durchlaufen werden.
 """
 
-print("--- DATEI ZEILENWEISE LESEN ---")
-with open("notizen.txt", encoding="utf-8") as datei:
-    for zeile in datei:
-        print("FOR-Loop direkt:", zeile)
+# print("--- DATEI ZEILENWEISE LESEN ---")
+# with open("notizen.txt", encoding="utf-8") as datei:
+#     for zeile in datei:
+#         print("FOR-Loop direkt:", zeile)
 
 
 """
@@ -92,11 +86,11 @@ Wir können diesen entfernen.
 Dafür verwenden wir rstrip().
 """
 
-print("--- DATEI ZEILENWEISE MIT RSTRIP() ---")
-with open("notizen.txt", encoding="utf-8") as datei:
-    for zeile in datei:
-        zeile = zeile.rstrip("\n")
-        print("RSTRIP Ergebnis:", zeile)
+# print("--- DATEI ZEILENWEISE MIT RSTRIP() ---")
+# with open("notizen.txt", encoding="utf-8") as datei:
+#     for zeile in datei:
+#         zeile = zeile.rstrip("\n")
+#         print("RSTRIP Ergebnis:", zeile)
 
 
 """
@@ -106,16 +100,14 @@ ZEILEN IN EINER LISTE SPEICHERN
 Wir können die einzelnen Zeilen auch in einer Liste speichern.
 """
 
-zeilen = []
+# zeilen = []
 
-with open("notizen.txt", encoding="utf-8") as datei:
-    for zeile in datei:
-        zeilen.append(zeile.rstrip("\n"))
+# with open("notizen.txt", encoding="utf-8") as datei:
+#     for zeile in datei:
+#         zeilen.append(zeile.rstrip("\n"))
 
-print("\n--- Als Liste: ---")
-print(zeilen)
-
-
+# print("\n--- Als Liste: ---")
+# print(zeilen)
 
 """
 2. DATEIEN SCHREIBEN
@@ -126,9 +118,9 @@ Zum Schreiben wird open() mit dem Modus "w" verwendet.
 Beispiel:
 """
 
-with open("notizen.txt", "w", encoding="utf-8") as datei:
-    datei.write("Erste Notiz\n")
-    datei.write("Zweite Notiz\n")
+# with open("notizen.txt", "w", encoding="utf-8") as datei:
+#     datei.write("Erste Notiz\n")
+#     datei.write("Zweite Notiz\n")
 
 
 """
@@ -146,10 +138,10 @@ AUSPROBIEREN
 ------------
 """
 
-print("\n--- Schreibe neue test.txt (w Modus) ---")
-with open("test.txt", "w", encoding="utf-8") as datei:
-    datei.write("Hallo Python!\n")
-    datei.write("Das ist meine erste Datei.\n")
+# print("\n--- Schreibe neue test.txt (w Modus) ---")
+# with open("test.txt", "w", encoding="utf-8") as datei:
+#     datei.write("Hallo Python!\n")
+#     datei.write("Das ist meine erste Datei.\n")
 
 
 """
@@ -161,9 +153,8 @@ Mit "a" wird neuer Inhalt an eine vorhandene Datei angehängt.
 Der bisherige Inhalt bleibt erhalten.
 """
 
-with open("notizen.txt", "a", encoding="utf-8") as datei:
-    datei.write("Neue Notiz\n")
-
+# with open("notizen.txt", "a", encoding="utf-8") as datei:
+#     datei.write("Neue Notiz\n")
 
 """
 Wenn wir das Beispiel mehrfach ausführen,
@@ -174,12 +165,11 @@ AUSPROBIEREN
 ------------
 """
 
-with open("notizen.txt", "a", encoding="utf-8") as datei:
-    datei.write("Noch eine Notiz\n")
+# with open("notizen.txt", "a", encoding="utf-8") as datei:
+#     datei.write("Noch eine Notiz\n")
 
-print("(Die Dateien notizen.txt und test.txt wurden aktualisiert. Schaue in deinen Ordner!)")
-input("\n>> Drücke ENTER für die THEORIE ZU DATEIMODI... ")
-
+# print("(Die Dateien notizen.txt und test.txt wurden aktualisiert. Schaue in deinen Ordner!)")
+# input("\n>> Drücke ENTER für die THEORIE ZU DATEIMODI... ")
 
 """
 DIE WICHTIGSTEN DATEIMODI
@@ -226,13 +216,13 @@ Nicht jeder Programmablauf funktioniert erfolgreich.
 Zum Beispiel:
 """
 
-print("\n--- 3. FEHLER VERSTEHEN ---")
-# zahl = int("Hallo") # <- Ich lasse das sicher auskommentiert oder in try, sonst stürzt dir dieses schöne Script hier ab!
+# print("\n--- 3. FEHLER VERSTEHEN ---")
+# # zahl = int("Hallo") # <- Ich lasse das sicher auskommentiert oder in try, sonst stürzt dir dieses schöne Script hier ab!
 
-try:
-    zahl = int("Hallo")
-except ValueError as e:
-    print(f"Beweis-Fehler abgefangen: {e}")
+# try:
+#     zahl = int("Hallo")
+# except ValueError as e:
+#     print(f"Beweis-Fehler abgefangen: {e}")
 
 """
 Python kann "Hallo" nicht in eine ganze Zahl umwandeln.
@@ -248,12 +238,11 @@ die nicht existiert.
 Beispiel:
 """
 
-try:
-    with open("nicht_da.txt", encoding="utf-8") as datei:
-        inhalt = datei.read()
-except FileNotFoundError as e:
-    print(f"Zweiter Beweis-Fehler abgefangen: {e}")
-
+# try:
+#     with open("nicht_da.txt", encoding="utf-8") as datei:
+#         inhalt = datei.read()
+# except FileNotFoundError as e:
+#     print(f"Zweiter Beweis-Fehler abgefangen: {e}")
 
 """
 Hier entsteht normalerweise:
@@ -268,7 +257,7 @@ Wichtig ist deshalb nicht, dass niemals ein Fehler auftritt.
 Wichtig ist, dass wir verstehen, was der Fehler bedeutet
 und wie wir sinnvoll damit umgehen können.
 """
-input("\n>> Drücke ENTER für TRY UND EXCEPT... ")
+# input("\n>> Drücke ENTER für TRY UND EXCEPT... ")
 
 
 """
@@ -312,13 +301,12 @@ AUSPROBIEREN
 ------------
 """
 
-print("\n--- Probiere es mal mit Buchstaben! ---")
-try:
-    zahl = int(input("Gib eine Zahl ein: "))
-    print("Deine Zahl ist:", zahl)
-except ValueError:
-    print("Das war keine gültige Zahl. Siehst du? Nicht abgestürzt!")
-
+# print("\n--- Probiere es mal mit Buchstaben! ---")
+# try:
+#     zahl = int(input("Gib eine Zahl ein: "))
+#     print("Deine Zahl ist:", zahl)
+# except ValueError:
+#     print("Das war keine gültige Zahl. Siehst du? Nicht abgestürzt!")
 
 """
 Das Programm bricht bei einer ungültigen Eingabe
@@ -333,12 +321,11 @@ FEHLER GENAUER UNTERSUCHEN
 Mit as können wir den Fehler in einer Variablen speichern.
 """
 
-print("\n--- FEHLER VARIABLE ---")
-try:
-    zahl = int("Hallo")
-except ValueError as fehler:
-    print(fehler)
-
+# print("\n--- FEHLER VARIABLE ---")
+# try:
+#     zahl = int("Hallo")
+# except ValueError as fehler:
+#     print(fehler)
 
 """
 Damit erhalten wir die konkrete Fehlermeldung von Python.
@@ -348,13 +335,12 @@ AUSPROBIEREN
 ------------
 """
 
-print("\n--- Genauere Ausgabe bei 'abc' Umwandlung ---")
-try:
-    zahl = int("abc")
-except ValueError as fehler:
-    print("Es ist ein Fehler aufgetreten:")
-    print(fehler)
-
+# print("\n--- Genauere Ausgabe bei 'abc' Umwandlung ---")
+# try:
+#     zahl = int("abc")
+# except ValueError as fehler:
+#     print("Es ist ein Fehler aufgetreten:")
+#     print(fehler)
 
 """
 MEHRERE FEHLER BEHANDELN
@@ -365,16 +351,15 @@ Unterschiedliche Fehler können unterschiedliche Ursachen haben.
 Beispiel:
 """
 
-try:
-    with open("daten.txt", encoding="utf-8") as datei:
-        zahl = int(datei.read())
+# try:
+#     with open("daten.txt", encoding="utf-8") as datei:
+#         zahl = int(datei.read())
 
-except FileNotFoundError:
-    print("Beispiel 1: Die Datei wurde nicht gefunden (und stürzt trotzdem nicht ab).")
+# except FileNotFoundError:
+#     print("Beispiel 1: Die Datei wurde nicht gefunden (und stürzt trotzdem nicht ab).")
 
-except ValueError:
-    print("Beispiel 1: Die Datei enthält keine gültige Zahl.")
-
+# except ValueError:
+#     print("Beispiel 1: Die Datei enthält keine gültige Zahl.")
 
 """
 Hier behandeln wir zwei verschiedene Situationen:
@@ -392,18 +377,17 @@ auszugeben.
 AUSPROBIEREN
 ------------
 """
-print("\n--- MEHRFACH TRY/EXCEPT MIT INPUT ---")
+# print("\n--- MEHRFACH TRY/EXCEPT MIT INPUT ---")
 
-try:
-    zahl = int(input("Gib eine Zahl ein: "))
-    print("Zahl:", zahl)
+# try:
+#     zahl = int(input("Gib eine Zahl ein: "))
+#     print("Zahl:", zahl)
 
-except ValueError:
-    print("Die Eingabe war keine Zahl.")
+# except ValueError:
+#     print("Die Eingabe war keine Zahl.")
 
-except TypeError:
-    print("Der Datentyp konnte nicht verarbeitet werden.")
-
+# except TypeError:
+#     print("Der Datentyp konnte nicht verarbeitet werden.")
 
 """
 5. else UND finally
@@ -424,16 +408,15 @@ wenn im try-Block kein Fehler aufgetreten ist.
 Beispiel:
 """
 
-print("\n--- ELSE BEISPIEL ---")
-try:
-    zahl = int(input("Zahl eingeben für Else-Test: "))
+# print("\n--- ELSE BEISPIEL ---")
+# try:
+#     zahl = int(input("Zahl eingeben für Else-Test: "))
 
-except ValueError:
-    print("Ungültige Eingabe.")
+# except ValueError:
+#     print("Ungültige Eingabe.")
 
-else:
-    print("Klasse! Else block getriggert: Die Zahl ist:", zahl)
-
+# else:
+#     print("Klasse! Else block getriggert: Die Zahl ist:", zahl)
 
 """
 Der Ablauf ist:
@@ -453,16 +436,15 @@ Der finally-Block wird unabhängig davon ausgeführt,
 ob ein Fehler aufgetreten ist.
 """
 
-print("\n--- FINALLY BEISPIEL ---")
-try:
-    zahl = int(input("Zahl eingeben für Finally-Test: "))
+# print("\n--- FINALLY BEISPIEL ---")
+# try:
+#     zahl = int(input("Zahl eingeben für Finally-Test: "))
 
-except ValueError:
-    print("Ungültige Eingabe.")
+# except ValueError:
+#     print("Ungültige Eingabe.")
 
-finally:
-    print("Dieser Teil wird IMMER ausgeführt (finally-Block).")
-
+# finally:
+#     print("Dieser Teil wird IMMER ausgeführt (finally-Block).")
 
 """
 Der Ablauf ist:
@@ -522,7 +504,7 @@ MERKSATZ
 
 Fange den Fehler ab, mit dem du sinnvoll umgehen kannst.
 """
-input("\n>> Drücke ENTER für 7. EIGENE FEHLER AUSLÖSEN... ")
+# input("\n>> Drücke ENTER für 7. EIGENE FEHLER AUSLÖSEN... ")
 
 
 """
@@ -542,12 +524,11 @@ Dann können wir mit raise einen Fehler auslösen.
 Beispiel:
 """
 
-def pruefe_betrag(betrag):
-    if betrag == 0:
-        raise ValueError("Der Betrag darf nicht 0 sein.")
+# def pruefe_betrag(betrag):
+#     if betrag == 0:
+#         raise ValueError("Der Betrag darf nicht 0 sein.")
     
-    return betrag
-
+#     return betrag
 
 """
 Wenn wir schreiben:
@@ -557,12 +538,12 @@ pruefe_betrag(0)
 wird ein ValueError ausgelöst.
 """
 
-print("\n--- TEST: RAISE AUSLÖSEN ---")
-# Ich ummantel dies mit einem try/except für unser interaktives Programm:
-try:
-    pruefe_betrag(0)
-except ValueError as e:
-    print("Funktion warf einen Fehler:", e)
+# print("\n--- TEST: RAISE AUSLÖSEN ---")
+# # Ich ummantel dies mit einem try/except für unser interaktives Programm:
+# try:
+#     pruefe_betrag(0)
+# except ValueError as e:
+#     print("Funktion warf einen Fehler:", e)
 
 """
 Warum sollte eine Funktion selbst einen Fehler auslösen?
@@ -575,12 +556,11 @@ Ein Haushaltsbuch darf möglicherweise keine Buchung
 mit einem Betrag von 0 akzeptieren.
 """
 
-def buchung_hinzufuegen(betrag):
-    if betrag == 0:
-        raise ValueError("Der Betrag darf nicht 0 sein.")
+# def buchung_hinzufuegen(betrag):
+#     if betrag == 0:
+#         raise ValueError("Der Betrag darf nicht 0 sein.")
 
-    print("Buchung hinzugefügt.")
-
+#     print("Buchung hinzugefügt.")
 
 """
 Der Code, der die Funktion aufruft,
@@ -588,14 +568,14 @@ kann entscheiden, was danach passieren soll.
 
 Zum Beispiel:
 """
-print("\n--- Funktion mit abfangen aufrufen: ---")
 
-try:
-    buchung_hinzufuegen(0)
+# print("\n--- Funktion mit abfangen aufrufen: ---")
 
-except ValueError as fehler:
-    print("Selbstgeworfener Fehler:", fehler)
+# try:
+#     buchung_hinzufuegen(0)
 
+# except ValueError as fehler:
+#     print("Selbstgeworfener Fehler:", fehler)
 
 """
 ZUSAMMENSPIEL VON raise UND except
@@ -634,20 +614,19 @@ except fängt einen Fehler ab.
 AUSPROBIEREN
 ------------
 """
-print("\n--- Ausprobieren: Prüfe Alter (try me! Es kommt -5 an) ---")
+# print("\n--- Ausprobieren: Prüfe Alter (try me! Es kommt -5 an) ---")
 
-def pruefe_alter(alter):
-    if alter < 0:
-        raise ValueError("Das Alter darf nicht negativ sein.")
+# def pruefe_alter(alter):
+#     if alter < 0:
+#         raise ValueError("Das Alter darf nicht negativ sein.")
 
-    return alter
+#     return alter
 
-try:
-    pruefe_alter(-5)
+# try:
+#     pruefe_alter(-5)
 
-except ValueError as fehler:
-    print("Fehler beim Prüfen:", fehler)
-
+# except ValueError as fehler:
+#     print("Fehler beim Prüfen:", fehler)
 
 """
 8. CSV-DATEIEN
@@ -660,11 +639,10 @@ die beispielsweise aus Tabellenprogrammen exportiert wurden.
 Python stellt dafür das Modul csv bereit.
 """
 # Wieder: Skript baut Dummy-Datei vorher damit der Reader hier was hat!
-with open("ausgaben.csv", "w", encoding="utf-8") as f:
-    f.write("datum,kategorie,betrag\n01.10.2026,Essen,-25.50\n02.10.2026,Gehalt,3000.00\n03.10.2026,Tanken,-60.00\n")
+# with open("ausgaben.csv", "w", encoding="utf-8") as f:
+#     f.write("datum,kategorie,betrag\n01.10.2026,Essen,-25.50\n02.10.2026,Gehalt,3000.00\n03.10.2026,Tanken,-60.00\n")
 
-import csv
-input("\n>> Drücke ENTER für den CSV Teil... ")
+# input("\n>> Drücke ENTER für den CSV Teil... ")
 
 """
 CSV MIT DictReader LESEN
@@ -676,21 +654,20 @@ Dictionary-Schlüsseln.
 Beispiel:
 """
 
-print("\n--- DICT READER EINSATZ ---")
+# print("\n--- DICT READER EINSATZ ---")
 
-import csv
+# import csv
 
-with open(
-    "ausgaben.csv",
-    encoding="utf-8",
-    newline=""
-) as datei:
+# with open(
+#     "ausgaben.csv",
+#     encoding="utf-8",
+#     newline=""
+# ) as datei:
 
-    reader = csv.DictReader(datei)
+#     reader = csv.DictReader(datei)
 
-    for zeile in reader:
-        print(zeile)
-
+#     for zeile in reader:
+#         print(zeile)
 
 """
 Eine Zeile sieht dann ungefähr so aus:
@@ -731,23 +708,22 @@ müssen wir ihn umwandeln:
 # betrag = float(zeile["betrag"])
 
 
-print("\n--- ZWEI BESTIMMTE SPALTEN HOLEN: ---")
+# print("\n--- ZWEI BESTIMMTE SPALTEN HOLEN: ---")
 
 
-with open(
-    "ausgaben.csv",
-    encoding="utf-8",
-    newline=""
-) as datei:
+# with open(
+#     "ausgaben.csv",
+#     encoding="utf-8",
+#     newline=""
+# ) as datei:
 
-    reader = csv.DictReader(datei)
+#     reader = csv.DictReader(datei)
 
-    for zeile in reader:
-        kategorie = zeile["kategorie"]
-        betrag = float(zeile["betrag"])
+#     for zeile in reader:
+#         kategorie = zeile["kategorie"]
+#         betrag = float(zeile["betrag"])
 
-        print(kategorie, betrag)
-
+#         print(kategorie, betrag)
 
 """
 CSV UND DICTIONARIES
@@ -756,24 +732,23 @@ Wir können die Daten weiterverarbeiten.
 
 Beispiel:
 """
-print("\n--- DICTIONARIES WEITERVERARBEITEN ---")
+# print("\n--- DICTIONARIES WEITERVERARBEITEN ---")
 
 
-with open(
-    "ausgaben.csv",
-    encoding="utf-8",
-    newline=""
-) as datei:
+# with open(
+#     "ausgaben.csv",
+#     encoding="utf-8",
+#     newline=""
+# ) as datei:
 
-    reader = csv.DictReader(datei)
+#     reader = csv.DictReader(datei)
 
-    for zeile in reader:
-        kategorie = zeile["kategorie"]
-        betrag = float(zeile["betrag"])
+#     for zeile in reader:
+#         kategorie = zeile["kategorie"]
+#         betrag = float(zeile["betrag"])
 
-        print("Kategorie:", kategorie)
-        print("Betrag:", betrag)
-
+#         print("Kategorie:", kategorie)
+#         print("Betrag:", betrag)
 
 """
 9. JSON-DATEIEN
@@ -792,10 +767,9 @@ JSON passt sehr gut zu Python-Dictionaries und Listen.
 
 Python stellt dafür das Modul json bereit.
 """
-input("\n>> Drücke ENTER für den JSON Teil... ")
+# input("\n>> Drücke ENTER für den JSON Teil... ")
 
-import json
-
+# import json
 
 """
 10. JSON SCHREIBEN
@@ -807,28 +781,25 @@ geschrieben werden.
 Beispiel:
 """
 
-import json
+# daten = {
+#     "name": "Nord",
+#     "temperaturen": [18.4, 19.1, 20.3]
+# }
 
-daten = {
-    "name": "Nord",
-    "temperaturen": [18.4, 19.1, 20.3]
-}
+# with open(
+#     "daten.json",
+#     "w",
+#     encoding="utf-8"
+# ) as datei:
 
-with open(
-    "daten.json",
-    "w",
-    encoding="utf-8"
-) as datei:
+#     json.dump(
+#         daten,
+#         datei,
+#         ensure_ascii=False,
+#         indent=2
+#     )
 
-    json.dump(
-        daten,
-        datei,
-        ensure_ascii=False,
-        indent=2
-    )
-
-print("\nJSON gespeichert als 'daten.json'.")
-
+# print("\nJSON gespeichert als 'daten.json'.")
 
 """
 indent=2
@@ -845,29 +816,26 @@ nicht unnötig in Unicode-Schreibweise umgewandelt werden.
 AUSPROBIEREN
 ------------
 """
-print("\n--- ZWEITES AUSPROBIEREN JSON ---")
+# print("\n--- ZWEITES AUSPROBIEREN JSON ---")
 
-import json
+# daten = {
+#     "name": "Nord",
+#     "status": "aktiv",
+#     "temperaturen": [18.4, 19.1, 20.3]
+# }
 
-daten = {
-    "name": "Nord",
-    "status": "aktiv",
-    "temperaturen": [18.4, 19.1, 20.3]
-}
+# with open(
+#     "daten.json",
+#     "w",
+#     encoding="utf-8"
+# ) as datei:
 
-with open(
-    "daten.json",
-    "w",
-    encoding="utf-8"
-) as datei:
-
-    json.dump(
-        daten,
-        datei,
-        ensure_ascii=False,
-        indent=2
-    )
-
+#     json.dump(
+#         daten,
+#         datei,
+#         ensure_ascii=False,
+#         indent=2
+#     )
 
 """
 Öffne danach die Datei daten.json.
@@ -875,7 +843,7 @@ with open(
 Du kannst sehen, wie aus einem Python-Dictionary
 eine JSON-Datei geworden ist.
 """
-input("Du hast daten.json aktualisiert. Guck gern rein (Texteditor/VScode) -> Drücke Enter.")
+# input("Du hast daten.json aktualisiert. Guck gern rein (Texteditor/VScode) -> Drücke Enter.")
 
 """
 11. JSON LESEN
@@ -884,37 +852,32 @@ input("Du hast daten.json aktualisiert. Guck gern rein (Texteditor/VScode) -> Dr
 Mit json.load() wird eine JSON-Datei wieder eingelesen.
 """
 
-import json
+# with open(
+#     "daten.json",
+#     encoding="utf-8"
+# ) as datei:
 
-with open(
-    "daten.json",
-    encoding="utf-8"
-) as datei:
-
-    daten = json.load(datei)
-
+#     daten = json.load(datei)
 
 """
 Danach können wir die Daten wie normale Python-Daten verwenden.
 """
-print("\nAus JSON-Daten auslesen:")
-print("Name:", daten["name"])
-print("Temperaturen", daten["temperaturen"])
-
+# print("\nAus JSON-Daten auslesen:")
+# print("Name:", daten["name"])
+# print("Temperaturen", daten["temperaturen"])
 
 """
 AUSPROBIEREN
 ------------
 """
-print("\n--- KOMPLETTER KREISLAUF: ---")
-import json
+# print("\n--- KOMPLETTER KREISLAUF: ---")
+# import json
 
-with open("daten.json", encoding="utf-8") as datei:
-    daten = json.load(datei)
+# with open("daten.json", encoding="utf-8") as datei:
+#     daten = json.load(datei)
 
-print("Name:", daten["name"])
-print("Temperaturen:", daten["temperaturen"])
-
+# print("Name:", daten["name"])
+# print("Temperaturen:", daten["temperaturen"])
 
 """
 JSON UND PYTHON
@@ -954,18 +917,15 @@ json.JSONDecodeError
 Beide Fälle können getrennt behandelt werden.
 """
 
-import json
+# try:
+#     with open("daten.json", encoding="utf-8") as datei:
+#         daten = json.load(datei)
 
-try:
-    with open("daten.json", encoding="utf-8") as datei:
-        daten = json.load(datei)
+# except FileNotFoundError:
+#     daten = {}
 
-except FileNotFoundError:
-    daten = {}
-
-except json.JSONDecodeError:
-    daten = {}
-
+# except json.JSONDecodeError:
+#     daten = {}
 
 """
 Das Programm kann in beiden Fällen mit einem leeren
@@ -976,25 +936,23 @@ AUSPROBIEREN
 ------------
 """
 
-print("\n--- JSON LESE MIT SCHUTZ ---")
+# print("\n--- JSON LESE MIT SCHUTZ ---")
 
-import json
+# try:
+#     with open("daten.json", encoding="utf-8") as datei:
+#         daten = json.load(datei)
 
-try:
-    with open("daten.json", encoding="utf-8") as datei:
-        daten = json.load(datei)
+# except FileNotFoundError:
+#     print("Die Datei existiert noch nicht.")
+#     daten = {}
 
-except FileNotFoundError:
-    print("Die Datei existiert noch nicht.")
-    daten = {}
+# except json.JSONDecodeError:
+#     print("Die JSON-Datei ist ungültig.")
+#     daten = {}
 
-except json.JSONDecodeError:
-    print("Die JSON-Datei ist ungültig.")
-    daten = {}
+# print("Ausgespuckt:", daten)
 
-print("Ausgespuckt:", daten)
-
-input("\n>> Drücke ENTER für 13. MODULE... ")
+# input("\n>> Drücke ENTER für 13. MODULE... ")
 """
 Dieses Muster ist besonders nützlich für Programme,
 die beim Start gespeicherte Daten laden.
@@ -1008,23 +966,21 @@ Das Modul pathlib hilft bei der Arbeit mit Dateipfaden.
 
 Wir können Path so importieren:
 """
-input("\n>> Drücke ENTER für PATHLIB... ")
-from pathlib import Path
+# input("\n>> Drücke ENTER für PATHLIB... ")
+# from pathlib import Path
 
 
 """
 Ein Pfad kann anschließend erstellt werden:
 """
 
-ordner = Path("daten")
-
+# ordner = Path("daten")
 
 """
 Eine Datei innerhalb dieses Ordners:
 """
 
-datei = ordner / "messwerte.json"
-
+# datei = ordner / "messwerte.json"
 
 """
 Das / zwischen zwei Path-Objekten verbindet die Pfade.
@@ -1036,16 +992,15 @@ zwischen den Betriebssystemen berücksichtigt.
 AUSPROBIEREN
 ------------
 """
-print("\n--- PFADE ---")
+# print("\n--- PFADE ---")
 
-from pathlib import Path
+# from pathlib import Path
 
-ordner = Path("daten")
-datei = ordner / "messwerte.json"
+# ordner = Path("daten")
+# datei = ordner / "messwerte.json"
 
-print(ordner)
-print(datei)
-
+# print(ordner)
+# print(datei)
 
 """
 PRÜFEN, OB EINE DATEI EXISTIERT
@@ -1055,16 +1010,15 @@ Mit exists() können wir prüfen,
 ob ein Pfad vorhanden ist.
 """
 
-from pathlib import Path
+# from pathlib import Path
 
-pfad = Path("daten.json")
+# pfad = Path("daten.json")
 
-print("\nExisiert sie?")
-if pfad.exists():
-    print("Datei vorhanden")
-else:
-    print("Datei fehlt")
-
+# print("\nExisiert sie?")
+# if pfad.exists():
+#     print("Datei vorhanden")
+# else:
+#     print("Datei fehlt")
 
 """
 DATEIENDUNG AUSLESEN
@@ -1072,13 +1026,13 @@ DATEIENDUNG AUSLESEN
 
 Mit suffix erhalten wir die Dateiendung.
 """
-print("\n--- SUFFIX (Dateiendung) ---")
+# print("\n--- SUFFIX (Dateiendung) ---")
 
-from pathlib import Path
+# from pathlib import Path
 
-pfad = Path("messwerte.csv")
+# pfad = Path("messwerte.csv")
 
-print(pfad.suffix)
+# print(pfad.suffix)
 
 
 """
@@ -1091,18 +1045,17 @@ AUSPROBIEREN
 ------------
 """
 
-from pathlib import Path
+# from pathlib import Path
 
-pfade = [
-    Path("daten.json"),
-    Path("ausgaben.csv"),
-    Path("notizen.txt")
-]
+# pfade = [
+#     Path("daten.json"),
+#     Path("ausgaben.csv"),
+#     Path("notizen.txt")
+# ]
 
-print("\nDatei-Extensions von Listen ermitteln:")
-for pfad in pfade:
-    print(pfad.name, "→", pfad.suffix)
-
+# print("\nDatei-Extensions von Listen ermitteln:")
+# for pfad in pfade:
+#     print(pfad.name, "→", pfad.suffix)
 
 """
 DATEI MIT pathlib ÖFFNEN
@@ -1114,18 +1067,17 @@ Wir können also einen Dateipfad mit pathlib erstellen
 und diesen anschließend mit open() verwenden.
 """
 
-print("\n--- FILE MIT PATH ÖFFNEN ---")
+# print("\n--- FILE MIT PATH ÖFFNEN ---")
 
-from pathlib import Path
-import json
+# from pathlib import Path
+# import json
 
-pfad = Path(".") / "daten.json"  # (Pfad habe ich dynamisch angepasst!)
+# pfad = Path(".") / "daten.json"  # (Pfad habe ich dynamisch angepasst!)
 
-with open(pfad, encoding="utf-8") as datei:
-    inhalt = datei.read()
+# with open(pfad, encoding="utf-8") as datei:
+#     inhalt = datei.read()
 
-print("Klappt direkt!", inhalt[:40], "... etc.")
-
+# print("Klappt direkt!", inhalt[:40], "... etc.")
 
 """
 Das ist besonders praktisch, weil wir den Dateipfad
@@ -1145,25 +1097,21 @@ Mit iterdir() können wir den Inhalt eines Ordners
 durchlaufen.
 """
 
-print("\n--- WAS LIEGT IN DEM AKTUELLEN ORDNER? (Auszug) ---")
+# print("\n--- WAS LIEGT IN DEM AKTUELLEN ORDNER? (Auszug) ---")
 
-from pathlib import Path
+# ordner = Path(".")
 
-ordner = Path(".")
-
-zaehler = 0
-for datei in ordner.iterdir():
-    if zaehler < 3: # Limitiere auf 3
-        print("Iterdir:", datei.name)
-        zaehler+=1
+# zaehler = 0
+# for datei in ordner.iterdir():
+#     if zaehler < 3: # Limitiere auf 3
+#         print("Iterdir:", datei.name)
+#         zaehler+=1
 
 """
 Wir können prüfen, ob ein Eintrag tatsächlich eine Datei ist.
 """
 
-from pathlib import Path
-
-ordner = Path(".")
+# ordner = Path(".")
 
 # for datei in ordner.iterdir():
 #     if datei.is_file():
@@ -1188,17 +1136,17 @@ AUSPROBIEREN
 ------------
 """
 
-print("\n--- ALL-IN-ONE PATH CHECK ---")
+# print("\n--- ALL-IN-ONE PATH CHECK ---")
 
-from pathlib import Path
+# from pathlib import Path
 
-pfad = Path("daten.json")
+# pfad = Path("daten.json")
 
-print(pfad)
-print("Existiert?", pfad.exists())
-print("Endung:", pfad.suffix)
+# print(pfad)
+# print("Existiert?", pfad.exists())
+# print("Endung:", pfad.suffix)
 
-input("\n>> Drücke ENTER um zur ZUSAMMENFASSUNG ZU KOMMEN... ")
+# input("\n>> Drücke ENTER um zur ZUSAMMENFASSUNG ZU KOMMEN... ")
 """
 15. DATEIEN, DATEN UND FEHLER ZUSAMMENBRINGEN
 =============================================
@@ -1210,56 +1158,50 @@ Stell dir ein Programm vor, das Messdaten dauerhaft speichern soll.
 Die Daten liegen zunächst in Python:
 """
 
-messdaten = {
-    "Nord": {
-        "temperaturen": [18.4, 19.1, 20.3]
-    }
-}
-
+# messdaten = {
+#     "Nord": {
+#         "temperaturen": [18.4, 19.1, 20.3]
+#     }
+# }
 
 """
 Wir können diese Daten als JSON speichern:
 """
 
-import json
+# messdaten = {
+#     "Nord": {
+#         "temperaturen": [18.4, 19.1, 20.3]
+#     }
+# }
 
-messdaten = {
-    "Nord": {
-        "temperaturen": [18.4, 19.1, 20.3]
-    }
-}
+# with open(
+#     "messdaten.json",
+#     "w",
+#     encoding="utf-8"
+# ) as datei:
 
-with open(
-    "messdaten.json",
-    "w",
-    encoding="utf-8"
-) as datei:
-
-    json.dump(
-        messdaten,
-        datei,
-        ensure_ascii=False,
-        indent=2
-    )
+#     json.dump(
+#         messdaten,
+#         datei,
+#         ensure_ascii=False,
+#         indent=2
+#     )
 
 
 """
 Beim nächsten Programmstart laden wir sie wieder:
 """
 
-import json
+# try:
+#     with open(
+#         "messdaten.json",
+#         encoding="utf-8"
+#     ) as datei:
 
-try:
-    with open(
-        "messdaten.json",
-        encoding="utf-8"
-    ) as datei:
+#         messdaten = json.load(datei)
 
-        messdaten = json.load(datei)
-
-except FileNotFoundError:
-    messdaten = {}
-
+# except FileNotFoundError:
+#     messdaten = {}
 
 """
 Damit entsteht ein vollständiger Ablauf:
@@ -1287,40 +1229,38 @@ AUSPROBIEREN
 Hier kannst du den gesamten Ablauf selbst testen.
 """
 
-import json
+# print("\n--- RUNDLAUF DATEN SPEICHERN ---")
 
-print("\n--- RUNDLAUF DATEN SPEICHERN ---")
-
-messdaten = {
-    "Nord": {
-        "temperaturen": [18.4, 19.1, 20.3]
-    }
-}
+# messdaten = {
+#     "Nord": {
+#         "temperaturen": [18.4, 19.1, 20.3]
+#     }
+# }
 
 
-with open(
-    "messdaten.json",
-    "w",
-    encoding="utf-8"
-) as datei:
+# with open(
+#     "messdaten.json",
+#     "w",
+#     encoding="utf-8"
+# ) as datei:
 
-    json.dump(
-        messdaten,
-        datei,
-        ensure_ascii=False,
-        indent=2
-    )
-
-
-with open(
-    "messdaten.json",
-    encoding="utf-8"
-) as datei:
-
-    geladene_daten = json.load(datei)
+#     json.dump(
+#         messdaten,
+#         datei,
+#         ensure_ascii=False,
+#         indent=2
+#     )
 
 
-print("Geschrieben und Gelesen! ->", geladene_daten)
+# with open(
+#     "messdaten.json",
+#     encoding="utf-8"
+# ) as datei:
+
+#     geladene_daten = json.load(datei)
+
+
+# print("Geschrieben und Gelesen! ->", geladene_daten)
 
 
 """
@@ -1332,25 +1272,23 @@ pathlib und json können ebenfalls gemeinsam verwendet werden.
 Beispiel:
 """
 
-from pathlib import Path
-import json
+# from pathlib import Path
+
+# pfad = Path(".") / "messdaten.json"
 
 
-pfad = Path(".") / "messdaten.json"
+# with open(
+#     pfad,
+#     "w",
+#     encoding="utf-8"
+# ) as datei:
 
-
-with open(
-    pfad,
-    "w",
-    encoding="utf-8"
-) as datei:
-
-    json.dump(
-        messdaten,
-        datei,
-        ensure_ascii=False,
-        indent=2
-    )
+#     json.dump(
+#         messdaten,
+#         datei,
+#         ensure_ascii=False,
+#         indent=2
+#     )
 
 
 """

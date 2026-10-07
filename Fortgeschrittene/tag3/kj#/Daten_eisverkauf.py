@@ -102,10 +102,10 @@ len(spaltennamen) gibt die Anzahl der Spalten.
 """
 
 # BEISPIEL
-print("SCHRITT 2")
-print("Zeilen:", len(daten))
-print("Spalten:", len(spaltennamen), spaltennamen)
-print()
+# print("SCHRITT 2")
+# print("Zeilen:", len(daten))
+# print("Spalten:", len(spaltennamen), spaltennamen)
+# print()
 
 """
 MACH MIT
@@ -140,12 +140,12 @@ Textverkettung: "19.520.3".
 """
 
 # BEISPIEL
-print("SCHRITT 3")
-text_wert = daten[0]["temperatur"]
-print("Text:", text_wert, "->", type(text_wert))
-zahl_wert = float(text_wert)
-print("Zahl:", zahl_wert, "->", type(zahl_wert))
-print()
+# print("SCHRITT 3")
+# text_wert = daten[0]["temperatur"]
+# print("Text:", text_wert, "->", type(text_wert))
+# zahl_wert = float(text_wert)
+# print("Zahl:", zahl_wert, "->", type(zahl_wert))
+# print()
 
 """
 MACH MIT
@@ -177,22 +177,22 @@ und fangen den Fehler mit try/except ab.
 """
 
 # BEISPIEL
-def lies_zahl(text):
-    if text == "":
-        raise ValueError("Leerer Wert")
-    return float(text)
+# def lies_zahl(text):
+#     if text == "":
+#         raise ValueError("Leerer Wert")
+#     return float(text)
 
 
-leere_temperaturen = 0
-for tag in daten:
-    try:
-        lies_zahl(tag["temperatur"])
-    except ValueError:
-        leere_temperaturen = leere_temperaturen + 1
+# leere_temperaturen = 0
+# for tag in daten:
+#     try:
+#         lies_zahl(tag["temperatur"])
+#     except ValueError:
+#         leere_temperaturen = leere_temperaturen + 1
 
-print("SCHRITT 4")
-print("Tage ohne gültige Temperatur:", leere_temperaturen)
-print()
+# print("SCHRITT 4")
+# print("Tage ohne gültige Temperatur:", leere_temperaturen)
+# print()
 
 """
 MACH MIT
@@ -222,29 +222,29 @@ und überspringt den Rest.
 """
 
 # BEISPIEL
-sauber = []
-aussortiert = 0
+# sauber = []
+# aussortiert = 0
 
-for tag in daten:
-    try:
-        neuer_tag = {
-            "tag": int(tag["tag"]),
-            "wochentag": tag["wochentag"],
-            "temperatur": lies_zahl(tag["temperatur"]),
-            "sonnenstunden": lies_zahl(tag["sonnenstunden"]),
-            "regen": int(tag["regen"]),
-            "aktion": int(tag["aktion"]),
-            "verkauf": lies_zahl(tag["verkauf"]),
-        }
-    except ValueError:
-        aussortiert = aussortiert + 1
-        continue
+# for tag in daten:
+#     try:
+#         neuer_tag = {
+#             "tag": int(tag["tag"]),
+#             "wochentag": tag["wochentag"],
+#             "temperatur": lies_zahl(tag["temperatur"]),
+#             "sonnenstunden": lies_zahl(tag["sonnenstunden"]),
+#             "regen": int(tag["regen"]),
+#             "aktion": int(tag["aktion"]),
+#             "verkauf": lies_zahl(tag["verkauf"]),
+#         }
+#     except ValueError:
+#         aussortiert = aussortiert + 1
+#         continue
 
-    sauber.append(neuer_tag)
+#     sauber.append(neuer_tag)
 
-print("SCHRITT 5")
-print("Saubere Tage:", len(sauber), "Aussortiert:", aussortiert)
-print()
+# print("SCHRITT 5")
+# print("Saubere Tage:", len(sauber), "Aussortiert:", aussortiert)
+# print()
 
 """
 MACH MIT
@@ -276,21 +276,21 @@ und schreiben eine Funktion für den Mittelwert.
 """
 
 # BEISPIEL
-def mittelwert(liste):
-    summe = 0
-    for wert in liste:
-        summe = summe + wert
-    return summe / len(liste)
+# def mittelwert(liste):
+#     summe = 0
+#     for wert in liste:
+#         summe = summe + wert
+#     return summe / len(liste)
 
 
-verkaeufe = []
-for tag in sauber:
-    verkaeufe.append(tag["verkauf"])
+# verkaeufe = []
+# for tag in sauber:
+#     verkaeufe.append(tag["verkauf"])
 
-print("SCHRITT 6")
-print("Mittelwert Verkauf:", round(mittelwert(verkaeufe), 2))
-print("Minimum:", min(verkaeufe), "Maximum:", max(verkaeufe))
-print()
+# print("SCHRITT 6")
+# print("Mittelwert Verkauf:", round(mittelwert(verkaeufe), 2))
+# print("Minimum:", min(verkaeufe), "Maximum:", max(verkaeufe))
+# print()
 
 """
 MACH MIT
@@ -333,24 +333,24 @@ Wie berechnet man den Median?
 """
 
 # BEISPIEL
-def median(liste):
-    sortiert = sorted(liste)
-    n = len(sortiert)
-    mitte = n // 2
+# def median(liste):
+#     sortiert = sorted(liste)
+#     n = len(sortiert)
+#     mitte = n // 2
 
-    if n % 2 == 1:
-        return sortiert[mitte]
-    return (sortiert[mitte - 1] + sortiert[mitte]) / 2
+#     if n % 2 == 1:
+#         return sortiert[mitte]
+#     return (sortiert[mitte - 1] + sortiert[mitte]) / 2
 
 
-print("SCHRITT 7")
-print("Median Verkauf:", median(verkaeufe))
-print("Größter Wert:", max(verkaeufe))
+# print("SCHRITT 7")
+# print("Median Verkauf:", median(verkaeufe))
+# print("Größter Wert:", max(verkaeufe))
 
-for tag in sauber:
-    if tag["verkauf"] > 300:
-        print("Verdächtig: Tag", tag["tag"], "mit", tag["verkauf"], "Kugeln")
-print()
+# for tag in sauber:
+#     if tag["verkauf"] > 300:
+#         print("Verdächtig: Tag", tag["tag"], "mit", tag["verkauf"], "Kugeln")
+# print()
 
 """
 MACH MIT
@@ -384,21 +384,21 @@ Echte Spitzenwerte darfst du nicht einfach löschen.
 """
 
 # BEISPIEL
-ohne = []
-for tag in sauber:
-    if tag["verkauf"] <= 300:
-        ohne.append(tag)
+# ohne = []
+# for tag in sauber:
+#     if tag["verkauf"] <= 300:
+#         ohne.append(tag)
 
-verkaeufe_ohne = []
-for tag in ohne:
-    verkaeufe_ohne.append(tag["verkauf"])
+# verkaeufe_ohne = []
+# for tag in ohne:
+#     verkaeufe_ohne.append(tag["verkauf"])
 
-print("SCHRITT 8")
-print("Tage ohne Ausreißer:", len(ohne))
-print("Mittelwert:", round(mittelwert(verkaeufe_ohne), 2))
-print("Median:", median(verkaeufe_ohne))
-print("Maximum:", max(verkaeufe_ohne))
-print()
+# print("SCHRITT 8")
+# print("Tage ohne Ausreißer:", len(ohne))
+# print("Mittelwert:", round(mittelwert(verkaeufe_ohne), 2))
+# print("Median:", median(verkaeufe_ohne))
+# print("Maximum:", max(verkaeufe_ohne))
+# print()
 
 """
 MACH MIT
@@ -429,19 +429,19 @@ Vorgehen:
 """
 
 # BEISPIEL
-wochenende = []
-werktag = []
+# wochenende = []
+# werktag = []
 
-for tag in ohne:
-    if tag["wochentag"] == "Sa" or tag["wochentag"] == "So":
-        wochenende.append(tag["verkauf"])
-    else:
-        werktag.append(tag["verkauf"])
+# for tag in ohne:
+#     if tag["wochentag"] == "Sa" or tag["wochentag"] == "So":
+#         wochenende.append(tag["verkauf"])
+#     else:
+#         werktag.append(tag["verkauf"])
 
-print("SCHRITT 9")
-print("Wochenende:", len(wochenende), "Tage, Ø", round(mittelwert(wochenende), 2))
-print("Werktag:", len(werktag), "Tage, Ø", round(mittelwert(werktag), 2))
-print()
+# print("SCHRITT 9")
+# print("Wochenende:", len(wochenende), "Tage, Ø", round(mittelwert(wochenende), 2))
+# print("Werktag:", len(werktag), "Tage, Ø", round(mittelwert(werktag), 2))
+# print()
 
 """
 MACH MIT
@@ -489,33 +489,33 @@ das Wertepaar derselben Position zu.
 """
 
 # BEISPIEL
-def korrelation(liste_x, liste_y):
-    anzahl = len(liste_x)
-    mittel_x = mittelwert(liste_x)
-    mittel_y = mittelwert(liste_y)
+# def korrelation(liste_x, liste_y):
+#     anzahl = len(liste_x)
+#     mittel_x = mittelwert(liste_x)
+#     mittel_y = mittelwert(liste_y)
 
-    summe_xy = 0
-    summe_xx = 0
-    summe_yy = 0
+#     summe_xy = 0
+#     summe_xx = 0
+#     summe_yy = 0
 
-    for i in range(anzahl):
-        dx = liste_x[i] - mittel_x
-        dy = liste_y[i] - mittel_y
-        summe_xy = summe_xy + dx * dy
-        summe_xx = summe_xx + dx * dx
-        summe_yy = summe_yy + dy * dy
+#     for i in range(anzahl):
+#         dx = liste_x[i] - mittel_x
+#         dy = liste_y[i] - mittel_y
+#         summe_xy = summe_xy + dx * dy
+#         summe_xx = summe_xx + dx * dx
+#         summe_yy = summe_yy + dy * dy
 
-    return summe_xy / math.sqrt(summe_xx * summe_yy)
+#     return summe_xy / math.sqrt(summe_xx * summe_yy)
 
 
-temperaturen_ohne = []
-for tag in ohne:
-    temperaturen_ohne.append(tag["temperatur"])
+# temperaturen_ohne = []
+# for tag in ohne:
+#     temperaturen_ohne.append(tag["temperatur"])
 
-print("SCHRITT 10")
-r_temp = korrelation(temperaturen_ohne, verkaeufe_ohne)
-print("Temperatur und Verkauf: r =", round(r_temp, 3))
-print()
+# print("SCHRITT 10")
+# r_temp = korrelation(temperaturen_ohne, verkaeufe_ohne)
+# print("Temperatur und Verkauf: r =", round(r_temp, 3))
+# print()
 
 """
 MACH MIT
@@ -550,14 +550,14 @@ Fehlerwert berechnest.
 """
 
 # BEISPIEL
-temperaturen_mit = []
-for tag in sauber:
-    temperaturen_mit.append(tag["temperatur"])
+# temperaturen_mit = []
+# for tag in sauber:
+#     temperaturen_mit.append(tag["temperatur"])
 
-print("SCHRITT 11")
-print("r mit Ausreißer:", round(korrelation(temperaturen_mit, verkaeufe), 3))
-print("r ohne Ausreißer:", round(r_temp, 3))
-print()
+# print("SCHRITT 11")
+# print("r mit Ausreißer:", round(korrelation(temperaturen_mit, verkaeufe), 3))
+# print("r ohne Ausreißer:", round(r_temp, 3))
+# print()
 
 
 
@@ -585,35 +585,35 @@ Dazu schreibst du sie durch Komma getrennt hinter return.
 """
 
 # BEISPIEL
-def gerade(liste_x, liste_y):
-    anzahl = len(liste_x)
-    mittel_x = mittelwert(liste_x)
-    mittel_y = mittelwert(liste_y)
+# def gerade(liste_x, liste_y):
+#     anzahl = len(liste_x)
+#     mittel_x = mittelwert(liste_x)
+#     mittel_y = mittelwert(liste_y)
 
-    summe_xy = 0
-    summe_xx = 0
+#     summe_xy = 0
+#     summe_xx = 0
 
-    for i in range(anzahl):
-        dx = liste_x[i] - mittel_x
-        dy = liste_y[i] - mittel_y
-        summe_xy = summe_xy + dx * dy
-        summe_xx = summe_xx + dx * dx
+#     for i in range(anzahl):
+#         dx = liste_x[i] - mittel_x
+#         dy = liste_y[i] - mittel_y
+#         summe_xy = summe_xy + dx * dy
+#         summe_xx = summe_xx + dx * dx
 
-    steigung = summe_xy / summe_xx
-    achsenabschnitt = mittel_y - steigung * mittel_x
-    return steigung, achsenabschnitt
+#     steigung = summe_xy / summe_xx
+#     achsenabschnitt = mittel_y - steigung * mittel_x
+#     return steigung, achsenabschnitt
 
 
-steigung, achsenabschnitt = gerade(temperaturen_ohne, verkaeufe_ohne)
+# steigung, achsenabschnitt = gerade(temperaturen_ohne, verkaeufe_ohne)
 
-print("SCHRITT 12")
-print("Steigung:", round(steigung, 2), "Kugeln pro Grad")
-print("Achsenabschnitt:", round(achsenabschnitt, 2))
+# print("SCHRITT 12")
+# print("Steigung:", round(steigung, 2), "Kugeln pro Grad")
+# print("Achsenabschnitt:", round(achsenabschnitt, 2))
 
-for grad in [20, 28]:
-    vorhersage = achsenabschnitt + steigung * grad
-    print("Bei", grad, "Grad erwarte ich", round(vorhersage, 1), "Kugeln")
-print()
+# for grad in [20, 28]:
+#     vorhersage = achsenabschnitt + steigung * grad
+#     print("Bei", grad, "Grad erwarte ich", round(vorhersage, 1), "Kugeln")
+# print()
 
 """
 MACH MIT
@@ -646,23 +646,23 @@ Wir legen ein Dictionary an und schreiben es als JSON.
 """
 
 # BEISPIEL
-ergebnisse = {
-    "tage_gesamt": len(daten),
-    "tage_sauber": len(ohne),
-    "aussortiert_luecken": aussortiert,
-    "aussortiert_ausreisser": len(sauber) - len(ohne),
-    "mittelwert_verkauf": round(mittelwert(verkaeufe_ohne), 2),
-    "median_verkauf": median(verkaeufe_ohne),
-    "korrelation_temperatur_verkauf": round(r_temp, 3),
-    "steigung_pro_grad": round(steigung, 2),
-}
+# ergebnisse = {
+#     "tage_gesamt": len(daten),
+#     "tage_sauber": len(ohne),
+#     "aussortiert_luecken": aussortiert,
+#     "aussortiert_ausreisser": len(sauber) - len(ohne),
+#     "mittelwert_verkauf": round(mittelwert(verkaeufe_ohne), 2),
+#     "median_verkauf": median(verkaeufe_ohne),
+#     "korrelation_temperatur_verkauf": round(r_temp, 3),
+#     "steigung_pro_grad": round(steigung, 2),
+# }
 
-with open("eisverkauf_ergebnisse.json", "w", encoding="utf-8") as datei:
-    json.dump(ergebnisse, datei, ensure_ascii=False, indent=2)
+# with open("eisverkauf_ergebnisse.json", "w", encoding="utf-8") as datei:
+#     json.dump(ergebnisse, datei, ensure_ascii=False, indent=2)
 
-print("SCHRITT 13")
-print("Ergebnisse gespeichert in eisverkauf_ergebnisse.json")
-print()
+# print("SCHRITT 13")
+# print("Ergebnisse gespeichert in eisverkauf_ergebnisse.json")
+# print()
 
 """
 MACH MIT
