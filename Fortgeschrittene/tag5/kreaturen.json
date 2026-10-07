@@ -1,6 +1,6 @@
 {
   "titel": "Kreaturen-Archiv",
-  "untertitel": "30 Wesen aus fünf Welten – suche, filtere und lass sie gegeneinander antreten",
+  "untertitel": "30 Wesen aus fünf Welten | suche, filtere und lass sie gegeneinander antreten",
   "kreaturen": [
     {"name": "Glutfuchs", "typ": "Feuer", "staerke": 65, "tempo": 90, "magie": 40, "beschreibung": "Flitzt durch trockenes Gras und hinterlässt nur warme Pfotenabdrücke."},
     {"name": "Aschedrache", "typ": "Feuer", "staerke": 95, "tempo": 45, "magie": 70, "beschreibung": "Schläft jahrhundertelang auf einem Berg aus Asche und niest Funken."},

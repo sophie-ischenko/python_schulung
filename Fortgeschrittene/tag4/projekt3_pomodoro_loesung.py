@@ -1,9 +1,11 @@
-
 """
-Tag 4 – Lösung: Pomodoro-Timer
+Projekt 3: Pomodoro-Timer (Musterlösung, Stufe 1 und Stufe 2)
 
 Start:
-    python aufgaben_loesung.py
+    python3 projekt3_pomodoro_loesung.py
+
+Wichtig: Der Ordner "bilder" mit tomato.png muss neben dieser
+Datei liegen.
 """
 
 import tkinter as tk
@@ -12,9 +14,11 @@ from pathlib import Path
 
 # ---------------------------- KONSTANTEN ---------------------------- #
 
-ARBEIT_MINUTEN = 1
-KURZE_PAUSE_MINUTEN = 1
-LANGE_PAUSE_MINUTEN = 2
+# Zum Testen sind kurze Zeiten eingestellt.
+# Die echten Pomodoro-Werte wären 25 / 5 / 20.
+ARBEIT_MINUTEN = 1          # echt: 25
+KURZE_PAUSE_MINUTEN = 1     # echt: 5
+LANGE_PAUSE_MINUTEN = 2     # echt: 20
 
 FARBE_HINTERGRUND = "#f7f5dd"
 FARBE_ARBEIT = "#e7305b"
@@ -32,7 +36,7 @@ phasen = 0
 checkmark = ""
 
 
-# ---------------------------- TIMER ZURÜCKSETZEN ---------------------------- #
+# ---------------------------- RESET ---------------------------- #
 
 def reset():
     """Setzt den Timer vollständig zurück."""
@@ -48,23 +52,11 @@ def reset():
         window.after_cancel(timer)
         timer = None
 
-    canvas.itemconfig(
-        timer_text,
-        text="00:00"
-    )
+    canvas.itemconfig(timer_text, text="00:00")
 
-    label_top.config(
-        text="Timer",
-        fg=FARBE_PAUSE
-    )
-
-    label_check.config(
-        text=""
-    )
-
-    button_start.config(
-        state="normal"
-    )
+    label_top.config(text="Timer", fg=FARBE_PAUSE)
+    label_check.config(text="")
+    button_start.config(state="normal")
 
 
 # ---------------------------- TIMER STARTEN ---------------------------- #
@@ -82,6 +74,7 @@ def start_timer():
     phasen += 1
 
     # Nach einer Arbeitsphase ein Häkchen anzeigen.
+    # Nach einer Arbeitsphase ein Häkchen anzeigen.
     if phasen > 1 and phasen % 2 == 0:
         checkmark += "✓"
 
@@ -91,44 +84,21 @@ def start_timer():
 
     # Jede 8. Phase ist eine lange Pause.
     if phasen % 8 == 0:
-
-        label_top.config(
-            text="Pause",
-            fg=FARBE_LANGE_PAUSE
-        )
-
-        countdown(
-            LANGE_PAUSE_MINUTEN * 60
-        )
+        label_top.config(text="Pause", fg=FARBE_LANGE_PAUSE)
+        countdown(LANGE_PAUSE_MINUTEN * 60)
 
     # Gerade Phasen sind kurze Pausen.
     elif phasen % 2 == 0:
-
-        label_top.config(
-            text="Pause",
-            fg=FARBE_PAUSE
-        )
-
-        countdown(
-            KURZE_PAUSE_MINUTEN * 60
-        )
+        label_top.config(text="Pause", fg=FARBE_PAUSE)
+        countdown(KURZE_PAUSE_MINUTEN * 60)
 
     # Ungerade Phasen sind Arbeitsphasen.
     else:
+        label_top.config(text="Arbeit", fg=FARBE_ARBEIT)
+        countdown(ARBEIT_MINUTEN * 60)
 
-        label_top.config(
-            text="Arbeit",
-            fg=FARBE_ARBEIT
-        )
-
-        countdown(
-            ARBEIT_MINUTEN * 60
-        )
-
-    # Start-Button deaktivieren.
-    button_start.config(
-        state="disabled"
-    )
+    # Start-Button deaktivieren, solange der Timer läuft.
+    button_start.config(state="disabled")
 
 
 # ---------------------------- COUNTDOWN ---------------------------- #
@@ -138,56 +108,34 @@ def countdown(verbleibende_sekunden):
 
     global timer
 
-    # Minuten und Sekunden berechnen.
     minuten = verbleibende_sekunden // 60
     sekunden = verbleibende_sekunden % 60
-
-    # Zeit anzeigen.
     anzeige = f"{minuten:02d}:{sekunden:02d}"
 
-    canvas.itemconfig(
-        timer_text,
-        text=anzeige
-    )
+    canvas.itemconfig(timer_text, text=anzeige)
 
-    # Timer ist fertig.
+    # Phase ist zu Ende.
     if verbleibende_sekunden == 0:
-
         timer = None
-
-        button_start.config(
-            state="normal"
-        )
-
-        info_fenster()
-
+        button_start.config(state="normal")
+        info_fenster()      # Stufe 2
         return
 
-    # Eine Sekunde abziehen.
-    verbleibende_sekunden -= 1
-
-    # Nach einer Sekunde erneut aufrufen.
     timer = window.after(
         1000,
         countdown,
-        verbleibende_sekunden
+        verbleibende_sekunden - 1
     )
 
 
-# ---------------------------- INFO-FENSTER ---------------------------- #
+# ---------------------------- INFO-FENSTER (Stufe 2) ---------------------------- #
 
 def info_fenster():
     """Öffnet ein kleines Fenster nach Ende einer Phase."""
 
     top = tk.Toplevel(window)
-
     top.title("Pomodoro")
-
-    top.config(
-        bg=FARBE_HINTERGRUND,
-        padx=30,
-        pady=30
-    )
+    top.config(bg=FARBE_HINTERGRUND, padx=30, pady=30)
 
     label = tk.Label(
         top,
@@ -196,56 +144,29 @@ def info_fenster():
         fg="#241914",
         bg=FARBE_HINTERGRUND
     )
+    label.grid(row=0, column=0, pady=10)
 
-    label.grid(
-        row=0,
-        column=0,
-        pady=10
-    )
-
-    button = tk.Label(
+    button = tk.Button(
         top,
         text="Zurück zum Timer",
-        font=(FONT_NAME, 12),
-        fg="#241914",
-        bg=FARBE_HINTERGRUND,
-        padx=15,
-        pady=10,
-        cursor="hand2"
+        font=(FONT_NAME, 14),
+        command=lambda: naechste_phase(top)
     )
+    button.grid(row=1, column=0, pady=10)
 
-    button.grid(
-        row=1,
-        column=0,
-        pady=10
-    )
-
-    button.bind(
-        "<Button-1>",
-        lambda event: naechste_phase(top)
-    )
-
-# ---------------------------- NÄCHSTE PHASE ---------------------------- #
 
 def naechste_phase(fenster):
     """Schließt das Info-Fenster und startet die nächste Phase."""
 
     fenster.destroy()
-
     start_timer()
 
 
 # ---------------------------- HAUPTFENSTER ---------------------------- #
 
 window = tk.Tk()
-
 window.title("Pomodoro")
-
-window.config(
-    bg=FARBE_HINTERGRUND,
-    padx=100,
-    pady=50
-)
+window.config(bg=FARBE_HINTERGRUND, padx=100, pady=50)
 
 
 # ---------------------------- CANVAS ---------------------------- #
@@ -276,10 +197,7 @@ timer_text = canvas.create_text(
     font=(FONT_NAME, 35, "bold")
 )
 
-canvas.grid(
-    row=2,
-    column=2
-)
+canvas.grid(row=2, column=2)
 
 
 # ---------------------------- ÜBERSCHRIFT ---------------------------- #
@@ -291,15 +209,10 @@ label_top = tk.Label(
     fg=FARBE_PAUSE,
     bg=FARBE_HINTERGRUND
 )
-
-label_top.grid(
-    row=1,
-    column=2,
-    pady=10
-)
+label_top.grid(row=1, column=2, pady=10)
 
 
-# ---------------------------- START-BUTTON ---------------------------- #
+# ---------------------------- BUTTONS ---------------------------- #
 
 button_start = tk.Button(
     window,
@@ -310,14 +223,7 @@ button_start = tk.Button(
     activebackground=FARBE_HINTERGRUND,
     command=start_timer
 )
-
-button_start.grid(
-    row=3,
-    column=1
-)
-
-
-# ---------------------------- RESET-BUTTON ---------------------------- #
+button_start.grid(row=3, column=1)
 
 button_reset = tk.Button(
     window,
@@ -328,11 +234,7 @@ button_reset = tk.Button(
     activebackground=FARBE_HINTERGRUND,
     command=reset
 )
-
-button_reset.grid(
-    row=3,
-    column=3
-)
+button_reset.grid(row=3, column=3)
 
 
 # ---------------------------- HÄKCHEN ---------------------------- #
@@ -344,12 +246,7 @@ label_check = tk.Label(
     fg=FARBE_PAUSE,
     bg=FARBE_HINTERGRUND
 )
-
-label_check.grid(
-    row=4,
-    column=2,
-    pady=10
-)
+label_check.grid(row=4, column=2, pady=10)
 
 
 # ---------------------------- START ---------------------------- #
