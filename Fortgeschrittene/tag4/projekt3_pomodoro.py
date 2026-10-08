@@ -72,18 +72,11 @@ def reset():
     # TODO 2:
     # Falls ein Timer läuft, breche ihn ab.
     #
-    #     if timer is not None:
-    #         window.after_cancel(timer)
-    #         timer = None
 
 
     # TODO 3:
     # Setze die Anzeige zurück:
     #
-    #     canvas.itemconfig(timer_text, text="00:00")
-    #     label_top.config(text="Timer", fg=FARBE_PAUSE)
-    #     label_check.config(text="")
-    #     button_start.config(state="normal")
 
 
 # ---------------------------- STUFE 1: TIMER STARTEN ---------------------------- #
@@ -97,8 +90,6 @@ def start_timer():
     # TODO 4:
     # Verhindere, dass mehrere Timer gleichzeitig laufen.
     #
-    #     if timer is not None:
-    #         return
 
 
     # TODO 5:
@@ -114,31 +105,17 @@ def start_timer():
     #
     # Zeige das Häkchen dann an:
     #
-    #     label_check.config(text=checkmark)
 
 
     # TODO 7:
     # Bestimme die Phase. Die Reihenfolge ist wichtig:
     # der speziellste Fall (durch 8 teilbar) steht oben!
     #
-    #     if phasen % 8 == 0:
-    #         -> lange Pause
-    #         -> label_top: Text "Pause", Farbe FARBE_LANGE_PAUSE
-    #         -> countdown(LANGE_PAUSE_MINUTEN * 60)
-    #     elif phasen % 2 == 0:
-    #         -> kurze Pause
-    #         -> label_top: Text "Pause", Farbe FARBE_PAUSE
-    #         -> countdown(KURZE_PAUSE_MINUTEN * 60)
-    #     else:
-    #         -> Arbeit
-    #         -> label_top: Text "Arbeit", Farbe FARBE_ARBEIT
-    #         -> countdown(ARBEIT_MINUTEN * 60)
 
 
     # TODO 8:
     # Deaktiviere den Start-Button, solange der Timer läuft.
     #
-    #     button_start.config(state="disabled")
 
 
 # ---------------------------- STUFE 1: COUNTDOWN ---------------------------- #
@@ -152,18 +129,10 @@ def countdown(verbleibende_sekunden):
     # Rechne die Sekunden in Minuten und Sekunden um
     # und zeige sie zweistellig auf dem Canvas an.
     #
-    #     minuten = verbleibende_sekunden // 60
-    #     sekunden = verbleibende_sekunden % 60
-    #     anzeige = f"{minuten:02d}:{sekunden:02d}"
-    #     canvas.itemconfig(timer_text, text=anzeige)
 
 
     # TODO 10:
     # Wenn die Zeit abgelaufen ist (verbleibende_sekunden == 0):
-    #
-    #     -> timer = None
-    #     -> button_start.config(state="normal")
-    #     -> return
     #
     # In Stufe 1 wartet der Timer jetzt, bis du erneut auf Start klickst.
     # In Stufe 2 rufst du vor dem return noch info_fenster() auf.
@@ -173,8 +142,6 @@ def countdown(verbleibende_sekunden):
     # Ziehe eine Sekunde ab und rufe countdown nach 1 Sekunde erneut auf.
     # Speichere die Rückgabe von after() in timer.
     #
-    #     timer = window.after(1000, countdown, verbleibende_sekunden - 1)
-
 
 # ---------------------------- STUFE 2: INFO-FENSTER ---------------------------- #
 
@@ -184,9 +151,6 @@ def info_fenster():
     # TODO 12 (Bonus):
     # Erstelle ein zusätzliches Fenster:
     #
-    #     top = tk.Toplevel(window)
-    #     top.title("Pomodoro")
-    #     top.config(bg=FARBE_HINTERGRUND, padx=30, pady=30)
     #
     # Darin ein Label "Zeit für die nächste Phase!" (Schriftgröße 16),
     # positioniert mit grid(row=0, column=0, pady=10).

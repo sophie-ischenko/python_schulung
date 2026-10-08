@@ -54,8 +54,6 @@ def formatieren(sekunden):
     #
     # Gib dann den zweistelligen Text zurück:
     #
-    #     return f"{minuten:02d}:{rest:02d}"
-    #
     # Test: formatieren(10) soll "00:10" ergeben,
     #       formatieren(125) soll "02:05" ergeben.
     pass
@@ -70,13 +68,10 @@ def countdown_fenster(name):
     # Diese vier Variablen werden hier erstellt, aber überall gebraucht.
     # Deshalb brauchst du global:
     #
-    #     global countdown_window, canvas, zahl_text, button_start
+    #     Beispiel: countdown_window, canvas, zahl_text, button_start
     #
     # Erstelle dann das zusätzliche Fenster:
     #
-    #     countdown_window = tk.Toplevel(window)
-    #     countdown_window.title("Countdown")
-    #     countdown_window.config(bg=FARBE_HINTERGRUND, padx=40, pady=30)
     #
     # Diese Zeile ist schon fertig, sie sorgt dafür, dass beim Schließen
     # des Fensters der Timer sauber abgebrochen wird. Kopiere sie dazu:
@@ -86,7 +81,7 @@ def countdown_fenster(name):
 
     # TODO 3:
     # Erstelle ein Label "label_titel" in countdown_window
-    # mit dem Text f"Los geht's, {name}!"
+    # mit dem Text "Los geht's, Name xyz!"
     # (FONT_NAME, 20, fg=FARBE_TEXT, bg=FARBE_HINTERGRUND).
     #
     # Positioniere es: row=0, column=0, columnspan=2, pady=10
@@ -95,24 +90,11 @@ def countdown_fenster(name):
     # TODO 4:
     # Erstelle ein Canvas (Zeichenfläche) und zeige die Zeit darauf an.
     #
-    #     canvas = tk.Canvas(
-    #         countdown_window,
-    #         width=240,
-    #         height=150,
-    #         bg=FARBE_HINTERGRUND,
-    #         highlightthickness=0
-    #     )
     #
     # Mit create_text() setzt du Text auf das Canvas.
     # Die zurückgegebene ID speicherst du in zahl_text,
     # damit du den Text später ändern kannst:
     #
-    #     zahl_text = canvas.create_text(
-    #         120, 75,
-    #         text=formatieren(START_SEKUNDEN),
-    #         font=(FONT_NAME, 35, "bold"),
-    #         fill=FARBE_TEXT
-    #     )
     #
     # Positioniere das Canvas: row=1, column=0, columnspan=2
 
@@ -137,16 +119,12 @@ def start():
     # TODO 6:
     # Verhindere, dass mehrere Countdowns gleichzeitig laufen:
     #
-    #     if timer is not None:
-    #         return
-    #
     # Deaktiviere dann den Start-Button:
     #
     #     button_start.config(state="disabled")
     #
     # Starte den Countdown:
     #
-    #     countdown(START_SEKUNDEN)
     pass
 
 
@@ -158,20 +136,11 @@ def countdown(sekunden):
     # TODO 7:
     # a) Ist der Countdown bei 0 angekommen?
     #
-    #     if sekunden == 0:
-    #         canvas.itemconfig(zahl_text, text="Fertig!")
-    #         timer = None
-    #         button_start.config(state="normal")
-    #         return
-    #
     # b) Sonst: Zeit anzeigen
     #
-    #     canvas.itemconfig(zahl_text, text=formatieren(sekunden))
     #
     # c) Und in einer Sekunde mit einer Sekunde weniger weitermachen.
     #    after() bekommt: Millisekunden, Funktion, Argument.
-    #
-    #     timer = window.after(1000, countdown, sekunden - 1)
     pass
 
 
@@ -183,14 +152,8 @@ def reset():
     # TODO 8:
     # Falls ein Countdown läuft, brich ihn ab:
     #
-    #     if timer is not None:
-    #         window.after_cancel(timer)
-    #         timer = None
-    #
     # Zeige wieder die Startzeit an und aktiviere den Start-Button:
-    #
-    #     canvas.itemconfig(zahl_text, text=formatieren(START_SEKUNDEN))
-    #     button_start.config(state="normal")
+
     pass
 
 
