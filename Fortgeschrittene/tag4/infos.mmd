@@ -1,0 +1,72 @@
+**Fenster und `mainloop()`:** `mainloop()` hält das Fenster offen und wartet auf Klicks, Tastatur und Timer; ohne `mainloop()` ist das Programm sofort wieder zu.
+
+**Widgets:** Alles Sichtbare in einem Fenster ist ein Widget (`Label`, `Button`, `Entry`, `Canvas`, `Toplevel`).
+
+**Erstellen und positionieren:** Jedes Widget braucht zwei Schritte, und ohne `grid()` ist es unsichtbar.
+
+**`grid()`:** Das Fenster wird in Zeilen und Spalten aufgeteilt, und die Zählung beginnt bei 0.
+
+**`command`:** `command=hallo` übergibt die Funktion, die Tkinter beim Klick aufruft, während `command=hallo()` sie sofort beim Start ausführt.
+
+**`config()`:** Eine Variable zu ändern ändert nicht automatisch die Anzeige, du musst das Widget selbst aktualisieren.
+
+**`Entry`:** `get()` liest den Inhalt des Eingabefelds und liefert immer einen String.
+
+**`global`:** Ohne `global` legt Python in der Funktion eine neue, lokale Variable an, statt die äußere zu ändern.
+
+**Grundmuster:** Klick → Funktion → Zustand ändern → Anzeige aktualisieren.
+
+**`Toplevel`:** Widgets im zweiten Fenster bekommen `top` als erstes Argument, nicht `window`.
+
+**`after()`:** Es ruft eine Funktion nach der angegebenen Zeit in Millisekunden auf, und die GUI bleibt dabei bedienbar.
+
+**Countdown:** Die Funktion ruft sich nach einer Sekunde selbst wieder auf, und die Ende-Bedingung muss vor dem nächsten `after()` stehen, sonst zählt er ins Negative.
+
+**`after_cancel()`:** `after()` gibt eine ID zurück, mit der du den Timer abbrechen kannst.
+
+**Minuten und Sekunden:** `//` liefert die Minuten, `%` den Rest, und `:02d` macht die Anzeige zweistellig.
+
+**`Canvas`:** Beim Canvas änderst du Elemente über ihre ID mit `itemconfig()`, und die Farbe heißt `fill`, nicht `fg`.
+
+**Bilder:** Das Bild muss in einer Variable bleiben, sonst verschwindet es.
+
+**`if` / `elif`:** Der speziellste Fall steht oben, und die erste passende Bedingung gewinnt.
+
+**`lambda`:** Es packt den Aufruf in eine kleine Funktion, die erst beim Klick ausgeführt wird, und ist nötig, wenn die Funktion einen Wert bekommen soll.
+
+----
+
+```python
+import tkinter as tk
+
+window = tk.Tk()
+
+canvas = tk.Canvas(window, width=240, height=150)
+canvas.grid(row=0, column=0)
+
+# Text auf das Canvas setzen, die ID merken
+zahl_text = canvas.create_text(120, 75, text="00:10", fill="black")
+
+def wechseln():
+    canvas.itemconfig(zahl_text, text="00:09", fill="red")
+
+button = tk.Button(window, text="Ändern", command=wechseln)
+button.grid(row=1, column=0)
+
+window.mainloop()
+```
+
+**Was passiert hier?**
+
+1. `canvas.create_text(120, 75, ...)` setzt den Text an die Position x=120, y=75 (in Pixeln, von links oben gezählt).
+2. Die Funktion gibt eine **ID** zurück. Du speicherst sie in `zahl_text`.
+3. Beim Klick ändert `canvas.itemconfig(zahl_text, ...)` genau dieses Element. Text und Farbe wechseln.
+
+**Der Unterschied zum Label**
+
+```python
+label.config(text="00:09", fg="red")                    # Label: config, fg
+canvas.itemconfig(zahl_text, text="00:09", fill="red")  # Canvas: itemconfig, fill
+```
+
+Beim Label änderst du das Widget selbst. Beim Canvas änderst du ein Element darauf, deshalb brauchst du die ID.
